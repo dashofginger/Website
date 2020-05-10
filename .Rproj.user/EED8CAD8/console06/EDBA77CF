@@ -1,0 +1,92 @@
+[K]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [K]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/maaster/install.sh)"
+[1;34m==>[1;39m This script will install:[0m
+/stor/home/lmc3757/.linuxbrew/bin/brew
+/stor/home/lmc3757/.linuxbrew/share/doc/homebrew
+/stor/home/lmc3757/.linuxbrew/share/man/man1/brew.1
+/stor/home/lmc3757/.linuxbrew/share/zsh/site-functions/_brew
+/stor/home/lmc3757/.linuxbrew/etc/bash_completion.d/brew
+/stor/home/lmc3757/.linuxbrew/Homebrew
+[1;34m==>[1;39m The following existing directories will be made writable by user only:[0m
+/stor/home/lmc3757/.linuxbrew/share/zsh
+/stor/home/lmc3757/.linuxbrew/share/zsh/site-functions
+
+Press RETURN to continue or any other key to abort
+[1;34m==>[1;39m /bin/chmod u+rwx /stor/home/lmc3757/.linuxbrew/share/zsh /stor/home/lmc3757/.linuxbrew/share/zsh/site-functions[0m
+[1;34m==>[1;39m /bin/chmod 755 /stor/home/lmc3757/.linuxbrew/share/zsh /stor/home/lmc3757/.linuxbrew/share/zsh/site-functions[0m
+[1;34m==>[1;39m Downloading and installing Homebrew...[0m
+HEAD is now at b926eeb0d Merge pull request #7531 from Takashiidobe/patch-1
+Already up-to-date.
+[1;31mWarning[0m: /stor/home/lmc3757/.linuxbrew/bin is not in your PATH.
+[1;34m==>[1;39m Installation successful![0m
+
+[1;34m==>[1;39m Homebrew has enabled anonymous aggregate formulae and cask analytics.[0m
+[1;39mRead the analytics documentation (and how to opt-out) here:
+  [4;39mhttps://docs.brew.sh/Analytics[0m
+No analytics data has been sent yet (or will be during this `install` run).
+
+[1;34m==>[1;39m Homebrew is run entirely by unpaid volunteers. Please consider donating:[0m
+  [4;39mhttps://github.com/Homebrew/brew#donations[0m
+
+[1;34m==>[1;39m Next steps:[0m
+- Run `brew help` to get started
+- Further documentation: 
+    [4;39mhttps://docs.brew.sh[0m
+- Install the Homebrew dependencies if you have sudo access:
+  [1;39mDebian, Ubuntu, etc.[0m
+    sudo apt-get install build-essential
+  [1;39mFedora, Red Hat, CentOS, etc.[0m
+    sudo yum groupinstall 'Development Tools'
+  See [4;39mhttps://docs.brew.sh/linux[0m for more information.
+- Configure Homebrew in your [4;39m/stor/home/lmc3757/.profile[0m by running
+    echo 'eval $(/stor/home/lmc3757/.linuxbrew/bin/brew shellenv)' >> /stor/home/lmc3757/.profile
+- Add Homebrew to your [1;39mPATH[0m
+    eval $(/stor/home/lmc3757/.linuxbrew/bin/brew shellenv)
+- We recommend that you install GCC by running:
+    brew install gcc
+
+]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ `brew help`
+
+Command 'brew' not found, but can be installed with:
+
+apt install linuxbrew-wrapper
+
+Please: command not found
+]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ apt install linuxbrew-wrapper
+E: Could not open lock file /var/lib/dpkg/lock-frontend - open (13: Permission denied)
+E: Unable to acquire the dpkg frontend lock (/var/lib/dpkg/lock-frontend), are you root?
+2]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ 2[K]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ 2[K]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ 2[K[K]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [K]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [K]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ sude[Ko install linuxbrew-wrapper[C[C[C[C[4@ ins[1P[1P[1P[1P[C[1@ [1@a[1@p[1@t[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+[sudo] password for lmc3757: 
+Sorry, try again.
+[sudo] password for lmc3757: 
+Sorry, try again.
+[sudo] password for lmc3757: 
+Sorry, user lmc3757 is not allowed to execute '/usr/bin/apt install linuxbrew-wrapper' as root on educcomp01.ccbb.utexas.edu.
+]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [K]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [K]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [K]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ $ brew install git
+$: command not found
+]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ $ brew install git[K[Kit[C[1P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+Command 'brew' not found, but can be installed with:
+
+apt install linuxbrew-wrapper
+Please ask your administrator.
+
+]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ xcode-select --install
+xcode-select: command not found
+]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [K]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$  apt install linuxbrew-wrapper[1@s[1@u[1@d[1@o[C[1@ [1P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+[sudo] password for lmc3757: 
+Sorry, user lmc3757 is not allowed to execute '/usr/bin/apt install linuxbrew-wrapper' as root on educcomp01.ccbb.utexas.edu.
+]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ sudo apt install linuxbrew-wrapper
+[sudo] password for lmc3757: 
+Sorry, try again.
+[sudo] password for lmc3757: 
+Sorry, try again.
+[sudo] password for lmc3757: 
+Sorry, user lmc3757 is not allowed to execute '/usr/bin/apt install linuxbrew-wrapper' as root on educcomp01.ccbb.utexas.edu.
+]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ git --verson[K[Kion
+git version 2.17.1
+]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ cd ~/Desktop/PROJECT_DIRECTORY_NAME #if you haven't alreeady
+bash: cd: /stor/home/lmc3757/Desktop/PROJECT_DIRECTORY_NAME: No such file or directory
+]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ 
+]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ git init #initialize local git respository
+Initialized empty Git repository in /stor/home/lmc3757/Website/.git/
+]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ git add . #add all files in repository to be uploaded

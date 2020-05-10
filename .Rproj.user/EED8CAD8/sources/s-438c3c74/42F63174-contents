@@ -8,5 +8,3 @@ blogdown::new_site(theme="nurlansu/hugo-sustain")
 git--version
 
 install.packages("git")
-
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"

@@ -42,6 +42,6 @@ theme = "hugo-sustain"
   url = "/Projects/"
 [[menu.main]]
   name = "resume"
-  identifier = "resume"
+  identifier = "resume.docx"
   weight = 300
-  url = "/resume/"
+  url = "/resume.docx/"

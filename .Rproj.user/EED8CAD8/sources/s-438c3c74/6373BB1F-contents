@@ -34,12 +34,12 @@ theme = "hugo-sustain"
   name = "project1"
   identifier = "/project2.Rmd"
   weight = 200
-  url = "/projects/"
+  url = "/project1.Rmd/"
 [[menu.main]]
   name = "project2"
   identifier = "/project2.Rmd"
   weight = 200
-  url = "/projects/"
+  url = "/project2.Rmd/"
 [[menu.main]]
   name = "resume"
   identifier = "/resume.pdf"

@@ -1,326 +1,0 @@
-[K]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [K]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/maaster/install.sh)"
-[1;34m==>[1;39m This script will install:[0m
-/stor/home/lmc3757/.linuxbrew/bin/brew
-/stor/home/lmc3757/.linuxbrew/share/doc/homebrew
-/stor/home/lmc3757/.linuxbrew/share/man/man1/brew.1
-/stor/home/lmc3757/.linuxbrew/share/zsh/site-functions/_brew
-/stor/home/lmc3757/.linuxbrew/etc/bash_completion.d/brew
-/stor/home/lmc3757/.linuxbrew/Homebrew
-[1;34m==>[1;39m The following existing directories will be made writable by user only:[0m
-/stor/home/lmc3757/.linuxbrew/share/zsh
-/stor/home/lmc3757/.linuxbrew/share/zsh/site-functions
-
-Press RETURN to continue or any other key to abort
-[1;34m==>[1;39m /bin/chmod u+rwx /stor/home/lmc3757/.linuxbrew/share/zsh /stor/home/lmc3757/.linuxbrew/share/zsh/site-functions[0m
-[1;34m==>[1;39m /bin/chmod 755 /stor/home/lmc3757/.linuxbrew/share/zsh /stor/home/lmc3757/.linuxbrew/share/zsh/site-functions[0m
-[1;34m==>[1;39m Downloading and installing Homebrew...[0m
-HEAD is now at b926eeb0d Merge pull request #7531 from Takashiidobe/patch-1
-Already up-to-date.
-[1;31mWarning[0m: /stor/home/lmc3757/.linuxbrew/bin is not in your PATH.
-[1;34m==>[1;39m Installation successful![0m
-
-[1;34m==>[1;39m Homebrew has enabled anonymous aggregate formulae and cask analytics.[0m
-[1;39mRead the analytics documentation (and how to opt-out) here:
-  [4;39mhttps://docs.brew.sh/Analytics[0m
-No analytics data has been sent yet (or will be during this `install` run).
-
-[1;34m==>[1;39m Homebrew is run entirely by unpaid volunteers. Please consider donating:[0m
-  [4;39mhttps://github.com/Homebrew/brew#donations[0m
-
-[1;34m==>[1;39m Next steps:[0m
-- Run `brew help` to get started
-- Further documentation: 
-    [4;39mhttps://docs.brew.sh[0m
-- Install the Homebrew dependencies if you have sudo access:
-  [1;39mDebian, Ubuntu, etc.[0m
-    sudo apt-get install build-essential
-  [1;39mFedora, Red Hat, CentOS, etc.[0m
-    sudo yum groupinstall 'Development Tools'
-  See [4;39mhttps://docs.brew.sh/linux[0m for more information.
-- Configure Homebrew in your [4;39m/stor/home/lmc3757/.profile[0m by running
-    echo 'eval $(/stor/home/lmc3757/.linuxbrew/bin/brew shellenv)' >> /stor/home/lmc3757/.profile
-- Add Homebrew to your [1;39mPATH[0m
-    eval $(/stor/home/lmc3757/.linuxbrew/bin/brew shellenv)
-- We recommend that you install GCC by running:
-    brew install gcc
-
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ `brew help`
-
-Command 'brew' not found, but can be installed with:
-
-apt install linuxbrew-wrapper
-
-Please: command not found
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ apt install linuxbrew-wrapper
-E: Could not open lock file /var/lib/dpkg/lock-frontend - open (13: Permission denied)
-E: Unable to acquire the dpkg frontend lock (/var/lib/dpkg/lock-frontend), are you root?
-2]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ 2[K]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ 2[K]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ 2[K[K]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [K]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [K]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ sude[Ko install linuxbrew-wrapper[C[C[C[C[4@ ins[1P[1P[1P[1P[C[1@ [1@a[1@p[1@t[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
-[sudo] password for lmc3757: 
-Sorry, try again.
-[sudo] password for lmc3757: 
-Sorry, try again.
-[sudo] password for lmc3757: 
-Sorry, user lmc3757 is not allowed to execute '/usr/bin/apt install linuxbrew-wrapper' as root on educcomp01.ccbb.utexas.edu.
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [K]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [K]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [K]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ $ brew install git
-$: command not found
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ $ brew install git[K[Kit[C[1P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
-
-Command 'brew' not found, but can be installed with:
-
-apt install linuxbrew-wrapper
-Please ask your administrator.
-
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ xcode-select --install
-xcode-select: command not found
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [K]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$  apt install linuxbrew-wrapper[1@s[1@u[1@d[1@o[C[1@ [1P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
-[sudo] password for lmc3757: 
-Sorry, user lmc3757 is not allowed to execute '/usr/bin/apt install linuxbrew-wrapper' as root on educcomp01.ccbb.utexas.edu.
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ sudo apt install linuxbrew-wrapper
-[sudo] password for lmc3757: 
-Sorry, try again.
-[sudo] password for lmc3757: 
-Sorry, try again.
-[sudo] password for lmc3757: 
-Sorry, user lmc3757 is not allowed to execute '/usr/bin/apt install linuxbrew-wrapper' as root on educcomp01.ccbb.utexas.edu.
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ git --verson[K[Kion
-git version 2.17.1
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ cd ~/Desktop/PROJECT_DIRECTORY_NAME #if you haven't alreeady
-bash: cd: /stor/home/lmc3757/Desktop/PROJECT_DIRECTORY_NAME: No such file or directory
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ 
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ git init #initialize local git respository
-Initialized empty Git repository in /stor/home/lmc3757/Website/.git/
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ git add . #add all files in repository to be uploaded
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ git commit -m "first website commit"
-[master (root-commit) a213b8b] first website commit
- Committer: Lauren Conner <lmc3757@educcomp01.ccbb.utexas.edu>
-Your name and email address were configured automatically based
-on your username and hostname. Please check that they are accurate.
-You can suppress this message by setting them explicitly. Run the
-following command and follow the instructions in your editor to edit
-your configuration file:
-
-    git config --global --edit
-
-After doing this, you may fix the identity used for this commit with:
-
-    git commit --amend --reset-author
-
- 142 files changed, 11910 insertions(+)
- create mode 100644 .Rproj.user/EED8CAD8/console06/EDBA77CF
- create mode 100644 .Rproj.user/EED8CAD8/console06/EDBA77CF.env
- create mode 100644 .Rproj.user/EED8CAD8/console06/INDEX001
- create mode 100644 .Rproj.user/EED8CAD8/pcs/files-pane.pper
- create mode 100644 .Rproj.user/EED8CAD8/pcs/source-pane.pper
- create mode 100644 .Rproj.user/EED8CAD8/pcs/source-window.pper
- create mode 100644 .Rproj.user/EED8CAD8/pcs/windowlayoutstate.pper
- create mode 100644 .Rproj.user/EED8CAD8/pcs/workbench-pane.pper
- create mode 100644 .Rproj.user/EED8CAD8/persistent-state
- create mode 100644 .Rproj.user/EED8CAD8/saved_source_markers
- create mode 100644 .Rproj.user/EED8CAD8/sources/prop/2BCB4C71
- create mode 100644 .Rproj.user/EED8CAD8/sources/prop/3EEB46AC
- create mode 100644 .Rproj.user/EED8CAD8/sources/prop/4604CB51
- create mode 100644 .Rproj.user/EED8CAD8/sources/prop/728A9384
- create mode 100644 .Rproj.user/EED8CAD8/sources/prop/8F5B3061
- create mode 100644 .Rproj.user/EED8CAD8/sources/prop/D2336C43
- create mode 100644 .Rproj.user/EED8CAD8/sources/prop/E315E349
- create mode 100644 .Rproj.user/EED8CAD8/sources/prop/F034D470
- create mode 100644 .Rproj.user/EED8CAD8/sources/prop/INDEX
- create mode 100644 .Rproj.user/EED8CAD8/sources/s-438c3c74/425E7754
- create mode 100644 .Rproj.user/EED8CAD8/sources/s-438c3c74/425E7754-contents
- create mode 100644 .Rproj.user/EED8CAD8/sources/s-438c3c74/42F63174
- create mode 100644 .Rproj.user/EED8CAD8/sources/s-438c3c74/42F63174-contents
- create mode 100644 .Rproj.user/EED8CAD8/sources/s-438c3c74/6373BB1F
- create mode 100644 .Rproj.user/EED8CAD8/sources/s-438c3c74/6373BB1F-contents
- create mode 100644 .Rproj.user/EED8CAD8/sources/s-438c3c74/7EFFB9CE-contents
- create mode 100644 .Rproj.user/EED8CAD8/sources/s-438c3c74/7FDC0C5B
- create mode 100644 .Rproj.user/EED8CAD8/sources/s-438c3c74/7FDC0C5B-contents
- create mode 100644 .Rproj.user/EED8CAD8/sources/s-438c3c74/A697878
- create mode 100644 .Rproj.user/EED8CAD8/sources/s-438c3c74/A697878-contents
- create mode 100644 .Rproj.user/EED8CAD8/sources/s-438c3c74/B92B38B2
- create mode 100644 .Rproj.user/EED8CAD8/sources/s-438c3c74/B92B38B2-contents
- create mode 100644 .Rproj.user/EED8CAD8/sources/s-438c3c74/BFF40337-contents
- create mode 100644 .Rproj.user/EED8CAD8/sources/s-438c3c74/C5E303A2-contents
- create mode 100644 .Rproj.user/EED8CAD8/sources/s-438c3c74/D6F3D063-contents
- create mode 100644 .Rproj.user/EED8CAD8/sources/s-438c3c74/E728B5EF
- create mode 100644 .Rproj.user/EED8CAD8/sources/s-438c3c74/E728B5EF-contents
- create mode 100644 .Rproj.user/EED8CAD8/sources/s-438c3c74/F2584FF2-contents
- create mode 100644 .Rproj.user/EED8CAD8/sources/s-438c3c74/lock_file
- create mode 100644 .Rproj.user/shared/notebooks/EFDA0BF6-2015-07-23-r-rmarkdown/1/EED8CAD8438c3c74/chunks.json
- create mode 100644 .Rproj.user/shared/notebooks/patch-chunk-names
- create mode 100644 .Rproj.user/shared/notebooks/paths
- create mode 100644 Website.Rproj
- create mode 100644 config.toml
- create mode 100644 content/BMI3.csv
- create mode 100644 content/NOBS2.csv
- create mode 100644 content/Project1.Rmd
- create mode 100644 content/Project2.Rmd
- create mode 100644 content/blog/2015-07-23-r-rmarkdown.Rmd
- create mode 100644 content/blog/2015-07-23-r-rmarkdown.html
- create mode 100644 content/blog/creating-a-new-theme.md
- create mode 100644 content/blog/goisforlovers.md
- create mode 100644 content/blog/hugoisforlovers.md
- create mode 100644 content/blog/migrate-from-jekyll.md
- create mode 100644 content/projects.md
- create mode 100644 index.Rmd
- create mode 100644 public/404.html
- create mode 100644 public/_Resume_Version2.docx
- create mode 100644 public/blog/2015-07-23-r-rmarkdown.Rmd
- create mode 100644 public/blog/2015-07-23-r-rmarkdown/index.html
- create mode 100644 public/blog/2015-07-23-r-rmarkdown_files/figure-html/pie-1.png
- create mode 100644 public/blog/creating-a-new-theme/index.html
- create mode 100644 public/blog/goisforlovers/index.html
- create mode 100644 public/blog/hugoisforlovers/index.html
- create mode 100644 public/blog/index.html
- create mode 100644 public/blog/index.xml
- create mode 100644 public/blog/migrate-from-jekyll/index.html
- create mode 100644 public/categories/development/index.html
- create mode 100644 public/categories/development/index.xml
- create mode 100644 public/categories/golang/index.html
- create mode 100644 public/categories/golang/index.xml
- create mode 100644 public/categories/index.html
- create mode 100644 public/categories/index.xml
- create mode 100644 public/categories/projects/index.html
- create mode 100644 public/categories/projects/index.xml
- create mode 100644 public/categories/r/index.html
- create mode 100644 public/categories/r/index.xml
- create mode 100644 public/css/main.css
- create mode 100644 public/img/fullsizeoutput_83ac.jpeg
- create mode 100644 public/img/gradpic2.jpg
- create mode 100644 public/img/profile.png
- create mode 100644 public/index.html
- create mode 100644 public/index.xml
- create mode 100644 public/js/docs.min.js
- create mode 100644 public/js/ie10-viewport-bug-workaround.js
- create mode 100644 public/js/main.js
- create mode 100644 public/projects/index.html
- create mode 100644 public/sitemap.xml
- create mode 100644 public/tags/development/index.html
- create mode 100644 public/tags/development/index.xml
- create mode 100644 public/tags/go/index.html
- create mode 100644 public/tags/go/index.xml
- create mode 100644 public/tags/golang/index.html
- create mode 100644 public/tags/golang/index.xml
- create mode 100644 public/tags/hugo/index.html
- create mode 100644 public/tags/hugo/index.xml
- create mode 100644 public/tags/index.html
- create mode 100644 public/tags/index.xml
- create mode 100644 public/tags/plot/index.html
- create mode 100644 public/tags/plot/index.xml
- create mode 100644 public/tags/projects/index.html
- create mode 100644 public/tags/projects/index.xml
- create mode 100644 public/tags/r-markdown/index.html
- create mode 100644 public/tags/r-markdown/index.xml
- create mode 100644 public/tags/regression/index.html
- create mode 100644 public/tags/regression/index.xml
- create mode 100644 public/tags/templates/index.html
- create mode 100644 public/tags/templates/index.xml
- create mode 100644 public/tags/themes/index.html
- create mode 100644 public/tags/themes/index.xml
- create mode 100644 static/_Resume_Version2.docx
- create mode 100644 static/blog/2015-07-23-r-rmarkdown_files/figure-html/pie-1.png
- create mode 100644 static/img/fullsizeoutput_83ac.jpeg
- create mode 100644 themes/hugo-sustain/LICENSE.md
- create mode 100644 themes/hugo-sustain/README.md
- create mode 100644 themes/hugo-sustain/archetypes/default.md
- create mode 100644 themes/hugo-sustain/exampleSite/config.toml
- create mode 100644 themes/hugo-sustain/exampleSite/content/blog/creating-a-new-theme.md
- create mode 100644 themes/hugo-sustain/exampleSite/content/blog/goisforlovers.md
- create mode 100644 themes/hugo-sustain/exampleSite/content/blog/hugoisforlovers.md
- create mode 100644 themes/hugo-sustain/exampleSite/content/blog/migrate-from-jekyll.md
- create mode 100644 themes/hugo-sustain/exampleSite/content/projects.md
- create mode 100644 themes/hugo-sustain/exampleSite/data/projects.yml
- create mode 100644 themes/hugo-sustain/exampleSite/static/img/profile.png
- create mode 100644 themes/hugo-sustain/images/screenshot.png
- create mode 100644 themes/hugo-sustain/images/tn.png
- create mode 100644 themes/hugo-sustain/layouts/404.html
- create mode 100644 themes/hugo-sustain/layouts/_default/list.html
- create mode 100644 themes/hugo-sustain/layouts/_default/projects.html
- create mode 100644 themes/hugo-sustain/layouts/_default/single.html
- create mode 100644 themes/hugo-sustain/layouts/index.html
- create mode 100644 themes/hugo-sustain/layouts/partials/disqus.html
- create mode 100644 themes/hugo-sustain/layouts/partials/footer.html
- create mode 100644 themes/hugo-sustain/layouts/partials/head.html
- create mode 100644 themes/hugo-sustain/layouts/partials/header.html
- create mode 100644 themes/hugo-sustain/layouts/partials/js.html
- create mode 100644 themes/hugo-sustain/layouts/partials/social.html
- create mode 100644 themes/hugo-sustain/static/css/main.css
- create mode 100644 themes/hugo-sustain/static/js/docs.min.js
- create mode 100644 themes/hugo-sustain/static/js/ie10-viewport-bug-workaround.js
- create mode 100644 themes/hugo-sustain/static/js/main.js
- create mode 100644 themes/hugo-sustain/theme.toml
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ git remote add origin https://github.com/USERNAME/WEBSITTE_REPOSITORY.git #re
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ git push origin master
-Username for 'https://github.com': lmc3757
-Password for 'https://lmc3757@github.com': 
-remote: Invalid username or password.
-fatal: Authentication failed for 'https://github.com/USERNAME/WEBSITE_REPOSITORY.git/'
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ cd ~/home/[K[K[K[K[KDesktop/Website
-bash: cd: /stor/home/lmc3757/Desktop/Website: No such file or directory
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ cd: /stor/home/lmc3757/Desktop/Website
-
-Command 'cd:' not found, did you mean:
-
-  command 'cdo' from deb cdo
-  command 'cdb' from deb tinycdb
-  command 'cd5' from deb cd5
-  command 'cdw' from deb cdw
-  command 'cdp' from deb irpas
-  command 'cdv' from deb codeville
-  command 'cdi' from deb cdo
-  command 'cde' from deb cde
-
-Try: apt install <deb name>
-
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ /stor/home/lmc3757/Desktop/Websitec/stor/home/lmc3757/Desktop/Website[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cd/stor/home/lmc3757/Desktop/Website[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C~/stor/home/lmc3757/Desktop/Website[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C.Rproj[C[CWebsite.RprojeWebsite.RprojbWebsite.RprojsWebsite.RprojiWebsite.RprojtWebsite.RprojeWebsite.Rproj/Website.Rproj
-bash: cd~/stor/home/lmc3757/Desktop/Website/Website.Rproj: No such file or directory
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ $ git remote set-url origin https://github.com/taylorlwoolf/SDSProject.githttps://github.com/dashofginger/Website.git[K[Kit[C[1Pthttps://github.com/dashofginger/Website.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1Pthttps://github.com/dashofginger/Website.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1Pthttps://github.com/dashofginger/Website.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1Phttps://github.com/dashofginger/Website.git[C[C[C[C[C[C[C[C[C[C[C[C[C[1Pthttps://github.com/dashofginger/Website.git[C[C[C[C[C[C[C[C[C[C[C[C[1Pthttps://github.com/dashofginger/Website.git[C[C[C[C[C[C[C[C[C[C[C[1Pthttps://github.com/dashofginger/Website.git[C[C[C[C[C[C[C[C[C[C[1Pthttps://github.com/dashofginger/Website.git[C[C[C[C[C[C[C[C[C[1Pthttps://github.com/dashofginger/Website.git[C[C[C[C[C[C[C[C[1Pthttps://github.com/dashofginger/Website.git[C[C[C[C[C[C[C[1Pthttps://github.com/dashofginger/Website.git[C[C[C[C[C[C[1Pthttps://github.com/dashofginger/Website.git[C[C[C[C[C[1Pthttps://github.com/dashofginger/Website.git[C[C[C[C[1Pthttps://github.com/dashofginger/Website.git[C[C[C[1Pthttps://github.com/dashofginger/Website.git[C[C[1Pthttps://github.com/dashofginger/Website.git[C[1Pthttps://github.com/dashofginger/Website.git[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cth[1Pttps://github.com/dashofginger/Website.git[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ctht[C[1Pps://github.com/dashofginger/Website.git[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cthtt[1Pps://github.com/dashofginger/Website.git[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cthttp[1Ps://github.com/dashofginger/Website.git[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cthttps[1P://github.com/dashofginger/Website.git[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cthttps:[1P//github.com/dashofginger/Website.git[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cthttps:/[C[1Pgithub.com/dashofginger/Website.git[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Chttps://[1Pgithub.com/dashofginger/Website.git[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cthttps://g[1Pithub.com/dashofginger/Website.git[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cthttps://gi[1Pthub.com/dashofginger/Website.git[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cthttps://git[1Phub.com/dashofginger/Website.git[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cthttps://gith[1Pub.com/dashofginger/Website.git[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cthttps://githu[1Pb.com/dashofginger/Website.git[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cthttps://github[1P.com/dashofginger/Website.git[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cthttps://github.[1Pcom/dashofginger/Website.git[A]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cthttps://github.c[1Pom/dashofginger/Website.git[A]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Chttps://github.co[1Pm/dashofginger/Website.git[A]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cthttps://github.com[1P/dashofginger/Website.git[A]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cthttps://github.com/[1Pdashofginger/Website.git[A]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cthttps://github.com/d[1Pashofginger/Website.git[A]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cthttps://github.com/da[1Pshofginger/Website.git[A]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cthttps://github.com/das[1Phofginger/Website.git[A]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cthttps://github.com/dash[1Pofginger/Website.git[A]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cthttps://github.com/dasho[1Pfginger/Website.git[A]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Chttps://github.com/dashof[1Pginger/Website.git[A]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Chttps://github.com/dashofg[1Pinger/Website.git[A]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cthttps://github.com/dashofgi[1Pnger/Website.git[A]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cthttps://github.com/dashofgin[1Pger/Website.git[A]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cthttps://github.com/dashofging[1Per/Website.git[A]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cnthttps://github.com/dashofginger/Website.git[A]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C thttps://github.com/dashofginger/Website.git[A]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cthttps://github.com/dashofgin[1Pger/Website.git[A]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Chttps://github.com/dashofging[1Per/Website.git[A]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C nhttps://github.com/dashofginger/Website.git[A]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cnhttps://github.com/dashofging[1Per/Website.git[A]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C https://github.com/dashofginger/Website.git[A]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
-[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
-$: command not found
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ remote set-url origin https://github.com/dashofginger/Weebsite.git[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cgremote set-url origin https://github.com/dashofginger/Website.git[A]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [Ciremote set-url origin https://github.com/dashofginger/Website.git[A]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [C[Ctremote set-url origin https://github.com/dashofginger/Website.git[A]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [C[C[C remote set-url origin https://github.com/dashofginger/Website.git[A]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [C[C[C[C
-
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ vd[K[Kcd ~/Desktop/Website
-bash: cd: /stor/home/lmc3757/Desktop/Website: No such file or directory
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ cd~/Desktop/\[K[K[K[K[K[K[K[K[K[K[K[K[KDesktop/Website
-bash: Desktop/Website: No such file or directory
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ git init #initialize local git respository
-Reinitialized existing Git repository in /stor/home/lmc3757/Website/.git/
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ git add . #add all files in repository to be uploaded
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ git commit -m "first website commit"
-[master 536d272] first website commit
- Committer: Lauren Conner <lmc3757@educcomp01.ccbb.utexas.edu>
-Your name and email address were configured automatically based
-on your username and hostname. Please check that they are accurate.
-You can suppress this message by setting them explicitly. Run the
-following command and follow the instructions in your editor to edit
-your configuration file:
-
-    git config --global --edit
-
-After doing this, you may fix the identity used for this commit with:
-
-    git commit --amend --reset-author
-
- 1 file changed, 195 insertions(+)
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ git remote add origin https://github.com/USERNAME/WEBSITTE_REPOSITORY.git #re
-fatal: remote origin already exists.
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ git push origin master[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kgit init #initialize local git respository
-Reinitialized existing Git repository in /stor/home/lmc3757/Website/.git/
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ git add . #add all files in repository to be uploaded
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ git commit -m "first website commit"
-[master 10f8a4b] first website commit
- Committer: Lauren Conner <lmc3757@educcomp01.ccbb.utexas.edu>
-Your name and email address were configured automatically based
-on your username and hostname. Please check that they are accurate.
-You can suppress this message by setting them explicitly. Run the
-following command and follow the instructions in your editor to edit
-your configuration file:
-
-    git config --global --edit
-
-After doing this, you may fix the identity used for this commit with:
-
-    git commit --amend --reset-author
-
- 1 file changed, 21 insertions(+)
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ git config --global --edit
-hint: Waiting for your editor to close the file... [?2004h

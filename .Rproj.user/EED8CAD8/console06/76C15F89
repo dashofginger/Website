@@ -1,0 +1,9 @@
+]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [K]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ git commit .[K[K[K[K[K[K[Ka[K[Kadd . 
+fatal: Unable to create '/stor/home/lmc3757/Website/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ git add .

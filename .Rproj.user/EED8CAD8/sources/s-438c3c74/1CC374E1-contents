@@ -1,0 +1,235 @@
+---
+title: "PROJECT 1"
+author: "Lauren Conner Lmc3757"
+date: "3/15/2020"
+output:
+  html_document: default
+  pdf_document: default
+always_allow_html: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+*Introduction:*
+
+*In this project, I have chosen to analyze the datasets provided by the CDC containing average BMI for each state (containing 52 provinces/states of the United States) which gave the correlating state's name and ranked the states.  In the complementary dataset I chose, I looked through the data.gov national data base for a supplemental dataset containing information on urban and rural areas in each state that they were able to gather and the average BMI and correlating average year-long temperature in Farenheit.*
+*I felt in these datasets with the common numeric variable BMI, it would be interesting to have the ability to assess the effect of the environment (whether it be weather dependendent or situational like rural or urban areas) on overall health determined by BMI.  Furthermore, identifying these areas by their state would be quite interesting to me to gauge where in the United States it is statistically most unhealthy according to the CDC, looking at all these variables.*
+
+```{r}
+##Joining/Merging Datasets
+r = getOption("repos")
+r["CRAN"] = "http://cran.us.r-project.org" 
+options(repos = r)
+
+install.packages("tidyr")
+install.packages("tidyverse")
+
+library(dplyr)
+library(tidyr)
+library(tidyverse)
+library(ggplot2)
+BMI3<-read.csv("BMI3.csv")
+BMI3<-BMI3%>%select(State.s.Average.Temperature,Urban.or.Rural,BMI)
+NOBS2<-read.csv("NOBS2.csv")
+mergeddata<-full_join(BMI3,NOBS2, by=c("BMI"="Obesity"))
+glimpse(mergeddata)
+```
+
+*After utilizing the dplyr function full_join, there were 127 rows and 5 variables, not dropping any information or data and instead filling in NA where rows had missing values to match up data with.  I utilized the function of full_join in order to take into account each state's urban and rural BMI values as well and to have enough data to substantially reflect a more average mean when I was to compare the BMIs dependent on their environment and matching state in the other dataset.  This could potentially lead to many NAs I will have to filter out in the analysis of summary statistics as some rows will have missing data that does not match up with its counterpart.  Additionally, I untidied and retidied one of my datasets I merged in order to avoid confusion when looking back for reference and changed my values from "Obesity" to "BMI" so it correlates with the merged dataset.*
+
+```{r}
+NOBS <- NOBS2%>%pivot_wider(names_from="NAME", values_from ="Obesity")%>%pivot_longer(1:51,values_to="BMI")
+```
+
+*Wrangling: 6 core dplyr functions*
+
+```{r}
+mergeddata %>% mutate(BMI = as.numeric(BMI))
+mergeddata%>%filter(between(BMI,15.9,25)) %>% na.omit(NAME)
+```
+
+*In order to find how many states' mean BMI was considered underweight/healthy by the CDC standard, I found that 6 out of the 52 provinces (including Puerto Rico and DC in the assessment) considered in the dataset of the US were considered underweight or healthy. I did this by utilizing the filter function in order to assess any states that BMI value fell under the value 25, which CDC said is the maximum healthy BMI.*
+*In my data, I distinguished the categorical variables as: urban or rural and name of state.  On the other hand, the numerical variables were as follows: BMI; National Obesity by State; State's Average Temperature.*
+
+```{r}
+mergeddata%>%select(contains("State")) %>%na.omit()
+```
+```{r}
+mergeddata%>%select(contains("n"))%>%na.omit()
+```
+```{r}
+mergeddata%>%mutate(average = State.s.Average.Temperature/BMI)
+```
+*Here I played around with my variables using the dplyr function select in order to ascertain only the variables in which "n" or "State" was mentioned in the title.  Additionally, I mutated a new variable called 'average' which made the BMI a function of State's Average Temperature and provided a new column for each average division.*
+
+*Summary Statistics for BMI:*
+```{r}
+mean(mergeddata$BMI, na.rm = T)
+```
+
+```{r}
+sd(mergeddata$BMI, na.rm = T)
+```
+
+```{r}
+var(mergeddata$BMI, na.rm = T)
+```
+
+```{r}
+quantile(mergeddata$BMI, na.rm = T)
+```
+
+```{r}
+min(mergeddata$BMI, na.rm = T)
+```
+
+```{r}
+max(mergeddata$BMI, na.rm = T)
+```
+
+```{r}
+n_distinct(mergeddata$BMI, na.rm = T)
+```
+
+*Summary Statistics for State's Average Temperature:*
+```{r}
+mean(mergeddata$State.s.Average.Temperature, na.rm=T)
+```
+
+```{r}
+sd(mergeddata$State.s.Average.Temperature, na.rm=T)
+```
+
+```{r}
+var(mergeddata$State.s.Average.Temperature, na.rm=T)
+```
+
+```{r}
+quantile(mergeddata$State.s.Average.Temperature, na.rm=T)
+```
+
+```{r}
+min(mergeddata$State.s.Average.Temperature, na.rm=T)
+```
+
+```{r}
+max(mergeddata$State.s.Average.Temperature, na.rm=T)
+```
+
+```{r}
+n_distinct(mergeddata$State.s.Average.Temperature, na.rm=T)
+```
+
+*Summary Statistics for Residence Variable of Urban or Rural*
+```{r}
+mergeddata %>% group_by(Urban.or.Rural) %>% summarize('mean_BMI'=mean(BMI, na.rm=T))%>%arrange(desc(mean_BMI)) %>% na.omit()
+```
+*In merging the data sets, I decided to assess if the average BMI was higher in rural or urban areas, indicative of health in certain environmental conditions of residence; however, some rows did not have BMI values assigned to them and therefore I had to use the forcats package that R recommended in order to change the implicit NAs within the variable 'Urban or Rural' to a "Missing" value which was also included in the assessment.*
+*This data ulitmately shows that the higher mean BMI belonged to Urban over Rural, while missing values showed outliers in the highest range.*
+
+```{r}
+mergeddata_BMIsd<-mergeddata%>%group_by(Urban.or.Rural)%>%summarize(sd_BMI=sd(BMI))%>%arrange(desc(sd_BMI))
+glimpse(mergeddata_BMIsd)
+
+```
+*This shows the correlating standard deviations for the assessment of the categorical variable's BMIs.*
+```{r}
+PropUorR<-table(mergeddata$Urban.or.Rural)
+PropUorR
+prop.table(PropUorR)
+```
+*In analysing the categorical variables, there is a proportion of 0.328 rural and 0.408 urban inputs in this data frame; all other values belong to missing data.*
+
+```{r}
+nummerge<-mergeddata%>%select(-Urban.or.Rural,-NAME)
+cormat<-cor(nummerge, use = "complete.obs")
+glimpse(cormat)%>%round(2)
+```
+*In the first step, I created a new dataframe in order to pick only the numerical values for a correlation matrix to work (with BMI, National Obestity by State, and State's Average Temperature).*
+*In summary statistics, some interesting things to note stood out with the mean BMI being at a value of 25.44, which shows the average BMI of the US is a little overweight.  However, this goes with a standard deviation of  5.21 and the minumum BMI being 15.9 while the maximum stood out at a whopping 36.2, belonging to Louisiana. The maximum temperature was 70.7 while the minumum was 26.6.  This correlated with associating higher and lower BMI.  As we dive further into the analysis, I believe these two variables will show a correlation.  Unfortunately, the assigned ranking system of the states did not have as much relationship with the other variables. This could be seen in the correlation matrix made, rounded to 2 decimal places, that indicates the highest correlation between BMI and state's average temperature; essentially, further proving my hypothesis about their relationship.  The lowest correlation was between BMI and national obesity by state/the ranking of state.*
+
+
+*3 Plots of Data Visualization*
+```{r}
+# Correlation Heat Map
+library(reshape2)
+melted_cormat <- melt(cormat)
+head(melted_cormat)
+```
+
+```{r}
+ggplot(data = melted_cormat, aes(x=Var1, y=Var2, fill=value), title(main = "Correlation Heatmap")) +  geom_tile() +ggtitle(label = "Correlation Heatmap")
+```
+
+*In this correlation heatmap, it was difficult to assess essential relationships as there were only three numeric variables to analyze. However, the strongest value in the correlation was evidently between State's Average Temperature and BMI as it had a value of 0.3618.  On the other hand, national obesity by state and BMI had the weakest and most artificial relationship at 0.0695.*
+
+
+```{r}
+#ggplot: Density Plot
+mergeddata%>% ggplot(aes(x=BMI, fill=Urban.or.Rural)) + theme(legend.position=c(.9,.7)) +
+  geom_density(alpha=.75)
+```
+
+*In this data I wanted to represent the relationship between BMI and living in a rural or urban environment utilizing a density plot as the population was quite big and it consisted of averages.  It visually exemplifies how urban environments tended to have more of a range, but peaked and had their maximum values well above a value of 35.  Showing that it might possibly be less healthy to be living in the city than in a rural environment.  The reason I included the Missing values, or "NA"s was because research always has that gray area and will not always have distinct urban or rural acclaimed residences.*
+
+```{r}
+#3gglpot: Linear Regression
+mergeddata %>% ggplot(aes(BMI, State.s.Average.Temperature))+ geom_point(stat = "summary") + ggtitle(label = "Effect of Temperature on BMI") + geom_smooth(method=lm)
+```
+
+*In this ggplot, I utilized the scatter plot function of geom_point in order to visually analyze the potential relationship between State's Average Temperature and BMI; although there are outliers, they are minimal and the regression line set showed a slight positive correlation.  This relationship suggests that the higher the state's average annual temperature, the higher the value of its state's average BMI.*
+
+*k-means/PAM clustering: Dimensionality Reduction*
+```{r}
+install.packages("cluster")
+library(cluster)
+pam_dat<-mergeddata%>% select(-NAME, -Urban.or.Rural) %>% na.omit()
+
+sil_width<-vector()
+for(i in 2:10){
+     pam_fit <- pam(pam_dat, k = i)
+     sil_width[i] <- pam_fit$silinfo$avg.width}
+ggplot()+geom_line(aes(x=1:10,y=sil_width))+scale_x_continuous(name="k",breaks=1:10)
+```
+*PAM clustering was used to create a clustering data set by first scaling all my numeric variables by selecting out the categorical data. In order to find how many clusters to use, we must find average silhouette width.  Therefore, a line plot was created out of the average silhouette widths and it yielded 2 clusters as the highest average.*
+```{r}
+pam1<-pam_dat%>%pam(2)
+plot(pam1, which=2)
+```
+*The average silhouette width was found to be 0.46 after k was set to 2, indicating that the clusters were set to variables with a weak and possibly artificial structure.*
+```{r}
+install.packages("plotly")
+library(plotly)
+pamclust<- pam_dat %>% mutate(cluster=as.factor(pam1$clustering))
+pamclust
+```
+*After ruling out any correlating NA's, the data was slimmed down in the ggplot to assess the cluster groupings as 2 different clusters with some outliers that overlapped.*
+```{r}
+confmat<-pamclust%>%group_by(BMI)%>%count(cluster)%>%arrange(desc(n))%>%
+  pivot_wider(names_from="cluster",values_from="n",values_fill = list('n'=0))
+confmat
+```
+*Here, I checked the accuracy of creating 2 clusters, and they seem to be in majority within a 2 cluster range grouped by BMI due to 2 mediods.*
+
+```{r}
+round(sum(diag(as.matrix(confmat[,2:3])))/sum(confmat[,2:3]),3)
+```
+*Unfortunately, due to the clustering inaccuracies of the three total numeric variables, we produced a hit rate of 13%.*
+```{r}
+library(ggplot2)
+pamclust %>% ggplot(aes(BMI, State.s.Average.Temperature, National_Obesity_By_State, color=cluster)) + geom_point()
+```
+*This cluster graph maps out a hard to decipher relationship of clusters but the 2 clusters apparent will be used to assess the results of the data analysis.  Before reading in my data, it was a thicker plot of data points and helped distinguish clusters; however, I believe the filtering out of any correlationg NAs or missing data during merging significantly reduced the data to more applicable or realistic measures in order to analyze a relationship.*
+```{r}
+library(GGally)
+pam1$clustering
+pamclust %>% mutate(cluster=as.factor(pam1$clustering)) %>% ggpairs(columns = 1:3, aes(color=cluster))
+```
+*In this various assorted plot diagram, I used ggpairs to find that the strongest correlation amongst the variables was between BMI and State's Average temperature, with a value of 0.362 and the cluster plot showed the relationships separation between the factors of urban and rural to be the clearest; furthermore, the density plot correlating the urban or rural average BMIs showed visually the fact that the higher average for BMIs was consistently within urban areas over rural.  The weakest correlation was between National Obesity by State and BMI, with a correlation value of 0.0695, virtually no structure.*
+
+*In this 3D plot, all numeric variables averages were compared and National Obesity by State was input and BMI determined each axes' shape.  While it appears they each have their own clusters, National Obesity of each State and State's Average Temperature were scattered within the same axis, not independent or showing a correlation with one another.  However, BMI and State's Average Temperature consistently showed a weak structure for a relationship, but yet had potential for a strong relationship if I had more data that did not compute to NA or missing for the BMI column when merged.  In future research, I would opt out of including the national obesity by state variable and opt in more data to strengthen the possible relationship existing between BMI and State's Average Temperature.*
+```{r}
+pamclust%>%plot_ly(x= ~BMI, y = ~State.s.Average.Temperature, z = ~National_Obesity_By_State, color= ~cluster,type = "scatter3d", mode = "markers", symbol = ~BMI, symbols = c('circle','x','square'))
+```

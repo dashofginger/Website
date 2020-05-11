@@ -291,3 +291,73 @@ remote: Resolving deltas:   0% (0/9)[Kremote: Resolving deltas:  11% (1/9)[K
 To https://github.com/dashofginger/Website.git
    e17c3f8..1e12527  master -> master
 ]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ git add .
+]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ git commit -"lala"
+error: unknown switch `l'
+usage: git commit [<options>] [--] <pathspec>...
+
+    -q, --quiet           suppress summary after successful commit
+    -v, --verbose         show diff in commit message template
+
+Commit message options
+    -F, --file <file>     read message from file
+    --author <author>     override author for commit
+    --date <date>         override date for commit
+    -m, --message <message>
+                          commit message
+    -c, --reedit-message <commit>
+                          reuse and edit message from specified commit
+    -C, --reuse-message <commit>
+                          reuse message from specified commit
+    --fixup <commit>      use autosquash formatted message to fixup specified commit
+    --squash <commit>     use autosquash formatted message to squash specified commit
+    --reset-author        the commit is authored by me now (used with -C/-c/--amend)
+    -s, --signoff         add Signed-off-by:
+    -t, --template <file>
+                          use specified template file
+    -e, --edit            force edit of commit
+    --cleanup <default>   how to strip spaces and #comments from message
+    --status              include status in commit message template
+    -S, --gpg-sign[=<key-id>]
+                          GPG sign commit
+
+Commit contents options
+    -a, --all             commit all changed files
+    -i, --include         add specified files to index for commit
+    --interactive         interactively add files
+    -p, --patch           interactively add changes
+    -o, --only            commit only specified files
+    -n, --no-verify       bypass pre-commit and commit-msg hooks
+    --dry-run             show what would be committed
+    --short               show status concisely
+    --branch              show branch information
+    --ahead-behind        compute full ahead/behind values
+    --porcelain           machine-readable output
+    --long                show status in long format (default)
+    -z, --null            terminate entries with NUL
+    --amend               amend previous commit
+    --no-post-rewrite     bypass post-rewrite hook
+    -u, --untracked-files[=<mode>]
+                          show untracked files, optional modes: all, normal, no. (Default: all)
+
+]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ gitg[Kco[K[K commit -m"lala"
+[master 8c20a50] lala
+ 17 files changed, 1312 insertions(+), 12 deletions(-)
+ create mode 100644 .Rproj.user/EED8CAD8/sources/prop/F5433521
+ create mode 100644 .Rproj.user/EED8CAD8/sources/s-438c3c74/B10052E7-contents
+ create mode 100644 .Rproj.user/EED8CAD8/sources/s-438c3c74/CF4B65D3-contents
+ create mode 100644 .Rproj.user/shared/notebooks/C3425F6D-Project2/1/s/chunks.json
+ create mode 100644 .Rproj.user/shared/notebooks/DC17C2BF-Project2/1/EED8CAD8438c3c74/chunks.json
+ create mode 100644 public/Project1.Rmd
+ create mode 100644 public/Project2.Rmd
+]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ git push origin master
+Username for 'https://github.com': dashofginger
+Password for 'https://dashofginger@github.com': 
+Counting objects: 28, done.
+Delta compression using up to 16 threads.
+Compressing objects:   4% (1/21)   Compressing objects:   9% (2/21)   Compressing objects:  14% (3/21)   Compressing objects:  19% (4/21)   Compressing objects:  23% (5/21)   Compressing objects:  28% (6/21)   Compressing objects:  33% (7/21)   Compressing objects:  38% (8/21)   Compressing objects:  42% (9/21)   Compressing objects:  47% (10/21)   Compressing objects:  52% (11/21)   Compressing objects:  57% (12/21)   Compressing objects:  61% (13/21)   Compressing objects:  66% (14/21)   Compressing objects:  71% (15/21)   Compressing objects:  76% (16/21)   Compressing objects:  80% (17/21)   Compressing objects:  85% (18/21)   Compressing objects:  90% (19/21)   Compressing objects:  95% (20/21)   Compressing objects: 100% (21/21)   Compressing objects: 100% (21/21), done.
+Writing objects:   3% (1/28)   Writing objects:   7% (2/28)   Writing objects:  10% (3/28)   Writing objects:  14% (4/28)   Writing objects:  17% (5/28)   Writing objects:  21% (6/28)   Writing objects:  25% (7/28)   Writing objects:  28% (8/28)   Writing objects:  32% (9/28)   Writing objects:  35% (10/28)   Writing objects:  39% (11/28)   Writing objects:  42% (12/28)   Writing objects:  46% (13/28)   Writing objects:  50% (14/28)   Writing objects:  53% (15/28)   Writing objects:  57% (16/28)   Writing objects:  60% (17/28)   Writing objects:  64% (18/28)   Writing objects:  67% (19/28)   Writing objects:  71% (20/28)   Writing objects:  75% (21/28)   Writing objects:  78% (22/28)   Writing objects:  82% (23/28)   Writing objects:  85% (24/28)   Writing objects:  89% (25/28)   Writing objects:  92% (26/28)   Writing objects:  96% (27/28)   Writing objects: 100% (28/28)   Writing objects: 100% (28/28), 9.05 KiB | 1.29 MiB/s, done.
+Total 28 (delta 11), reused 0 (delta 0)
+remote: Resolving deltas:   0% (0/11)[Kremote: Resolving deltas:   9% (1/11)[Kremote: Resolving deltas:  18% (2/11)[Kremote: Resolving deltas:  27% (3/11)[Kremote: Resolving deltas:  36% (4/11)[Kremote: Resolving deltas:  45% (5/11)[Kremote: Resolving deltas:  54% (6/11)[Kremote: Resolving deltas:  63% (7/11)[Kremote: Resolving deltas:  72% (8/11)[Kremote: Resolving deltas:  81% (9/11)[Kremote: Resolving deltas:  90% (10/11)[Kremote: Resolving deltas: 100% (11/11)[Kremote: Resolving deltas: 100% (11/11), completed with 11 local objects.[K
+To https://github.com/dashofginger/Website.git
+   1e12527..8c20a50  master -> master
+]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [K]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ git add .

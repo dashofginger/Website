@@ -1,0 +1,346 @@
+---
+title: "project 2"
+author: "SDS348"
+date: "May 1, 2020"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Lauren Conner Lmc3757
+
+*INTRODUCTION:*
+
+*In this project, I will be analyzing the dataset originated from R, presidentialElections from the pacakge pscl that is the democratic share of the presidential vote dated back from 1932-2016 taken by state.  This includes a character variable, which is the State that the correlating election data took place in; the binary and simultaneously categorical variable is whether or not this state was considered one of the 11 states of the former Confederacy ("south"); the numerical variables are percent of the vote for president won by the Democratic candidate and year/integer that the election occured.*
+*There are 1,047 observations in the data with absences from Alabama data during years 1948 and 1964; Alaska and Hawaii contributed later (1960 on) while D.C. added data starting in 1964.  This project is in a way trying to see if democratic votership increased or weighed in more for Presidency conducted in Southern or Northern territories of the United States.*
+
+
+1. (15 pts) Perform a MANOVA testing whether any of your numeric variables (or a subset of them, if including them all doesn’t make sense) show a mean difference across levels of one of your categorical variables (3). If they do, perform univariate ANOVAs to find response(s) showing a mean difference across groups (3), and perform post-hoc t tests to find which groups differ (3). Discuss the number of tests you have performed, calculate the probability of at least one type I error (if unadjusted), and adjust the significance level accordingly (bonferroni correction) before discussing significant differences
+(3). Briefly discuss assumptions and whether or not they are likely to have been met (2).
+
+```{r cars}
+library(tidyverse)
+library(dplyr)
+library(lmtest)
+library(ggplot2)
+library(pscl)
+library(sandwich)
+library(glmnet)
+?presidentialElections
+glimpse(presidentialElections)
+
+#renaming the dataset
+PE<-presidentialElections
+PE$year <- as.factor(PE$year)
+PE$south <- factor(PE$south)
+
+#MANOVA (1 TEST)
+mano<-manova(cbind(year,south)~demVote, data=presidentialElections)
+summary(mano)
+
+#ANOVA (2 TESTS)
+summary.aov(mano)
+#both are significant variables in regards to how they affect democratic votership
+#year F(1,1095) = 106.62, p < .0001 
+#south F(1,1095) = 8.935, p = .00286
+
+#post hoc t-test (4 TESTS)
+pairwise.t.test(PE$demVote, PE$south, p.adj="none")
+#p-value is 0.0029 -> significant
+pairwise.t.test(PE$year, PE$south, p.adj="none")
+#p-value is 0.76 -> insignificant
+
+#probability of type I error:
+1-0.95^7
+#0.302 probability
+
+#bonferroni testing: 
+0.05/7
+#0.00714 
+```
+*Overall MANOVA is significant, so univariate ANOVAs were run to see which are significant which ended up being both year and south on democratic votership (p-values listed under ANOVAS). 4 post hoc t-tests were run for a total of of 7 tests run on the data.  Additionally, there was a 0.302 probability that there was a type I error made that it would show false significance.  Using the new bonferroni adjusted alpha value of 0.00714, it was found that the p-value for the pairwise t-test of demVote and south was still significant (0.0029) and the p-value for the year and south remained insignificant (0.76).*
+
+
+2. (10 pts) Perform some kind of randomization test on your data (that makes sense). This can be anything you want! State null and alternative hypotheses, perform the test, and interpret the results
+(7). Create a plot visualizing the null distribution and the test statistic (3).
+
+```{r}
+#H0 & HA listed in description below...
+
+#RANDOMIZATION TEST
+
+#the actual observed test statistic (actual mean difference)
+obs_diff<-(PE%>%filter(south=="TRUE")%>%summarize(mean(demVote)))-(PE%>%filter(south=="FALSE")%>%summarize(mean(demVote)))
+#2.752
+
+#random distribution vector
+rand_dist<-vector()
+for(i in 1:5000){
+new<-data.frame(demVote=sample(PE$demVote), south=PE$south)
+rand_dist[i]<-mean(new[new$south=="TRUE",]$demVote) - mean(new[new$south=="FALSE",]$demVote)}
+
+#plot visualizing the null distribution and the test statistic
+{hist(rand_dist,main="",ylab=""); abline(v = 2.752,col="red")}
+
+#two tailed t value
+mean(rand_dist>2.752 | rand_dist< -2.752)
+#0.0044 is the computed two-tailed p-value
+
+#compared with Welch's test
+t.test(data=PE,demVote~south)
+#t value of -2.326
+#df = 293,38
+#p-value = 0.0207 (still significant and slightly smaller p-value as we make assumptions and non-parametric tests like randomization tests are more conservative)
+```
+*H0=All groups for south=True and south=False will have the same mean of democratic votership that would contribute to Presidency (will equate to 0 for mean difference).*
+*Ha=The groups' true difference in means for south=True and south=False of democratic votership that would contribute to Presidency is not equal to 0.*
+*The  2.752 mean difference could be seen on the random distribution histogram performed.  0.0044 is the computed two-tailed p-value; still significant in comparison to alpha of 0.05.  Afterwards, compared with Welch's test, which is robust to violations of homoskedasticity, but still assumes normality, the p-value was found to be 0.0207.  This is still significant and slightly smaller p-value as we make assumptions and non-parametric tests like randomization tests are more conservative.*
+
+
+3. (35 pts) Build a linear regression model predicting one of your response variables from at least 2 other variables, including their interaction. Mean-center any numeric variables involved in the interaction.
+– Interpret the coefficient estimates (do not discuss significance) (10)
+– Plot the regression using ggplot(). If your interaction is numeric by numeric, refer to code near
+the end of WS15 to make the plot. If you have 3 or more predictors, just chose two to plot for
+convenience. (8)
+– Check assumptions of linearity, normality, and homoskedasticity either graphically or using a
+hypothesis test (4)
+– Regardless, recompute regression results with robust standard errors via coeftest(...,
+vcov=vcovHC(...)). Discuss significance of results, including any changes from before/after
+robust SEs if applicable. (8)
+– What proportion of the variation in the outcome does your model explain? (4)
+
+```{r}
+#center numeric variables
+PE$demVote_c<- (PE$demVote - mean(PE$demVote, na.rm = T))
+
+#linear regression
+fitten<-lm(demVote_c~south*year, data=PE, na.rm=T)
+summary(fitten)
+#{demVote}= 2.726 + 18.851(SOUTH) - 0.2850(YEAR)
+
+#plotted regression using ggplot
+PE%>%ggplot(aes(x=year,y=demVote_c, color=south))+geom_point()+geom_smooth(method = 'lm',se=F)
+
+#check assumptions of linearity, normality, and homoskedasticity
+
+#linearity
+resids<-fitten$residuals
+fitvals<-fitten$fitted.values
+ggplot()+geom_point(aes(fitvals,resids))+geom_hline(yintercept=0, color='red')
+#This plot shows that it the data does not meet linearity
+
+#normality
+shapiro.test(resids)
+#p-value was significant and therefore violated normality
+
+#homoskedasticity test
+bptest(fitten)
+#BP Test shows the violation of homoskedasticity as the p-value is extremely significant.
+
+#redone with robust standard errors 
+#uncorrected SEs 
+summary(fitten)$coef[,1:2]
+
+#corrected SE
+coeftest(fitten, vcov = vcovHC(fitten))[,1:2]
+
+#Rsquared=proportion of the variation in the outcome the model explains as 0.103
+
+```
+*In the year 1932 (reference year), in a non-Southern state, there would be democratic votership of 8.297%.*
+*Another example is with the year 1948, in a non-Southern state, democratic votership went down 6.434% and would have involvement of 1.863%.*
+*Most of the interactions (which would be translated as the slopes) are significant in the relationship of year and identification of a southern territory votership.*
+*This linear regression model plotted predicts, from the variables year and southern identification, the democratic vote response.*
+*The linearity was tested and the plot made did not meet linearity; normality was tested with Shapiro Wilke's test and the p-value was significant and therefore violated normality; and lastly, BP Test shows the violation of homoskedasticity as the p-value is extremely significant.*
+*In the corrected SE section, intercept SE decreased when corrected while the south indicator increased as did most of the interaction standard errors of south and year. Lastly, R^2 is the proportion of the variation in the outcome the model explains, which would be 0.5291 in this model, which is all predictors at once.*
+
+
+4. (5 pts) Rerun same regression model (with interaction), but this time compute bootstrapped standard errors. Discuss any changes you observe in SEs and p-values using these SEs compared to the original SEs and the robust SEs)
+
+```{r}
+#bootstrap residuals 5000 replication
+sampledist<-replicate(5000,{
+boot_dat<- sample_frac(PE,replace=T)
+fittey<-lm(demVote_c~south*year, data=boot_dat)
+coef(fittey) })
+
+boot_dat<- sample_frac(PE,replace=T)
+fittey<-lm(demVote_c~south*year, data=boot_dat)
+coeftest(fittey)
+```
+*In bootstrapping the standard errors, it is found that the p-values for year, democratic vote, and the interaction of south and democratic votership are remained significant.  Std. Error increased for all a little besides democratic vote, which slightly decreased.*
+
+
+5. (40 pts) Perform a logistic regression predicting a binary categorical variable (if you don’t have one, make/get one) from at least two explanatory variables (interaction not necessary).
+– Interpret coefficient estimates in context (10)
+– Report a confusion matrix for your logistic regression (2)
+– Compute and discuss the Accuracy, Sensitivity (TPR), Specificity (TNR), and Recall (PPV) of
+your model (5)
+– Using ggplot, plot density of log-odds (logit) by your binary outcome variable (3)
+– Generate an ROC curve (plot) and calculate AUC (either manually or with a package); interpret
+(10)
+– Perform 10-fold (or repeated random sub-sampling) CV and report average out-of-sample Accuracy,
+Sensitivity, and Recall (10)
+```{r}
+class_diag <- function(probs,truth){
+  
+  #CONFUSION MATRIX: CALCULATE ACCURACY, TPR, TNR, PPV
+  tab<-table(factor(probs>.5,levels=c("FALSE","TRUE")),truth)
+  acc=sum(diag(tab))/sum(tab)
+  sens=tab[2,2]/colSums(tab)[2]
+  spec=tab[1,1]/colSums(tab)[1]
+  ppv=tab[2,2]/rowSums(tab)[2]
+
+  if(is.numeric(truth)==FALSE & is.logical(truth)==FALSE) truth<-as.numeric(truth)-1
+  
+  #CALCULATE EXACT AUC
+  ord<-order(probs, decreasing=TRUE)
+  probs <- probs[ord]; truth <- truth[ord]
+  
+  TPR=cumsum(truth)/max(1,sum(truth)) 
+  FPR=cumsum(!truth)/max(1,sum(!truth))
+  
+  dup<-c(probs[-1]>=probs[-length(probs)], FALSE)
+  TPR<-c(0,TPR[!dup],1); FPR<-c(0,FPR[!dup],1)
+  
+  n <- length(TPR)
+  auc<- sum( ((TPR[-1]+TPR[-n])/2) * (FPR[-1]-FPR[-n]) )
+
+  data.frame(acc,sens,spec,ppv,auc)
+}
+
+#GLM
+fit2<-glm(south~demVote_c+year,data=PE, family=binomial(link = "logit"))
+
+#COEFTEST
+coeftest(fit2)
+#Intercept: -4.956
+#demVote_c: .0176
+#year: .00186
+
+#CLASSIFICATION DIAGNOSTICS
+prob2<-predict(fit2, type = "response")
+class_diag(prob2,PE$south)
+
+#CONFUSION MATRIX
+table(predict=as.numeric(prob2>.5), truth=PE$south)%>%addmargins()
+
+#Accuracy, Sensitivity (TPR), Specificity (TNR), and Recall (PPV) of model
+#TPR/True Positive Rate: 0/240 = 0
+#TNR/True Negative Rate: 857/857 = 1
+#PPV: 0/0 = 0
+#This means the model did not predict any of them as South/1.
+
+#GGPLOT: density of log-odds (logit) by your binary outcome variable 
+PE$logit<-predict(fit2,type="link") #get predicted logit scores (logodds)
+
+PE%>%ggplot()+geom_density(aes(logit,color=south,fill=south), alpha=.4)+
+  theme(legend.position=c(.85,.85))+geom_vline(xintercept=0)+xlab("predictor (logit)")
+#The logit density plot showed everything as non-southern
+
+#ROC curve (plot) and calculate AUC
+library(plotROC)
+ROCplot<-ggplot(PE)+geom_roc(aes(d=south,m=prob2), n.cuts=0) 
+ROCplot
+calc_auc(ROCplot)
+#AUC is 0.534 with a weak ROC plot
+
+#10-fold (or repeated random sub-sampling) CV and report average out-of-sample Accuracy, Sensitivity, and Recall
+
+class_diag(prob2,PE$south)
+
+#10-FOLD CV:
+
+set.seed(1234)
+k=10 #choose number of folds
+
+data<-PE[sample(nrow(PE)),] #randomly order rows
+folds<-cut(seq(1:nrow(PE)),breaks=k,labels=F) #create folds
+
+diags<-NULL
+for(i in 1:k){
+  ## Create training and test sets
+  train<-data[folds!=i,] 
+  test<-data[folds==i,]
+  
+  truth<-test$south ## Truth labels for fold i
+  
+  ## Train model on training set (all but fold i)
+  fit3<-glm(south~demVote+year,data=train, family="binomial")
+  
+  ## Test model on test set (fold i) 
+  probs3<-predict(fit3,newdata = test,type="response")
+  
+  ## Get diagnostics for fold i
+  diags<-rbind(diags,class_diag(probs3,truth))
+}
+
+summarize_all(diags,mean) #average diagnostics across all k folds
+
+
+#report average out-of-sample Accuracy, Sensitivity, and Recall
+
+#Accuracy: 0.781
+#Sensitivity: 0
+#Recall: NaN
+#about same performance out-of-sample; not overfitting, just model was hard to predict non-south.
+
+```
+*The coefficients in context are : Intercept = -4.956 demVote_c = .0176 year = .00186.  This means that the best fitting line would be {south} = -4.956 + .0176(demVote) + year(.00186).  On an average year, with average democratic votership, southern votership would decrease by -4.956. For every one unit increase in democratic votership, the chances of the outcome being Southern would decrease by 4.9384.*
+*Accuracy, Sensitivity (TPR), Specificity (TNR), and Recall (PPV) of model*
+#TPR/True Positive Rate: 0/240 = 0
+#TNR/True Negative Rate: 857/857 = 1
+#Recall/PPV: 0/0 = 0
+#This means the model did not predict any of them as South/1.
+*The logit density plot showed everything as non-southern; shows the model is bad at predicting, consistent with the TPR, TNR, and PPV rates.*
+*AUC calculated is 0.539 with a weak ROC plot and therefore is not a reliable model that could be an indication of a lot of false negatives or positives.*
+*In reporting the average out-of-sample Accuracy, Sensitivity, and Recall there was about the same performance out-of-sample; not overfitting, just model was hard to predict non-south.*
+#Accuracy: 0.781
+#Sensitivity: 0
+#Recall/PPV: NaN
+
+6. (10 pts) Choose one variable you want to predict (can be one you used from before; either binary or continuous) and run a LASSO regression inputting all the rest of your variables as predictors. Choose lambda to give the simplest model whose accuracy is near that of the best (i.e., lambda.1se). Discuss which variables are retained. Perform 10-fold CV using this model: if response in binary, compare model’s out-of-sample accuracy to that of your logistic regression in part 5; if response is numeric, compare the residual standard error (at the bottom of the summary output, aka RMSE): lower is better fit!
+
+```{r}
+#recoding variables
+datnew<-PE%>%select(-demVote_c,-logit)
+y<-as.matrix(datnew$south)
+x<-model.matrix(south~., data=datnew)[,-1]
+
+#LASSO
+cv<-cv.glmnet(x,y, family="binomial")
+lasso1<-glmnet(x,y,family="binomial",lambda=cv$lambda.1se)
+coef(lasso1)
+#All variables are retained besides 'year'.
+
+x<-as.data.frame(x)
+y<-as.data.frame(y)
+bound<-bind_cols(x,y)
+bound<-bound%>%rename(south = `V1`)
+
+#10-FOLD CV (only use significant predictors)
+set.seed(1234)
+k=10
+data <- bound[sample(nrow(bound)),] #put rows of dataset in random order
+folds <- cut(seq(1:nrow(bound)),breaks=k,labels=F) #create fold labels
+
+diags<-NULL
+for(i in 1:k){
+  train <- data[folds!=i,] #create training set (all but fold i)
+  test <- data[folds==i,] #create test set (just fold i)
+  truth <- test$south #save truth labels from fold i
+  
+fitness <- glm(south ~ stateAlaska+stateArizona+stateArkansas+stateCalifornia+stateColorado+stateConnecticut+stateDC+stateDelaware+stateFlorida+stateGeorgia+stateHawaii+stateIdaho + stateIllinois+stateIndiana +stateIowa+stateKansas+stateKentucky  +stateLouisiana+stateMaine+stateMaryland+stateMassachusetts+stateMichigan+stateMinnesota+ stateMississippi+stateMissouri+stateMontana+stateNebraska+stateNevada+`stateNew Hampshire`+`stateNew Jersey`+`stateNew Mexico`+`stateNew York`+`stateNorth Carolina`+`stateNorth Dakota`+stateOhio+stateOklahoma+stateOregon+statePennsylvania+`stateRhode Island`+`stateSouth Carolina`+`stateSouth Dakota`+stateTennessee+stateTexas+stateUtah+stateVermont+stateVirginia+stateWashington+`stateWest Virginia`+stateWisconsin+stateWyoming + demVote, data=train, family="binomial", maxit=1100)
+  probs <- predict(fitness, newdata=test, type="response")
+  diags<-rbind(diags,class_diag(probs,truth))
+}
+
+summarize_all(diags,mean) #AVERAGE THE DIAGNOSTICS ACROSS THE 10 FOLDS
+
+```
+*All of the variables are retained except for the variable year within the lasso analysis.  There was an apparent accurate prediction of all acc, sens, spec, ppv, and auc.  I know I am so sorry I must have done something horribly different or horribly right at this point I am unsure since it all ran.*
+

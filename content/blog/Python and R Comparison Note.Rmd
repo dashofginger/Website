@@ -1,0 +1,41 @@
+---
+title: "Python and R Comparison"
+author: "Lauren Conner"
+date: '2020-05-14T21:13:14-05:00'
+output: pdf_document
+description: ''
+tags:
+- R Markdown
+- Python
+categories: []
+---
+
+# R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+```{r}
+install.packages("reticulate")
+library(reticulate)
+library(tidyverse)
+library(stringr)
+```
+
+![](/blog/Python and R Comparison Note_files/Screen Shot 2020-05-14 at 10.48.03 PM.png)
+
+# Python
+
+```{python}
+import re
+
+sentence = 'Let us get to CODING!'
+re.findall(r'CODING',sentence)
+```
+*In this section, we can see how one is able to write and subsequently print out a sentence for further manipulation in Python to find and indicate certain phrases or characters.  Assigning a string of characters within a sentence, having "sentence =" or "text =" allows the system to identify what sentence you would like to manipulate.  After that, the function re.findall, which is within the re/regex package functions to find any matches to what you indicate after (r' to find.  You specify that it is returned from what you put as your sentence.*
+
+# Now to R
+
+```{r}
+r_sentence<-py$sentence
+str_extract_all(r_sentence, pattern = "to", simplify = F)
+```

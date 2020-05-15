@@ -1,266 +1,0 @@
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [K]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ git commit .[K[K[K[K[K[K[Ka[K[Kadd . 
-fatal: Unable to create '/stor/home/lmc3757/Website/.git/index.lock': File exists.
-
-Another git process seems to be running in this repository, e.g.
-an editor opened by 'git commit'. Please make sure all processes
-are terminated then try again. If it still fails, a git process
-may have crashed in this repository earlier:
-remove the file manually to continue.
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ git add .
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ git commit -m"fah"
-[master 593cc04] fah
- 10 files changed, 21 insertions(+), 790 deletions(-)
- create mode 100644 .Rproj.user/EED8CAD8/console06/76C15F89
- rename .Rproj.user/EED8CAD8/console06/{EA354B9A.env => 76C15F89.env} (98%)
- delete mode 100644 .Rproj.user/EED8CAD8/console06/EA354B9A
- delete mode 100644 .Rproj.user/EED8CAD8/console06/EDBA77CF
- delete mode 100644 .Rproj.user/EED8CAD8/console06/EDBA77CF.env
- rewrite .Rproj.user/EED8CAD8/console06/INDEX001 (84%)
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ git push origina [K[K master
-Username for 'https://github.com': dashofginger
-Password for 'https://dashofginger@github.com': 
-Counting objects: 14, done.
-Delta compression using up to 16 threads.
-Compressing objects:   7% (1/14)   Compressing objects:  14% (2/14)   Compressing objects:  21% (3/14)   Compressing objects:  28% (4/14)   Compressing objects:  35% (5/14)   Compressing objects:  42% (6/14)   Compressing objects:  50% (7/14)   Compressing objects:  57% (8/14)   Compressing objects:  64% (9/14)   Compressing objects:  71% (10/14)   Compressing objects:  78% (11/14)   Compressing objects:  85% (12/14)   Compressing objects:  92% (13/14)   Compressing objects: 100% (14/14)   Compressing objects: 100% (14/14), done.
-Writing objects:   7% (1/14)   Writing objects:  14% (2/14)   Writing objects:  21% (3/14)   Writing objects:  28% (4/14)   Writing objects:  35% (5/14)   Writing objects:  42% (6/14)   Writing objects:  50% (7/14)   Writing objects:  57% (8/14)   Writing objects:  64% (9/14)   Writing objects:  71% (10/14)   Writing objects:  78% (11/14)   Writing objects:  85% (12/14)   Writing objects:  92% (13/14)   Writing objects: 100% (14/14)   Writing objects: 100% (14/14), 2.96 KiB | 756.00 KiB/s, done.
-Total 14 (delta 8), reused 0 (delta 0)
-remote: Resolving deltas:   0% (0/8)[Kremote: Resolving deltas:  12% (1/8)[Kremote: Resolving deltas:  25% (2/8)[Kremote: Resolving deltas:  37% (3/8)[Kremote: Resolving deltas:  50% (4/8)[Kremote: Resolving deltas:  62% (5/8)[Kremote: Resolving deltas:  75% (6/8)[Kremote: Resolving deltas:  87% (7/8)[Kremote: Resolving deltas: 100% (8/8)[Kremote: Resolving deltas: 100% (8/8), completed with 8 local objects.[K
-To https://github.com/dashofginger/Website.git
-   38c98b1..593cc04  master -> master
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ git add .
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ git commit -m"origi[K"[K[K[K[K"
-[master 90eb493] o
- 11 files changed, 47 insertions(+), 36 deletions(-)
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ git push ori[K[K[Korigina[K master
-Username for 'https://github.com': dashofginger
-Password for 'https://dashofginger@github.com': 
-Counting objects: 18, done.
-Delta compression using up to 16 threads.
-Compressing objects:   5% (1/18)   Compressing objects:  11% (2/18)   Compressing objects:  16% (3/18)   Compressing objects:  22% (4/18)   Compressing objects:  27% (5/18)   Compressing objects:  33% (6/18)   Compressing objects:  38% (7/18)   Compressing objects:  44% (8/18)   Compressing objects:  50% (9/18)   Compressing objects:  55% (10/18)   Compressing objects:  61% (11/18)   Compressing objects:  66% (12/18)   Compressing objects:  72% (13/18)   Compressing objects:  77% (14/18)   Compressing objects:  83% (15/18)   Compressing objects:  88% (16/18)   Compressing objects:  94% (17/18)   Compressing objects: 100% (18/18)   Compressing objects: 100% (18/18), done.
-Writing objects:   5% (1/18)   Writing objects:  11% (2/18)   Writing objects:  16% (3/18)   Writing objects:  22% (4/18)   Writing objects:  27% (5/18)   Writing objects:  33% (6/18)   Writing objects:  38% (7/18)   Writing objects:  44% (8/18)   Writing objects:  50% (9/18)   Writing objects:  55% (10/18)   Writing objects:  61% (11/18)   Writing objects:  66% (12/18)   Writing objects:  72% (13/18)   Writing objects:  77% (14/18)   Writing objects:  83% (15/18)   Writing objects:  88% (16/18)   Writing objects:  94% (17/18)   Writing objects: 100% (18/18)   Writing objects: 100% (18/18), 2.59 KiB | 664.00 KiB/s, done.
-Total 18 (delta 9), reused 0 (delta 0)
-remote: Resolving deltas:   0% (0/9)[Kremote: Resolving deltas:  11% (1/9)[Kremote: Resolving deltas:  22% (2/9)[Kremote: Resolving deltas:  33% (3/9)[Kremote: Resolving deltas:  44% (4/9)[Kremote: Resolving deltas:  55% (5/9)[Kremote: Resolving deltas:  66% (6/9)[Kremote: Resolving deltas:  77% (7/9)[Kremote: Resolving deltas:  88% (8/9)[Kremote: Resolving deltas: 100% (9/9)[Kremote: Resolving deltas: 100% (9/9), completed with 9 local objects.[K
-To https://github.com/dashofginger/Website.git
-   593cc04..90eb493  master -> master
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ git add .
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ git commit -m"uh"
-[master d680d09] uh
- 7 files changed, 24 insertions(+), 9 deletions(-)
- rename public/{Project1.Rmd => project1.Rmd} (100%)
- rename public/{Project2.Rmd => project2.Rmd} (100%)
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ git push origin master
-Username for 'https://github.com': dashofginger
-Password for 'https://dashofginger@github.com': 
-Counting objects: 13, done.
-Delta compression using up to 16 threads.
-Compressing objects:   7% (1/13)   Compressing objects:  15% (2/13)   Compressing objects:  23% (3/13)   Compressing objects:  30% (4/13)   Compressing objects:  38% (5/13)   Compressing objects:  46% (6/13)   Compressing objects:  53% (7/13)   Compressing objects:  61% (8/13)   Compressing objects:  69% (9/13)   Compressing objects:  76% (10/13)   Compressing objects:  84% (11/13)   Compressing objects:  92% (12/13)   Compressing objects: 100% (13/13)   Compressing objects: 100% (13/13), done.
-Writing objects:   7% (1/13)   Writing objects:  15% (2/13)   Writing objects:  23% (3/13)   Writing objects:  30% (4/13)   Writing objects:  38% (5/13)   Writing objects:  46% (6/13)   Writing objects:  53% (7/13)   Writing objects:  61% (8/13)   Writing objects:  69% (9/13)   Writing objects:  76% (10/13)   Writing objects:  84% (11/13)   Writing objects:  92% (12/13)   Writing objects: 100% (13/13)   Writing objects: 100% (13/13), 1.58 KiB | 538.00 KiB/s, done.
-Total 13 (delta 8), reused 0 (delta 0)
-remote: Resolving deltas:   0% (0/8)[Kremote: Resolving deltas:  12% (1/8)[Kremote: Resolving deltas:  25% (2/8)[Kremote: Resolving deltas:  37% (3/8)[Kremote: Resolving deltas:  50% (4/8)[Kremote: Resolving deltas:  62% (5/8)[Kremote: Resolving deltas:  75% (6/8)[Kremote: Resolving deltas:  87% (7/8)[Kremote: Resolving deltas: 100% (8/8)[Kremote: Resolving deltas: 100% (8/8), completed with 8 local objects.[K
-To https://github.com/dashofginger/Website.git
-   90eb493..d680d09  master -> master
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ git add . 
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ git commit -m"annoying"
-[master 3cae90d] annoying
- 5 files changed, 26 insertions(+), 9 deletions(-)
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ git push origin master
-Username for 'https://github.com': dashofginger
-Password for 'https://dashofginger@github.com': 
-Counting objects: 15, done.
-Delta compression using up to 16 threads.
-Compressing objects:   7% (1/14)   Compressing objects:  14% (2/14)   Compressing objects:  21% (3/14)   Compressing objects:  28% (4/14)   Compressing objects:  35% (5/14)   Compressing objects:  42% (6/14)   Compressing objects:  50% (7/14)   Compressing objects:  57% (8/14)   Compressing objects:  64% (9/14)   Compressing objects:  71% (10/14)   Compressing objects:  78% (11/14)   Compressing objects:  85% (12/14)   Compressing objects:  92% (13/14)   Compressing objects: 100% (14/14)   Compressing objects: 100% (14/14), done.
-Writing objects:   6% (1/15)   Writing objects:  13% (2/15)   Writing objects:  20% (3/15)   Writing objects:  26% (4/15)   Writing objects:  33% (5/15)   Writing objects:  40% (6/15)   Writing objects:  46% (7/15)   Writing objects:  53% (8/15)   Writing objects:  60% (9/15)   Writing objects:  66% (10/15)   Writing objects:  73% (11/15)   Writing objects:  80% (12/15)   Writing objects:  86% (13/15)   Writing objects:  93% (14/15)   Writing objects: 100% (15/15)   Writing objects: 100% (15/15), 1.53 KiB | 522.00 KiB/s, done.
-Total 15 (delta 9), reused 0 (delta 0)
-remote: Resolving deltas:   0% (0/9)[Kremote: Resolving deltas:  11% (1/9)[Kremote: Resolving deltas:  22% (2/9)[Kremote: Resolving deltas:  33% (3/9)[Kremote: Resolving deltas:  44% (4/9)[Kremote: Resolving deltas:  55% (5/9)[Kremote: Resolving deltas:  66% (6/9)[Kremote: Resolving deltas:  77% (7/9)[Kremote: Resolving deltas:  88% (8/9)[Kremote: Resolving deltas: 100% (9/9)[Kremote: Resolving deltas: 100% (9/9), completed with 9 local objects.[K
-To https://github.com/dashofginger/Website.git
-   d680d09..3cae90d  master -> master
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ git add .
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ git commit -m"lol"
-[master 610f479] lol
- 21 files changed, 2709 insertions(+), 14 deletions(-)
- create mode 100644 .Rproj.user/EED8CAD8/sources/prop/6B073032
- create mode 100644 .Rproj.user/EED8CAD8/sources/prop/C6EB8B99
- create mode 100644 .Rproj.user/EED8CAD8/sources/s-438c3c74/1CC374E1
- create mode 100644 .Rproj.user/EED8CAD8/sources/s-438c3c74/1CC374E1-contents
- create mode 100644 .Rproj.user/EED8CAD8/sources/s-438c3c74/319E3216
- create mode 100644 .Rproj.user/EED8CAD8/sources/s-438c3c74/319E3216-contents
- create mode 100644 .Rproj.user/shared/notebooks/1166F8EF-project2/1/EED8CAD8438c3c74/chunks.json
- create mode 100644 .Rproj.user/shared/notebooks/1166F8EF-project2/1/s/chunks.json
- create mode 100644 .Rproj.user/shared/notebooks/50F76F62-project1/1/EED8CAD8438c3c74/chunks.json
- create mode 100644 .Rproj.user/shared/notebooks/50F76F62-project1/1/s/chunks.json
- create mode 100644 content/project1.html
- create mode 100644 content/project2.html
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ git push origing[K master
-Username for 'https://github.com': dashofginger
-Password for 'https://dashofginger@github.com': 
-Counting objects: 34, done.
-Delta compression using up to 16 threads.
-Compressing objects:   3% (1/29)   Compressing objects:   6% (2/29)   Compressing objects:  10% (3/29)   Compressing objects:  13% (4/29)   Compressing objects:  17% (5/29)   Compressing objects:  20% (6/29)   Compressing objects:  24% (7/29)   Compressing objects:  27% (8/29)   Compressing objects:  31% (9/29)   Compressing objects:  34% (10/29)   Compressing objects:  37% (11/29)   Compressing objects:  41% (12/29)   Compressing objects:  44% (13/29)   Compressing objects:  48% (14/29)   Compressing objects:  51% (15/29)   Compressing objects:  55% (16/29)   Compressing objects:  58% (17/29)   Compressing objects:  62% (18/29)   Compressing objects:  65% (19/29)   Compressing objects:  68% (20/29)   Compressing objects:  72% (21/29)   Compressing objects:  75% (22/29)   Compressing objects:  79% (23/29)   Compressing objects:  82% (24/29)   Compressing objects:  86% (25/29)   Compressing objects:  89% (26/29)   Compressing objects:  93% (27/29)   Compressing objects:  96% (28/29)   Compressing objects: 100% (29/29)   Compressing objects: 100% (29/29), done.
-Writing objects:   2% (1/34)   Writing objects:   5% (2/34)   Writing objects:   8% (3/34)   Writing objects:  11% (4/34)   Writing objects:  14% (5/34)   Writing objects:  17% (6/34)   Writing objects:  20% (7/34)   Writing objects:  23% (8/34)   Writing objects:  26% (9/34)   Writing objects:  29% (10/34)   Writing objects:  32% (11/34)   Writing objects:  35% (12/34)   Writing objects:  38% (13/34)   Writing objects:  41% (14/34)   Writing objects:  44% (15/34)   Writing objects:  47% (16/34)   Writing objects:  50% (17/34)   Writing objects:  52% (18/34)   Writing objects:  55% (19/34)   Writing objects:  58% (20/34)   Writing objects:  61% (21/34)   Writing objects:  64% (22/34)   Writing objects:  67% (23/34)   Writing objects:  70% (24/34)   Writing objects:  73% (25/34)   Writing objects:  76% (26/34)   Writing objects:  79% (27/34)   Writing objects:  82% (28/34)   Writing objects:  85% (29/34)   Writing objects:  88% (30/34)   Writing objects:  91% (31/34)   Writing objects:  94% (32/34)   Writing objects:  97% (33/34), 1.05 MiB | 1.79 MiB/s   Writing objects: 100% (34/34), 1.05 MiB | 1.79 MiB/s   Writing objects: 100% (34/34), 2.67 MiB | 3.54 MiB/s, done.
-Total 34 (delta 12), reused 0 (delta 0)
-remote: Resolving deltas:   0% (0/12)[Kremote: Resolving deltas:   8% (1/12)[Kremote: Resolving deltas:  16% (2/12)[Kremote: Resolving deltas:  25% (3/12)[Kremote: Resolving deltas:  33% (4/12)[Kremote: Resolving deltas:  41% (5/12)[Kremote: Resolving deltas:  50% (6/12)[Kremote: Resolving deltas:  75% (9/12)[Kremote: Resolving deltas:  83% (10/12)[Kremote: Resolving deltas:  91% (11/12)[Kremote: Resolving deltas: 100% (12/12)[Kremote: Resolving deltas: 100% (12/12), completed with 10 local objects.[K
-To https://github.com/dashofginger/Website.git
-   3cae90d..610f479  master -> master
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [K]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ git add .
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ git commit -""[K[Km""
-error: switch `m' requires a value
-usage: git commit [<options>] [--] <pathspec>...
-
-    -q, --quiet           suppress summary after successful commit
-    -v, --verbose         show diff in commit message template
-
-Commit message options
-    -F, --file <file>     read message from file
-    --author <author>     override author for commit
-    --date <date>         override date for commit
-    -m, --message <message>
-                          commit message
-    -c, --reedit-message <commit>
-                          reuse and edit message from specified commit
-    -C, --reuse-message <commit>
-                          reuse message from specified commit
-    --fixup <commit>      use autosquash formatted message to fixup specified commit
-    --squash <commit>     use autosquash formatted message to squash specified commit
-    --reset-author        the commit is authored by me now (used with -C/-c/--amend)
-    -s, --signoff         add Signed-off-by:
-    -t, --template <file>
-                          use specified template file
-    -e, --edit            force edit of commit
-    --cleanup <default>   how to strip spaces and #comments from message
-    --status              include status in commit message template
-    -S, --gpg-sign[=<key-id>]
-                          GPG sign commit
-
-Commit contents options
-    -a, --all             commit all changed files
-    -i, --include         add specified files to index for commit
-    --interactive         interactively add files
-    -p, --patch           interactively add changes
-    -o, --only            commit only specified files
-    -n, --no-verify       bypass pre-commit and commit-msg hooks
-    --dry-run             show what would be committed
-    --short               show status concisely
-    --branch              show branch information
-    --ahead-behind        compute full ahead/behind values
-    --porcelain           machine-readable output
-    --long                show status in long format (default)
-    -z, --null            terminate entries with NUL
-    --amend               amend previous commit
-    --no-post-rewrite     bypass post-rewrite hook
-    -u, --untracked-files[=<mode>]
-                          show untracked files, optional modes: all, normal, no. (Default: all)
-
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ git commit -m"h"
-[master d11e46f] h
- 20 files changed, 70 insertions(+), 1842 deletions(-)
- create mode 100644 .Rproj.user/EED8CAD8/sources/prop/873EA7E7
- delete mode 100644 .Rproj.user/EED8CAD8/sources/s-438c3c74/1CC374E1
- delete mode 100644 .Rproj.user/EED8CAD8/sources/s-438c3c74/319E3216
- create mode 100644 .Rproj.user/EED8CAD8/sources/s-438c3c74/4467EEFF
- create mode 100644 .Rproj.user/EED8CAD8/sources/s-438c3c74/4467EEFF-contents
- delete mode 100644 .Rproj.user/shared/notebooks/1166F8EF-project2/1/EED8CAD8438c3c74/chunks.json
- create mode 100644 .Rproj.user/shared/notebooks/2641F361-2020-05-10-a-bit-about-me/1/EED8CAD8438c3c74/chunks.json
- create mode 100644 .Rproj.user/shared/notebooks/2641F361-2020-05-10-a-bit-about-me/1/s/chunks.json
- delete mode 100644 .Rproj.user/shared/notebooks/50F76F62-project1/1/EED8CAD8438c3c74/chunks.json
- delete mode 100644 content/blog/2015-07-23-r-rmarkdown.Rmd
- delete mode 100644 content/blog/2015-07-23-r-rmarkdown.html
- create mode 100644 content/blog/2020-05-10-a-bit-about-me.Rmd
- delete mode 100644 content/blog/creating-a-new-theme.md
- delete mode 100644 content/blog/goisforlovers.md
- delete mode 100644 content/blog/hugoisforlovers.md
- delete mode 100644 content/blog/migrate-from-jekyll.md
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ git push origin master
-Username for 'https://github.com': dahso   shofginger
-Password for 'https://dashofginger@github.com': 
-Counting objects: 27, done.
-Delta compression using up to 16 threads.
-Compressing objects:   5% (1/20)   Compressing objects:  10% (2/20)   Compressing objects:  15% (3/20)   Compressing objects:  20% (4/20)   Compressing objects:  25% (5/20)   Compressing objects:  30% (6/20)   Compressing objects:  35% (7/20)   Compressing objects:  40% (8/20)   Compressing objects:  45% (9/20)   Compressing objects:  50% (10/20)   Compressing objects:  55% (11/20)   Compressing objects:  60% (12/20)   Compressing objects:  65% (13/20)   Compressing objects:  70% (14/20)   Compressing objects:  75% (15/20)   Compressing objects:  80% (16/20)   Compressing objects:  85% (17/20)   Compressing objects:  90% (18/20)   Compressing objects:  95% (19/20)   Compressing objects: 100% (20/20)   Compressing objects: 100% (20/20), done.
-Writing objects:   3% (1/27)   Writing objects:   7% (2/27)   Writing objects:  11% (3/27)   Writing objects:  14% (4/27)   Writing objects:  18% (5/27)   Writing objects:  22% (6/27)   Writing objects:  25% (7/27)   Writing objects:  29% (8/27)   Writing objects:  33% (9/27)   Writing objects:  37% (10/27)   Writing objects:  40% (11/27)   Writing objects:  44% (12/27)   Writing objects:  48% (13/27)   Writing objects:  51% (14/27)   Writing objects:  55% (15/27)   Writing objects:  59% (16/27)   Writing objects:  62% (17/27)   Writing objects:  66% (18/27)   Writing objects:  70% (19/27)   Writing objects:  74% (20/27)   Writing objects:  77% (21/27)   Writing objects:  81% (22/27)   Writing objects:  85% (23/27)   Writing objects:  88% (24/27)   Writing objects:  92% (25/27)   Writing objects:  96% (26/27)   Writing objects: 100% (27/27)   Writing objects: 100% (27/27), 2.99 KiB | 437.00 KiB/s, done.
-Total 27 (delta 10), reused 0 (delta 0)
-remote: Resolving deltas:   0% (0/10)[Kremote: Resolving deltas:  10% (1/10)[Kremote: Resolving deltas:  20% (2/10)[Kremote: Resolving deltas:  30% (3/10)[Kremote: Resolving deltas:  40% (4/10)[Kremote: Resolving deltas:  50% (5/10)[Kremote: Resolving deltas:  60% (6/10)[Kremote: Resolving deltas:  70% (7/10)[Kremote: Resolving deltas:  80% (8/10)[Kremote: Resolving deltas:  90% (9/10)[Kremote: Resolving deltas: 100% (10/10)[Kremote: Resolving deltas: 100% (10/10), completed with 10 local objects.[K
-To https://github.com/dashofginger/Website.git
-   610f479..d11e46f  master -> master
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [K]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [K]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [K]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [K]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [K]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [K]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [K]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [K]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [K]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [K]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [K]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [K]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ [K]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ gitgi[K]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ gitgi[K[K add.[K .
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ git commit -m"ah"
-[master 49c4941] ah
- 105 files changed, 31723 insertions(+), 2566 deletions(-)
- rewrite .Rproj.user/EED8CAD8/console06/INDEX001 (70%)
- create mode 100644 .gitignore
- create mode 100644 content/blog/2015-07-23-r-rmarkdown.Rmd
- create mode 100644 content/blog/2015-07-23-r-rmarkdown.html
- create mode 100644 content/blog/2020-05-10-a-bit-about-me.html
- rewrite content/project1.html (98%)
- rewrite content/project2.html (97%)
- create mode 100644 public/BMI3.csv
- create mode 100644 public/NOBS2.csv
- create mode 100644 public/blog/2020-05-10-a-bit-about-me.Rmd
- create mode 100644 public/blog/2020-05-10-a-bit-about-me.html
- rewrite public/blog/index.xml (72%)
- rewrite public/index.xml (68%)
- create mode 100644 public/project1/index.html
- create mode 100644 public/project1_files/figure-html/unnamed-chunk-26-1.png
- create mode 100644 public/project1_files/figure-html/unnamed-chunk-27-1.png
- create mode 100644 public/project1_files/figure-html/unnamed-chunk-28-1.png
- create mode 100644 public/project1_files/figure-html/unnamed-chunk-29-1.png
- create mode 100644 public/project1_files/figure-html/unnamed-chunk-30-1.png
- create mode 100644 public/project1_files/figure-html/unnamed-chunk-34-1.png
- create mode 100644 public/project1_files/figure-html/unnamed-chunk-35-1.png
- create mode 100644 public/project2/index.html
- create mode 100644 public/project2_files/figure-html/unnamed-chunk-1-1.png
- create mode 100644 public/project2_files/figure-html/unnamed-chunk-2-1.png
- create mode 100644 public/project2_files/figure-html/unnamed-chunk-2-2.png
- create mode 100644 public/project2_files/figure-html/unnamed-chunk-4-1.png
- create mode 100644 public/project2_files/figure-html/unnamed-chunk-4-2.png
- create mode 100644 public/resume.pdf
- create mode 100644 public/rmarkdown-libs/crosstalk/css/crosstalk.css
- create mode 100644 public/rmarkdown-libs/crosstalk/js/crosstalk.js
- create mode 100644 public/rmarkdown-libs/crosstalk/js/crosstalk.js.map
- create mode 100644 public/rmarkdown-libs/crosstalk/js/crosstalk.min.js
- create mode 100644 public/rmarkdown-libs/crosstalk/js/crosstalk.min.js.map
- create mode 100644 public/rmarkdown-libs/htmlwidgets/htmlwidgets.js
- create mode 100644 public/rmarkdown-libs/jquery/jquery-AUTHORS.txt
- create mode 100644 public/rmarkdown-libs/jquery/jquery.js
- create mode 100644 public/rmarkdown-libs/jquery/jquery.min.js
- create mode 100644 public/rmarkdown-libs/jquery/jquery.min.map
- create mode 100644 public/rmarkdown-libs/plotly-binding/plotly.js
- create mode 100644 public/rmarkdown-libs/plotly-htmlwidgets-css/plotly-htmlwidgets.css
- create mode 100644 public/rmarkdown-libs/plotly-main/plotly-latest.min.js
- create mode 100644 public/rmarkdown-libs/typedarray/typedarray.min.js
- create mode 100644 static/project1_files/figure-html/unnamed-chunk-26-1.png
- create mode 100644 static/project1_files/figure-html/unnamed-chunk-27-1.png
- create mode 100644 static/project1_files/figure-html/unnamed-chunk-28-1.png
- create mode 100644 static/project1_files/figure-html/unnamed-chunk-29-1.png
- create mode 100644 static/project1_files/figure-html/unnamed-chunk-30-1.png
- create mode 100644 static/project1_files/figure-html/unnamed-chunk-34-1.png
- create mode 100644 static/project1_files/figure-html/unnamed-chunk-35-1.png
- create mode 100644 static/project2_files/figure-html/unnamed-chunk-1-1.png
- create mode 100644 static/project2_files/figure-html/unnamed-chunk-2-1.png
- create mode 100644 static/project2_files/figure-html/unnamed-chunk-2-2.png
- create mode 100644 static/project2_files/figure-html/unnamed-chunk-4-1.png
- create mode 100644 static/project2_files/figure-html/unnamed-chunk-4-2.png
- create mode 100644 static/rmarkdown-libs/crosstalk/css/crosstalk.css
- create mode 100644 static/rmarkdown-libs/crosstalk/js/crosstalk.js
- create mode 100644 static/rmarkdown-libs/crosstalk/js/crosstalk.js.map
- create mode 100644 static/rmarkdown-libs/crosstalk/js/crosstalk.min.js
- create mode 100644 static/rmarkdown-libs/crosstalk/js/crosstalk.min.js.map
- create mode 100644 static/rmarkdown-libs/htmlwidgets/htmlwidgets.js
- create mode 100644 static/rmarkdown-libs/jquery/jquery-AUTHORS.txt
- create mode 100644 static/rmarkdown-libs/jquery/jquery.js
- create mode 100644 static/rmarkdown-libs/jquery/jquery.min.js
- create mode 100644 static/rmarkdown-libs/jquery/jquery.min.map
- create mode 100644 static/rmarkdown-libs/plotly-binding/plotly.js
- create mode 100644 static/rmarkdown-libs/plotly-htmlwidgets-css/plotly-htmlwidgets.css
- create mode 100644 static/rmarkdown-libs/plotly-main/plotly-latest.min.js
- create mode 100644 static/rmarkdown-libs/typedarray/typedarray.min.js
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ gitp [K[K push origin master
-Username for 'https://github.com': j dashofginger
-Password for 'https://dashofginger@github.com': 
-Counting objects: 111, done.
-Delta compression using up to 16 threads.
-Compressing objects:   1% (1/97)   Compressing objects:   2% (2/97)   Compressing objects:   3% (3/97)   Compressing objects:   4% (4/97)   Compressing objects:   5% (5/97)   Compressing objects:   6% (6/97)   Compressing objects:   7% (7/97)   Compressing objects:   8% (8/97)   Compressing objects:   9% (9/97)   Compressing objects:  10% (10/97)   Compressing objects:  11% (11/97)   Compressing objects:  12% (12/97)   Compressing objects:  13% (13/97)   Compressing objects:  14% (14/97)   Compressing objects:  15% (15/97)   Compressing objects:  16% (16/97)   Compressing objects:  17% (17/97)   Compressing objects:  18% (18/97)   Compressing objects:  19% (19/97)   Compressing objects:  20% (20/97)   Compressing objects:  21% (21/97)   Compressing objects:  22% (22/97)   Compressing objects:  23% (23/97)   Compressing objects:  24% (24/97)   Compressing objects:  25% (25/97)   Compressing objects:  26% (26/97)   Compressing objects:  27% (27/97)   Compressing objects:  28% (28/97)   Compressing objects:  29% (29/97)   Compressing objects:  30% (30/97)   Compressing objects:  31% (31/97)   Compressing objects:  32% (32/97)   Compressing objects:  34% (33/97)   Compressing objects:  35% (34/97)   Compressing objects:  36% (35/97)   Compressing objects:  37% (36/97)   Compressing objects:  38% (37/97)   Compressing objects:  39% (38/97)   Compressing objects:  40% (39/97)   Compressing objects:  41% (40/97)   Compressing objects:  42% (41/97)   Compressing objects:  43% (42/97)   Compressing objects:  44% (43/97)   Compressing objects:  45% (44/97)   Compressing objects:  46% (45/97)   Compressing objects:  47% (46/97)   Compressing objects:  48% (47/97)   Compressing objects:  49% (48/97)   Compressing objects:  50% (49/97)   Compressing objects:  51% (50/97)   Compressing objects:  52% (51/97)   Compressing objects:  53% (52/97)   Compressing objects:  54% (53/97)   Compressing objects:  55% (54/97)   Compressing objects:  56% (55/97)   Compressing objects:  57% (56/97)   Compressing objects:  58% (57/97)   Compressing objects:  59% (58/97)   Compressing objects:  60% (59/97)   Compressing objects:  61% (60/97)   Compressing objects:  62% (61/97)   Compressing objects:  63% (62/97)   Compressing objects:  64% (63/97)   Compressing objects:  65% (64/97)   Compressing objects:  67% (65/97)   Compressing objects:  68% (66/97)   Compressing objects:  69% (67/97)   Compressing objects:  70% (68/97)   Compressing objects:  71% (69/97)   Compressing objects:  72% (70/97)   Compressing objects:  73% (71/97)   Compressing objects:  74% (72/97)   Compressing objects:  75% (73/97)   Compressing objects:  76% (74/97)   Compressing objects:  77% (75/97)   Compressing objects:  78% (76/97)   Compressing objects:  79% (77/97)   Compressing objects:  80% (78/97)   Compressing objects:  81% (79/97)   Compressing objects:  82% (80/97)   Compressing objects:  83% (81/97)   Compressing objects:  84% (82/97)   Compressing objects:  85% (83/97)   Compressing objects:  86% (84/97)   Compressing objects:  87% (85/97)   Compressing objects:  88% (86/97)   Compressing objects:  89% (87/97)   Compressing objects:  90% (88/97)   Compressing objects:  91% (89/97)   Compressing objects:  92% (90/97)   Compressing objects:  93% (91/97)   Compressing objects:  94% (92/97)   Compressing objects:  95% (93/97)   Compressing objects:  96% (94/97)   Compressing objects:  97% (95/97)   Compressing objects:  98% (96/97)   Compressing objects: 100% (97/97)   Compressing objects: 100% (97/97), done.
-Writing objects:   0% (1/111)   Writing objects:   1% (2/111)   Writing objects:   2% (3/111)   Writing objects:   3% (4/111)   Writing objects:   4% (5/111)   Writing objects:   5% (6/111)   Writing objects:   6% (7/111)   Writing objects:   7% (8/111)   Writing objects:   8% (9/111)   Writing objects:   9% (10/111)   Writing objects:  10% (12/111)   Writing objects:  11% (13/111)   Writing objects:  12% (14/111)   Writing objects:  13% (15/111)   Writing objects:  14% (16/111)   Writing objects:  15% (17/111)   Writing objects:  16% (18/111)   Writing objects:  17% (19/111)   Writing objects:  18% (20/111)   Writing objects:  19% (22/111)   Writing objects:  20% (23/111)   Writing objects:  21% (24/111)   Writing objects:  22% (25/111)   Writing objects:  23% (26/111)   Writing objects:  24% (27/111)   Writing objects:  25% (28/111)   Writing objects:  26% (29/111)   Writing objects:  27% (31/111)   Writing objects:  29% (33/111)   Writing objects:  30% (34/111)   Writing objects:  31% (35/111)   Writing objects:  32% (36/111)   Writing objects:  33% (37/111)   Writing objects:  34% (38/111)   Writing objects:  35% (39/111)   Writing objects:  36% (40/111)   Writing objects:  37% (42/111)   Writing objects:  38% (43/111)   Writing objects:  39% (44/111)   Writing objects:  40% (45/111)   Writing objects:  41% (46/111)   Writing objects:  42% (47/111)   Writing objects:  45% (50/111)   Writing objects:  46% (52/111)   Writing objects:  47% (53/111)   Writing objects:  48% (54/111)   Writing objects:  49% (55/111)   Writing objects:  50% (56/111)   Writing objects:  51% (57/111)   Writing objects:  52% (58/111)   Writing objects:  53% (59/111)   Writing objects:  54% (60/111)   Writing objects:  55% (62/111)   Writing objects:  56% (63/111)   Writing objects:  57% (64/111)   Writing objects:  58% (65/111)   Writing objects:  59% (66/111)   Writing objects:  60% (67/111)   Writing objects:  61% (68/111)   Writing objects:  62% (69/111)   Writing objects:  63% (70/111)   Writing objects:  64% (72/111)   Writing objects:  65% (73/111)   Writing objects:  66% (74/111)   Writing objects:  67% (75/111)   Writing objects:  68% (76/111)   Writing objects:  69% (77/111)   Writing objects:  70% (78/111)   Writing objects:  71% (79/111)   Writing objects:  72% (81/111)   Writing objects:  73% (82/111)   Writing objects:  74% (83/111)   Writing objects:  75% (84/111)   Writing objects:  76% (85/111)   Writing objects:  77% (86/111)   Writing objects:  78% (87/111)   Writing objects:  79% (88/111)   Writing objects:  80% (89/111)   Writing objects:  81% (90/111)   Writing objects:  82% (92/111)   Writing objects:  83% (93/111)   Writing objects:  84% (94/111)   Writing objects:  85% (95/111), 1.06 MiB | 1.91 MiB/s   Writing objects:  86% (96/111), 1.06 MiB | 1.91 MiB/s   Writing objects:  87% (97/111), 1.06 MiB | 1.91 MiB/s   Writing objects:  88% (98/111), 1.06 MiB | 1.91 MiB/s   Writing objects:  89% (99/111), 1.06 MiB | 1.91 MiB/s   Writing objects:  90% (100/111), 1.06 MiB | 1.91 MiB/s   Writing objects:  91% (102/111), 1.06 MiB | 1.91 MiB/s   Writing objects:  92% (103/111), 1.06 MiB | 1.91 MiB/s   Writing objects:  93% (104/111), 1.06 MiB | 1.91 MiB/s   Writing objects:  94% (105/111), 1.06 MiB | 1.91 MiB/s   Writing objects:  95% (106/111), 1.06 MiB | 1.91 MiB/s   Writing objects:  96% (107/111), 1.06 MiB | 1.91 MiB/s   Writing objects:  97% (108/111), 1.06 MiB | 1.91 MiB/s   Writing objects:  98% (109/111), 1.06 MiB | 1.91 MiB/s   Writing objects:  99% (110/111), 1.06 MiB | 1.91 MiB/s   Writing objects: 100% (111/111), 1.06 MiB | 1.91 MiB/s   Writing objects: 100% (111/111), 1.87 MiB | 3.14 MiB/s, done.
-Total 111 (delta 39), reused 0 (delta 0)
-remote: Resolving deltas:   0% (0/39)[Kremote: Resolving deltas:   2% (1/39)[Kremote: Resolving deltas:   5% (2/39)[Kremote: Resolving deltas:   7% (3/39)[Kremote: Resolving deltas:  10% (4/39)[Kremote: Resolving deltas:  12% (5/39)[Kremote: Resolving deltas:  15% (6/39)[Kremote: Resolving deltas:  17% (7/39)[Kremote: Resolving deltas:  20% (8/39)[Kremote: Resolving deltas:  23% (9/39)[Kremote: Resolving deltas:  25% (10/39)[Kremote: Resolving deltas:  28% (11/39)[Kremote: Resolving deltas:  30% (12/39)[Kremote: Resolving deltas:  33% (13/39)[Kremote: Resolving deltas:  35% (14/39)[Kremote: Resolving deltas:  38% (15/39)[Kremote: Resolving deltas:  41% (16/39)[Kremote: Resolving deltas:  43% (17/39)[Kremote: Resolving deltas:  46% (18/39)[Kremote: Resolving deltas:  48% (19/39)[Kremote: Resolving deltas:  51% (20/39)[Kremote: Resolving deltas:  64% (25/39)[Kremote: Resolving deltas:  66% (26/39)[Kremote: Resolving deltas:  71% (28/39)[Kremote: Resolving deltas:  76% (30/39)[Kremote: Resolving deltas:  79% (31/39)[Kremote: Resolving deltas:  82% (32/39)[Kremote: Resolving deltas:  84% (33/39)[Kremote: Resolving deltas:  87% (34/39)[Kremote: Resolving deltas:  89% (35/39)[Kremote: Resolving deltas:  92% (36/39)[Kremote: Resolving deltas:  94% (37/39)[Kremote: Resolving deltas:  97% (38/39)[Kremote: Resolving deltas: 100% (39/39)[Kremote: Resolving deltas: 100% (39/39), completed with 30 local objects.[K
-To https://github.com/dashofginger/Website.git
-   d11e46f..49c4941  master -> master
-]0;/stor/home/lmc3757/Website]0;lmc3757@educcomp01: ~/Website[01;32mlmc3757@educcomp01[00m:[01;34m~/Website[00m$ git add .

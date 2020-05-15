@@ -8,9 +8,11 @@ tags: []
 categories: []
 ---
 
-We are truly out here in 2020.  Let's get super ~far out~ and try to work out some code in both R and Python that anyone can do!
+This is a flashback of little me felt trying out statistics and getting the target, but I still feel this little even though I'm about to #adult.
 
-![](/blog/Python and R Comparison!_files/Screen Shot 2020-05-14 at 10.48.03 PM.png)
+![](/IMG_7439.JPG)
+
+Nevertheless, let's do some coding that anyone can do!  R and Python programming transitions...
 
 ```{r}
 library(reticulate)

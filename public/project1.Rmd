@@ -3,8 +3,8 @@ title: "PROJECT 1"
 author: "Lauren Conner Lmc3757"
 date: "3/15/2020"
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 always_allow_html: yes
 ---
 
@@ -30,9 +30,9 @@ library(dplyr)
 library(tidyr)
 library(tidyverse)
 library(ggplot2)
-BMI3<-read.csv("/Users/laurenconner/Documents/BMI3.csv")
+BMI3<-read.csv("BMI3.csv")
 BMI3<-BMI3%>%select(State.s.Average.Temperature,Urban.or.Rural,BMI)
-NOBS2<-read.csv("/Users/laurenconner/Documents/NOBS2.csv")
+NOBS2<-read.csv("NOBS2.csv")
 mergeddata<-full_join(BMI3,NOBS2, by=c("BMI"="Obesity"))
 glimpse(mergeddata)
 ```

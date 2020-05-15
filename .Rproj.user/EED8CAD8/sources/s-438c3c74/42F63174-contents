@@ -5,6 +5,6 @@ blogdown::install_hugo()
 
 blogdown::new_site(theme="nurlansu/hugo-sustain")
 
-git--version
+blogdown::serve_site()
 
-install.packages("git")
+blogdown::build_site()

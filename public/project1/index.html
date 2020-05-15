@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Lauren Conner" />
+    <meta name="description" content="Describe your website">
+    <link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico">
+    <title>PROJECT 1</title>
+    <meta name="generator" content="Hugo 0.70.0" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../css/main.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,200bold,400old" />
+    
+    <!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+    
+  </head>
+
+  <body>
+    <div id="wrap">
+
+      
+      <nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="../"><i class="fa fa-home"></i></a>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="navbar-collapse collapse" id="navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+        <li><a href="../blog/">BLOG</a></li>
+        
+        <li><a href="../projects/">PROJECTS</a></li>
+        
+        <li><a href="../resume.pdf/">RESUME</a></li>
+        
+      
+      </ul>
+    </div>
+  </div>
+</nav>
+
+      
+      <div class="container">
+        <div class="blog-post">
+          <h3>
+            <strong><a href="../project1/">PROJECT 1</a></strong>
+          </h3>
+        </div>
+        <div class="blog-title">
+          <h4>
+          January 1, 0001
+            &nbsp;&nbsp;
+            
+          </h4>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="blogpost">
+              
+<script src="../rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="../rmarkdown-libs/plotly-binding/plotly.js"></script>
+<script src="../rmarkdown-libs/typedarray/typedarray.min.js"></script>
+<script src="../rmarkdown-libs/jquery/jquery.min.js"></script>
+<link href="../rmarkdown-libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="../rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
+<link href="../rmarkdown-libs/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="../rmarkdown-libs/plotly-main/plotly-latest.min.js"></script>
+
+
+<p><em>Introduction:</em></p>
+<p><em>In this project, I have chosen to analyze the datasets provided by the CDC containing average BMI for each state (containing 52 provinces/states of the United States) which gave the correlating state’s name and ranked the states. In the complementary dataset I chose, I looked through the data.gov national data base for a supplemental dataset containing information on urban and rural areas in each state that they were able to gather and the average BMI and correlating average year-long temperature in Farenheit.</em> <em>I felt in these datasets with the common numeric variable BMI, it would be interesting to have the ability to assess the effect of the environment (whether it be weather dependendent or situational like rural or urban areas) on overall health determined by BMI. Furthermore, identifying these areas by their state would be quite interesting to me to gauge where in the United States it is statistically most unhealthy according to the CDC, looking at all these variables.</em></p>
+<pre class="r"><code>##Joining/Merging Datasets
+r = getOption(&quot;repos&quot;)
+r[&quot;CRAN&quot;] = &quot;http://cran.us.r-project.org&quot; 
+options(repos = r)
+
+install.packages(&quot;tidyr&quot;)</code></pre>
+<pre><code>## Installing package into &#39;/stor/home/lmc3757/R/x86_64-pc-linux-gnu-library/3.4&#39;
+## (as &#39;lib&#39; is unspecified)</code></pre>
+<pre class="r"><code>install.packages(&quot;tidyverse&quot;)</code></pre>
+<pre><code>## Installing package into &#39;/stor/home/lmc3757/R/x86_64-pc-linux-gnu-library/3.4&#39;
+## (as &#39;lib&#39; is unspecified)</code></pre>
+<pre class="r"><code>library(dplyr)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>library(tidyr)
+library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ──────────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ✔ ggplot2 3.2.1     ✔ purrr   0.3.3
+## ✔ tibble  2.1.3     ✔ stringr 1.4.0
+## ✔ readr   1.3.1     ✔ forcats 0.4.0</code></pre>
+<pre><code>## ── Conflicts ─────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>library(ggplot2)
+BMI3&lt;-read.csv(&quot;BMI3.csv&quot;)
+BMI3&lt;-BMI3%&gt;%select(State.s.Average.Temperature,Urban.or.Rural,BMI)
+NOBS2&lt;-read.csv(&quot;NOBS2.csv&quot;)
+mergeddata&lt;-full_join(BMI3,NOBS2, by=c(&quot;BMI&quot;=&quot;Obesity&quot;))
+glimpse(mergeddata)</code></pre>
+<pre><code>## Observations: 127
+## Variables: 5
+## $ State.s.Average.Temperature &lt;dbl&gt; 62.8, 64.8, 64.8, 41.0, 54.2, 48.6, 60.4,…
+## $ Urban.or.Rural              &lt;fct&gt; urban, urban, rural, urban, urban, rural,…
+## $ BMI                         &lt;dbl&gt; 31.2, 28.9, 22.7, 18.8, 20.4, 21.7, 21.0,…
+## $ National_Obesity_By_State   &lt;int&gt; 11, 44, 41, NA, NA, NA, NA, NA, 43, NA, 1…
+## $ NAME                        &lt;fct&gt; Michigan, Maryland, Hawaii, NA, NA, NA, N…</code></pre>
+<p><em>After utilizing the dplyr function full_join, there were 127 rows and 5 variables, not dropping any information or data and instead filling in NA where rows had missing values to match up data with. I utilized the function of full_join in order to take into account each state’s urban and rural BMI values as well and to have enough data to substantially reflect a more average mean when I was to compare the BMIs dependent on their environment and matching state in the other dataset. This could potentially lead to many NAs I will have to filter out in the analysis of summary statistics as some rows will have missing data that does not match up with its counterpart. Additionally, I untidied and retidied one of my datasets I merged in order to avoid confusion when looking back for reference and changed my values from “Obesity” to “BMI” so it correlates with the merged dataset.</em></p>
+<pre class="r"><code>NOBS &lt;- NOBS2%&gt;%pivot_wider(names_from=&quot;NAME&quot;, values_from =&quot;Obesity&quot;)%&gt;%pivot_longer(1:51,values_to=&quot;BMI&quot;)</code></pre>
+<p><em>Wrangling: 6 core dplyr functions</em></p>
+<pre class="r"><code>mergeddata %&gt;% mutate(BMI = as.numeric(BMI))</code></pre>
+<pre><code>##     State.s.Average.Temperature Urban.or.Rural  BMI National_Obesity_By_State
+## 1                          62.8          urban 31.2                        11
+## 2                          64.8          urban 28.9                        44
+## 3                          64.8          rural 22.7                        41
+## 4                          41.0          urban 18.8                        NA
+## 5                          54.2          urban 20.4                        NA
+## 6                          48.6          rural 21.7                        NA
+## 7                          60.4          rural 21.0                        NA
+## 8                          60.3          urban 29.1                        NA
+## 9                          60.4          urban 28.8                        43
+## 10                         26.6          urban 27.6                        NA
+## 11                         66.4          urban 30.8                        19
+## 12                         64.8          rural 28.1                        NA
+## 13                         50.1          rural 17.4                        NA
+## 14                         42.9          rural 20.2                        25
+## 15                         48.6          urban 26.0                        36
+## 16                         64.8          urban 28.8                        43
+## 17                         51.8          rural 18.2                        NA
+## 18                         53.4          rural 17.5                        NA
+## 19                         54.2          rural 23.4                        NA
+## 20                         42.0          urban 27.6                        NA
+## 21                         48.4          urban 21.8                        NA
+## 22                         45.1          urban 18.8                        NA
+## 23                         45.1          urban 17.6                        NA
+## 24                         63.5          urban 26.8                        NA
+## 25                         70.7          rural 28.7                        NA
+## 26                         62.3          rural 25.4                        NA
+## 27                         70.0          urban 31.0                        50
+## 28                         48.4          rural 16.4                        NA
+## 29                         59.4          rural 21.7                        NA
+## 30                         63.4          urban 24.5                        27
+## 31                         54.5          rural 22.3                        NA
+## 32                         42.7          rural 21.5                        NA
+## 33                         49.0          urban 21.7                        NA
+## 34                         42.7          rural 16.8                        NA
+## 35                         42.7          urban 22.4                        NA
+## 36                         55.6          rural 20.3                        NA
+## 37                         42.7          rural 21.9                        NA
+## 38                         55.3          urban 29.9                        NA
+## 39                         51.7          rural 21.3                        NA
+## 40                         43.8          rural 18.8                        NA
+## 41                         63.5          urban 28.7                        NA
+## 42                         70.7          urban 29.0                        29
+## 43                         59.0          urban 24.5                        27
+## 44                         59.4          urban 22.0                        NA
+## 45                         45.1          rural 20.5                        NA
+## 46                         45.0          urban 20.3                        NA
+## 47                         49.9          rural 19.4                        NA
+## 48                         60.4          urban 26.0                        36
+## 49                         64.8          urban 27.7                        NA
+## 50                         57.6          rural 24.3                        32
+## 51                         45.4          rural 18.5                        NA
+## 52                         64.8          urban 16.2                        NA
+## 53                         53.4          rural 21.3                        NA
+## 54                         45.4          urban 28.0                        NA
+## 55                         40.4          rural 20.7                        NA
+## 56                         54.2          rural 23.0                        NA
+## 57                         48.3          rural 28.6                        12
+## 58                         59.0          urban 21.9                        NA
+## 59                         43.1          rural 20.1                        NA
+## 60                         51.8          urban 26.6                        NA
+## 61                         47.9          rural 20.3                        NA
+## 62                         48.3          urban 24.0                        NA
+## 63                         66.4          urban 27.8                        NA
+## 64                         44.4          rural 28.0                        NA
+## 65                         64.8          urban 30.2                        NA
+## 66                         41.2          urban 19.0                        NA
+## 67                         62.4          urban 31.3                        31
+## 68                         50.1          urban 23.0                        NA
+## 69                         66.4          urban 25.6                        49
+## 70                         65.2          rural 24.3                        32
+## 71                         60.4          urban 32.0                        NA
+## 72                         40.4          rural 28.4                        42
+## 73                         47.9          rural 25.0                        10
+## 74                         54.2          urban 29.6                        NA
+## 75                         47.9          urban 22.3                        NA
+## 76                         62.8          urban 29.6                        NA
+## 77                         60.3          urban 22.0                        NA
+## 78                         59.6          rural 21.7                        NA
+## 79                         50.7          urban 19.3                        NA
+## 80                         44.4          rural 18.7                        NA
+## 81                         52.7          urban 22.0                        NA
+## 82                         48.6          urban 21.0                        NA
+## 83                         44.4          rural 15.9                        NA
+## 84                         60.4          urban 16.2                        NA
+## 85                         45.2          rural 16.2                        NA
+## 86                         53.4          urban 26.0                        36
+## 87                         62.4          rural 25.1                        48
+## 88                         57.6          urban 32.0                        NA
+## 89                         60.2          rural 19.3                        NA
+## 90                         53.4          urban 23.0                        NA
+## 91                         40.4          rural 21.4                        NA
+## 92                         54.2          urban 24.2                         2
+## 93                           NA                  NA                        NA
+## 94                           NA                  NA                        NA
+## 95                           NA           &lt;NA&gt; 32.4                         1
+## 96                           NA           &lt;NA&gt; 34.6                         3
+## 97                           NA           &lt;NA&gt; 30.7                         4
+## 98                           NA           &lt;NA&gt; 30.7                         5
+## 99                           NA           &lt;NA&gt; 30.1                         6
+## 100                          NA           &lt;NA&gt; 29.2                         7
+## 101                          NA           &lt;NA&gt; 33.8                         8
+## 102                          NA           &lt;NA&gt; 36.2                         9
+## 103                          NA           &lt;NA&gt; 29.8                        13
+## 104                          NA           &lt;NA&gt; 23.6                        14
+## 105                          NA           &lt;NA&gt; 26.1                        15
+## 106                          NA           &lt;NA&gt; 31.4                        16
+## 107                          NA           &lt;NA&gt; 26.4                        17
+## 108                          NA           &lt;NA&gt; 29.8                        18
+## 109                          NA           &lt;NA&gt; 32.4                        20
+## 110                          NA           &lt;NA&gt; 32.1                        21
+## 111                          NA           &lt;NA&gt; 30.4                        22
+## 112                          NA           &lt;NA&gt; 34.5                        23
+## 113                          NA           &lt;NA&gt; 35.6                        24
+## 114                          NA           &lt;NA&gt; 30.1                        26
+## 115                          NA           &lt;NA&gt; 33.9                        28
+## 116                          NA           &lt;NA&gt; 35.6                        30
+## 117                          NA           &lt;NA&gt; 26.7                        33
+## 118                          NA           &lt;NA&gt; 25.3                        34
+## 119                          NA           &lt;NA&gt; 22.1                        35
+## 120                          NA           &lt;NA&gt; 35.6                        37
+## 121                          NA           &lt;NA&gt; 29.5                        38
+## 122                          NA           &lt;NA&gt; 31.7                        39
+## 123                          NA           &lt;NA&gt; 30.0                        40
+## 124                          NA           &lt;NA&gt; 29.7                        45
+## 125                          NA           &lt;NA&gt; 30.0                        46
+## 126                          NA           &lt;NA&gt; 34.2                        47
+## 127                          NA           &lt;NA&gt; 26.3                        51
+##                     NAME
+## 1               Michigan
+## 2               Maryland
+## 3                 Hawaii
+## 4                   &lt;NA&gt;
+## 5                   &lt;NA&gt;
+## 6                   &lt;NA&gt;
+## 7                   &lt;NA&gt;
+## 8                   &lt;NA&gt;
+## 9             New Mexico
+## 10                  &lt;NA&gt;
+## 11              Illinois
+## 12                  &lt;NA&gt;
+## 13                  &lt;NA&gt;
+## 14              Colorado
+## 15          Rhode Island
+## 16            New Mexico
+## 17                  &lt;NA&gt;
+## 18                  &lt;NA&gt;
+## 19                  &lt;NA&gt;
+## 20                  &lt;NA&gt;
+## 21                  &lt;NA&gt;
+## 22                  &lt;NA&gt;
+## 23                  &lt;NA&gt;
+## 24                  &lt;NA&gt;
+## 25                  &lt;NA&gt;
+## 26                  &lt;NA&gt;
+## 27          North Dakota
+## 28                  &lt;NA&gt;
+## 29                  &lt;NA&gt;
+## 30                  Utah
+## 31                  &lt;NA&gt;
+## 32                  &lt;NA&gt;
+## 33                  &lt;NA&gt;
+## 34                  &lt;NA&gt;
+## 35                  &lt;NA&gt;
+## 36                  &lt;NA&gt;
+## 37                  &lt;NA&gt;
+## 38                  &lt;NA&gt;
+## 39                  &lt;NA&gt;
+## 40                  &lt;NA&gt;
+## 41                  &lt;NA&gt;
+## 42               Wyoming
+## 43                  Utah
+## 44                  &lt;NA&gt;
+## 45                  &lt;NA&gt;
+## 46                  &lt;NA&gt;
+## 47                  &lt;NA&gt;
+## 48          Rhode Island
+## 49                  &lt;NA&gt;
+## 50         Massachusetts
+## 51                  &lt;NA&gt;
+## 52                  &lt;NA&gt;
+## 53                  &lt;NA&gt;
+## 54                  &lt;NA&gt;
+## 55                  &lt;NA&gt;
+## 56                  &lt;NA&gt;
+## 57                 Idaho
+## 58                  &lt;NA&gt;
+## 59                  &lt;NA&gt;
+## 60                  &lt;NA&gt;
+## 61                  &lt;NA&gt;
+## 62                  &lt;NA&gt;
+## 63                  &lt;NA&gt;
+## 64                  &lt;NA&gt;
+## 65                  &lt;NA&gt;
+## 66                  &lt;NA&gt;
+## 67               Indiana
+## 68                  &lt;NA&gt;
+## 69            New Jersey
+## 70         Massachusetts
+## 71                  &lt;NA&gt;
+## 72               Arizona
+## 73              New York
+## 74                  &lt;NA&gt;
+## 75                  &lt;NA&gt;
+## 76                  &lt;NA&gt;
+## 77                  &lt;NA&gt;
+## 78                  &lt;NA&gt;
+## 79                  &lt;NA&gt;
+## 80                  &lt;NA&gt;
+## 81                  &lt;NA&gt;
+## 82                  &lt;NA&gt;
+## 83                  &lt;NA&gt;
+## 84                  &lt;NA&gt;
+## 85                  &lt;NA&gt;
+## 86          Rhode Island
+## 87               Vermont
+## 88                  &lt;NA&gt;
+## 89                  &lt;NA&gt;
+## 90                  &lt;NA&gt;
+## 91                  &lt;NA&gt;
+## 92            California
+## 93                  &lt;NA&gt;
+## 94                  &lt;NA&gt;
+## 95                 Texas
+## 96              Kentucky
+## 97               Georgia
+## 98             Wisconsin
+## 99                Oregon
+## 100             Virginia
+## 101            Tennessee
+## 102            Louisiana
+## 103               Alaska
+## 104              Montana
+## 105            Minnesota
+## 106             Nebraska
+## 107           Washington
+## 108                 Ohio
+## 109             Missouri
+## 110                 Iowa
+## 111         South Dakota
+## 112             Arkansas
+## 113          Mississippi
+## 114       North Carolina
+## 115             Oklahoma
+## 116        West Virginia
+## 117               Nevada
+## 118          Connecticut
+## 119 District of Columbia
+## 120              Alabama
+## 121         Rpuerto Rico
+## 122       South Carolina
+## 123                Maine
+## 124             Delaware
+## 125         Pennsylvania
+## 126               Kansas
+## 127        New Hampshire</code></pre>
+<pre class="r"><code>mergeddata%&gt;%filter(between(BMI,15.9,25)) %&gt;% na.omit(NAME)</code></pre>
+<pre><code>##    State.s.Average.Temperature Urban.or.Rural  BMI National_Obesity_By_State
+## 1                         64.8          rural 22.7                        41
+## 7                         42.9          rural 20.2                        25
+## 16                        63.4          urban 24.5                        27
+## 26                        59.0          urban 24.5                        27
+## 31                        57.6          rural 24.3                        32
+## 43                        65.2          rural 24.3                        32
+## 44                        47.9          rural 25.0                        10
+## 58                        54.2          urban 24.2                         2
+##             NAME
+## 1         Hawaii
+## 7       Colorado
+## 16          Utah
+## 26          Utah
+## 31 Massachusetts
+## 43 Massachusetts
+## 44      New York
+## 58    California</code></pre>
+<p><em>In order to find how many states’ mean BMI was considered underweight/healthy by the CDC standard, I found that 6 out of the 52 provinces (including Puerto Rico and DC in the assessment) considered in the dataset of the US were considered underweight or healthy. I did this by utilizing the filter function in order to assess any states that BMI value fell under the value 25, which CDC said is the maximum healthy BMI.</em> <em>In my data, I distinguished the categorical variables as: urban or rural and name of state. On the other hand, the numerical variables were as follows: BMI; National Obesity by State; State’s Average Temperature.</em></p>
+<pre class="r"><code>mergeddata%&gt;%select(contains(&quot;State&quot;)) %&gt;%na.omit()</code></pre>
+<pre><code>##    State.s.Average.Temperature National_Obesity_By_State
+## 1                         62.8                        11
+## 2                         64.8                        44
+## 3                         64.8                        41
+## 9                         60.4                        43
+## 11                        66.4                        19
+## 14                        42.9                        25
+## 15                        48.6                        36
+## 16                        64.8                        43
+## 27                        70.0                        50
+## 30                        63.4                        27
+## 42                        70.7                        29
+## 43                        59.0                        27
+## 48                        60.4                        36
+## 50                        57.6                        32
+## 57                        48.3                        12
+## 67                        62.4                        31
+## 69                        66.4                        49
+## 70                        65.2                        32
+## 72                        40.4                        42
+## 73                        47.9                        10
+## 86                        53.4                        36
+## 87                        62.4                        48
+## 92                        54.2                         2</code></pre>
+<pre class="r"><code>mergeddata%&gt;%select(contains(&quot;n&quot;))%&gt;%na.omit()</code></pre>
+<pre><code>##    Urban.or.Rural National_Obesity_By_State          NAME
+## 1           urban                        11      Michigan
+## 2           urban                        44      Maryland
+## 3           rural                        41        Hawaii
+## 9           urban                        43    New Mexico
+## 11          urban                        19      Illinois
+## 14          rural                        25      Colorado
+## 15          urban                        36  Rhode Island
+## 16          urban                        43    New Mexico
+## 27          urban                        50  North Dakota
+## 30          urban                        27          Utah
+## 42          urban                        29       Wyoming
+## 43          urban                        27          Utah
+## 48          urban                        36  Rhode Island
+## 50          rural                        32 Massachusetts
+## 57          rural                        12         Idaho
+## 67          urban                        31       Indiana
+## 69          urban                        49    New Jersey
+## 70          rural                        32 Massachusetts
+## 72          rural                        42       Arizona
+## 73          rural                        10      New York
+## 86          urban                        36  Rhode Island
+## 87          rural                        48       Vermont
+## 92          urban                         2    California</code></pre>
+<pre class="r"><code>mergeddata%&gt;%mutate(average = State.s.Average.Temperature/BMI)</code></pre>
+<pre><code>##     State.s.Average.Temperature Urban.or.Rural  BMI National_Obesity_By_State
+## 1                          62.8          urban 31.2                        11
+## 2                          64.8          urban 28.9                        44
+## 3                          64.8          rural 22.7                        41
+## 4                          41.0          urban 18.8                        NA
+## 5                          54.2          urban 20.4                        NA
+## 6                          48.6          rural 21.7                        NA
+## 7                          60.4          rural 21.0                        NA
+## 8                          60.3          urban 29.1                        NA
+## 9                          60.4          urban 28.8                        43
+## 10                         26.6          urban 27.6                        NA
+## 11                         66.4          urban 30.8                        19
+## 12                         64.8          rural 28.1                        NA
+## 13                         50.1          rural 17.4                        NA
+## 14                         42.9          rural 20.2                        25
+## 15                         48.6          urban 26.0                        36
+## 16                         64.8          urban 28.8                        43
+## 17                         51.8          rural 18.2                        NA
+## 18                         53.4          rural 17.5                        NA
+## 19                         54.2          rural 23.4                        NA
+## 20                         42.0          urban 27.6                        NA
+## 21                         48.4          urban 21.8                        NA
+## 22                         45.1          urban 18.8                        NA
+## 23                         45.1          urban 17.6                        NA
+## 24                         63.5          urban 26.8                        NA
+## 25                         70.7          rural 28.7                        NA
+## 26                         62.3          rural 25.4                        NA
+## 27                         70.0          urban 31.0                        50
+## 28                         48.4          rural 16.4                        NA
+## 29                         59.4          rural 21.7                        NA
+## 30                         63.4          urban 24.5                        27
+## 31                         54.5          rural 22.3                        NA
+## 32                         42.7          rural 21.5                        NA
+## 33                         49.0          urban 21.7                        NA
+## 34                         42.7          rural 16.8                        NA
+## 35                         42.7          urban 22.4                        NA
+## 36                         55.6          rural 20.3                        NA
+## 37                         42.7          rural 21.9                        NA
+## 38                         55.3          urban 29.9                        NA
+## 39                         51.7          rural 21.3                        NA
+## 40                         43.8          rural 18.8                        NA
+## 41                         63.5          urban 28.7                        NA
+## 42                         70.7          urban 29.0                        29
+## 43                         59.0          urban 24.5                        27
+## 44                         59.4          urban 22.0                        NA
+## 45                         45.1          rural 20.5                        NA
+## 46                         45.0          urban 20.3                        NA
+## 47                         49.9          rural 19.4                        NA
+## 48                         60.4          urban 26.0                        36
+## 49                         64.8          urban 27.7                        NA
+## 50                         57.6          rural 24.3                        32
+## 51                         45.4          rural 18.5                        NA
+## 52                         64.8          urban 16.2                        NA
+## 53                         53.4          rural 21.3                        NA
+## 54                         45.4          urban 28.0                        NA
+## 55                         40.4          rural 20.7                        NA
+## 56                         54.2          rural 23.0                        NA
+## 57                         48.3          rural 28.6                        12
+## 58                         59.0          urban 21.9                        NA
+## 59                         43.1          rural 20.1                        NA
+## 60                         51.8          urban 26.6                        NA
+## 61                         47.9          rural 20.3                        NA
+## 62                         48.3          urban 24.0                        NA
+## 63                         66.4          urban 27.8                        NA
+## 64                         44.4          rural 28.0                        NA
+## 65                         64.8          urban 30.2                        NA
+## 66                         41.2          urban 19.0                        NA
+## 67                         62.4          urban 31.3                        31
+## 68                         50.1          urban 23.0                        NA
+## 69                         66.4          urban 25.6                        49
+## 70                         65.2          rural 24.3                        32
+## 71                         60.4          urban 32.0                        NA
+## 72                         40.4          rural 28.4                        42
+## 73                         47.9          rural 25.0                        10
+## 74                         54.2          urban 29.6                        NA
+## 75                         47.9          urban 22.3                        NA
+## 76                         62.8          urban 29.6                        NA
+## 77                         60.3          urban 22.0                        NA
+## 78                         59.6          rural 21.7                        NA
+## 79                         50.7          urban 19.3                        NA
+## 80                         44.4          rural 18.7                        NA
+## 81                         52.7          urban 22.0                        NA
+## 82                         48.6          urban 21.0                        NA
+## 83                         44.4          rural 15.9                        NA
+## 84                         60.4          urban 16.2                        NA
+## 85                         45.2          rural 16.2                        NA
+## 86                         53.4          urban 26.0                        36
+## 87                         62.4          rural 25.1                        48
+## 88                         57.6          urban 32.0                        NA
+## 89                         60.2          rural 19.3                        NA
+## 90                         53.4          urban 23.0                        NA
+## 91                         40.4          rural 21.4                        NA
+## 92                         54.2          urban 24.2                         2
+## 93                           NA                  NA                        NA
+## 94                           NA                  NA                        NA
+## 95                           NA           &lt;NA&gt; 32.4                         1
+## 96                           NA           &lt;NA&gt; 34.6                         3
+## 97                           NA           &lt;NA&gt; 30.7                         4
+## 98                           NA           &lt;NA&gt; 30.7                         5
+## 99                           NA           &lt;NA&gt; 30.1                         6
+## 100                          NA           &lt;NA&gt; 29.2                         7
+## 101                          NA           &lt;NA&gt; 33.8                         8
+## 102                          NA           &lt;NA&gt; 36.2                         9
+## 103                          NA           &lt;NA&gt; 29.8                        13
+## 104                          NA           &lt;NA&gt; 23.6                        14
+## 105                          NA           &lt;NA&gt; 26.1                        15
+## 106                          NA           &lt;NA&gt; 31.4                        16
+## 107                          NA           &lt;NA&gt; 26.4                        17
+## 108                          NA           &lt;NA&gt; 29.8                        18
+## 109                          NA           &lt;NA&gt; 32.4                        20
+## 110                          NA           &lt;NA&gt; 32.1                        21
+## 111                          NA           &lt;NA&gt; 30.4                        22
+## 112                          NA           &lt;NA&gt; 34.5                        23
+## 113                          NA           &lt;NA&gt; 35.6                        24
+## 114                          NA           &lt;NA&gt; 30.1                        26
+## 115                          NA           &lt;NA&gt; 33.9                        28
+## 116                          NA           &lt;NA&gt; 35.6                        30
+## 117                          NA           &lt;NA&gt; 26.7                        33
+## 118                          NA           &lt;NA&gt; 25.3                        34
+## 119                          NA           &lt;NA&gt; 22.1                        35
+## 120                          NA           &lt;NA&gt; 35.6                        37
+## 121                          NA           &lt;NA&gt; 29.5                        38
+## 122                          NA           &lt;NA&gt; 31.7                        39
+## 123                          NA           &lt;NA&gt; 30.0                        40
+## 124                          NA           &lt;NA&gt; 29.7                        45
+## 125                          NA           &lt;NA&gt; 30.0                        46
+## 126                          NA           &lt;NA&gt; 34.2                        47
+## 127                          NA           &lt;NA&gt; 26.3                        51
+##                     NAME   average
+## 1               Michigan 2.0128205
+## 2               Maryland 2.2422145
+## 3                 Hawaii 2.8546256
+## 4                   &lt;NA&gt; 2.1808511
+## 5                   &lt;NA&gt; 2.6568627
+## 6                   &lt;NA&gt; 2.2396313
+## 7                   &lt;NA&gt; 2.8761905
+## 8                   &lt;NA&gt; 2.0721649
+## 9             New Mexico 2.0972222
+## 10                  &lt;NA&gt; 0.9637681
+## 11              Illinois 2.1558442
+## 12                  &lt;NA&gt; 2.3060498
+## 13                  &lt;NA&gt; 2.8793103
+## 14              Colorado 2.1237624
+## 15          Rhode Island 1.8692308
+## 16            New Mexico 2.2500000
+## 17                  &lt;NA&gt; 2.8461538
+## 18                  &lt;NA&gt; 3.0514286
+## 19                  &lt;NA&gt; 2.3162393
+## 20                  &lt;NA&gt; 1.5217391
+## 21                  &lt;NA&gt; 2.2201835
+## 22                  &lt;NA&gt; 2.3989362
+## 23                  &lt;NA&gt; 2.5625000
+## 24                  &lt;NA&gt; 2.3694030
+## 25                  &lt;NA&gt; 2.4634146
+## 26                  &lt;NA&gt; 2.4527559
+## 27          North Dakota 2.2580645
+## 28                  &lt;NA&gt; 2.9512195
+## 29                  &lt;NA&gt; 2.7373272
+## 30                  Utah 2.5877551
+## 31                  &lt;NA&gt; 2.4439462
+## 32                  &lt;NA&gt; 1.9860465
+## 33                  &lt;NA&gt; 2.2580645
+## 34                  &lt;NA&gt; 2.5416667
+## 35                  &lt;NA&gt; 1.9062500
+## 36                  &lt;NA&gt; 2.7389163
+## 37                  &lt;NA&gt; 1.9497717
+## 38                  &lt;NA&gt; 1.8494983
+## 39                  &lt;NA&gt; 2.4272300
+## 40                  &lt;NA&gt; 2.3297872
+## 41                  &lt;NA&gt; 2.2125436
+## 42               Wyoming 2.4379310
+## 43                  Utah 2.4081633
+## 44                  &lt;NA&gt; 2.7000000
+## 45                  &lt;NA&gt; 2.2000000
+## 46                  &lt;NA&gt; 2.2167488
+## 47                  &lt;NA&gt; 2.5721649
+## 48          Rhode Island 2.3230769
+## 49                  &lt;NA&gt; 2.3393502
+## 50         Massachusetts 2.3703704
+## 51                  &lt;NA&gt; 2.4540541
+## 52                  &lt;NA&gt; 4.0000000
+## 53                  &lt;NA&gt; 2.5070423
+## 54                  &lt;NA&gt; 1.6214286
+## 55                  &lt;NA&gt; 1.9516908
+## 56                  &lt;NA&gt; 2.3565217
+## 57                 Idaho 1.6888112
+## 58                  &lt;NA&gt; 2.6940639
+## 59                  &lt;NA&gt; 2.1442786
+## 60                  &lt;NA&gt; 1.9473684
+## 61                  &lt;NA&gt; 2.3596059
+## 62                  &lt;NA&gt; 2.0125000
+## 63                  &lt;NA&gt; 2.3884892
+## 64                  &lt;NA&gt; 1.5857143
+## 65                  &lt;NA&gt; 2.1456954
+## 66                  &lt;NA&gt; 2.1684211
+## 67               Indiana 1.9936102
+## 68                  &lt;NA&gt; 2.1782609
+## 69            New Jersey 2.5937500
+## 70         Massachusetts 2.6831276
+## 71                  &lt;NA&gt; 1.8875000
+## 72               Arizona 1.4225352
+## 73              New York 1.9160000
+## 74                  &lt;NA&gt; 1.8310811
+## 75                  &lt;NA&gt; 2.1479821
+## 76                  &lt;NA&gt; 2.1216216
+## 77                  &lt;NA&gt; 2.7409091
+## 78                  &lt;NA&gt; 2.7465438
+## 79                  &lt;NA&gt; 2.6269430
+## 80                  &lt;NA&gt; 2.3743316
+## 81                  &lt;NA&gt; 2.3954545
+## 82                  &lt;NA&gt; 2.3142857
+## 83                  &lt;NA&gt; 2.7924528
+## 84                  &lt;NA&gt; 3.7283951
+## 85                  &lt;NA&gt; 2.7901235
+## 86          Rhode Island 2.0538462
+## 87               Vermont 2.4860558
+## 88                  &lt;NA&gt; 1.8000000
+## 89                  &lt;NA&gt; 3.1191710
+## 90                  &lt;NA&gt; 2.3217391
+## 91                  &lt;NA&gt; 1.8878505
+## 92            California 2.2396694
+## 93                  &lt;NA&gt;        NA
+## 94                  &lt;NA&gt;        NA
+## 95                 Texas        NA
+## 96              Kentucky        NA
+## 97               Georgia        NA
+## 98             Wisconsin        NA
+## 99                Oregon        NA
+## 100             Virginia        NA
+## 101            Tennessee        NA
+## 102            Louisiana        NA
+## 103               Alaska        NA
+## 104              Montana        NA
+## 105            Minnesota        NA
+## 106             Nebraska        NA
+## 107           Washington        NA
+## 108                 Ohio        NA
+## 109             Missouri        NA
+## 110                 Iowa        NA
+## 111         South Dakota        NA
+## 112             Arkansas        NA
+## 113          Mississippi        NA
+## 114       North Carolina        NA
+## 115             Oklahoma        NA
+## 116        West Virginia        NA
+## 117               Nevada        NA
+## 118          Connecticut        NA
+## 119 District of Columbia        NA
+## 120              Alabama        NA
+## 121         Rpuerto Rico        NA
+## 122       South Carolina        NA
+## 123                Maine        NA
+## 124             Delaware        NA
+## 125         Pennsylvania        NA
+## 126               Kansas        NA
+## 127        New Hampshire        NA</code></pre>
+<p><em>Here I played around with my variables using the dplyr function select in order to ascertain only the variables in which “n” or “State” was mentioned in the title. Additionally, I mutated a new variable called ‘average’ which made the BMI a function of State’s Average Temperature and provided a new column for each average division.</em></p>
+<p><em>Summary Statistics for BMI:</em></p>
+<pre class="r"><code>mean(mergeddata$BMI, na.rm = T)</code></pre>
+<pre><code>## [1] 25.44</code></pre>
+<pre class="r"><code>sd(mergeddata$BMI, na.rm = T)</code></pre>
+<pre><code>## [1] 5.209204</code></pre>
+<pre class="r"><code>var(mergeddata$BMI, na.rm = T)</code></pre>
+<pre><code>## [1] 27.13581</code></pre>
+<pre class="r"><code>quantile(mergeddata$BMI, na.rm = T)</code></pre>
+<pre><code>##   0%  25%  50%  75% 100% 
+## 15.9 21.4 25.4 29.7 36.2</code></pre>
+<pre class="r"><code>min(mergeddata$BMI, na.rm = T)</code></pre>
+<pre><code>## [1] 15.9</code></pre>
+<pre class="r"><code>max(mergeddata$BMI, na.rm = T)</code></pre>
+<pre><code>## [1] 36.2</code></pre>
+<pre class="r"><code>n_distinct(mergeddata$BMI, na.rm = T)</code></pre>
+<pre><code>## [1] 90</code></pre>
+<p><em>Summary Statistics for State’s Average Temperature:</em></p>
+<pre class="r"><code>mean(mergeddata$State.s.Average.Temperature, na.rm=T)</code></pre>
+<pre><code>## [1] 53.69239</code></pre>
+<pre class="r"><code>sd(mergeddata$State.s.Average.Temperature, na.rm=T)</code></pre>
+<pre><code>## [1] 8.90903</code></pre>
+<pre class="r"><code>var(mergeddata$State.s.Average.Temperature, na.rm=T)</code></pre>
+<pre><code>## [1] 79.37082</code></pre>
+<pre class="r"><code>quantile(mergeddata$State.s.Average.Temperature, na.rm=T)</code></pre>
+<pre><code>##   0%  25%  50%  75% 100% 
+## 26.6 45.4 53.4 60.4 70.7</code></pre>
+<pre class="r"><code>min(mergeddata$State.s.Average.Temperature, na.rm=T)</code></pre>
+<pre><code>## [1] 26.6</code></pre>
+<pre class="r"><code>max(mergeddata$State.s.Average.Temperature, na.rm=T)</code></pre>
+<pre><code>## [1] 70.7</code></pre>
+<pre class="r"><code>n_distinct(mergeddata$State.s.Average.Temperature, na.rm=T)</code></pre>
+<pre><code>## [1] 47</code></pre>
+<p><em>Summary Statistics for Residence Variable of Urban or Rural</em></p>
+<pre class="r"><code>mergeddata %&gt;% group_by(Urban.or.Rural) %&gt;% summarize(&#39;mean_BMI&#39;=mean(BMI, na.rm=T))%&gt;%arrange(desc(mean_BMI)) %&gt;% na.omit()</code></pre>
+<pre><code>## Warning: Factor `Urban.or.Rural` contains implicit NA, consider using
+## `forcats::fct_explicit_na`</code></pre>
+<pre><code>## # A tibble: 2 x 2
+##   Urban.or.Rural mean_BMI
+##   &lt;fct&gt;             &lt;dbl&gt;
+## 1 urban              25.2
+## 2 rural              21.6</code></pre>
+<p><em>In merging the data sets, I decided to assess if the average BMI was higher in rural or urban areas, indicative of health in certain environmental conditions of residence; however, some rows did not have BMI values assigned to them and therefore I had to use the forcats package that R recommended in order to change the implicit NAs within the variable ‘Urban or Rural’ to a “Missing” value which was also included in the assessment.</em> <em>This data ulitmately shows that the higher mean BMI belonged to Urban over Rural, while missing values showed outliers in the highest range.</em></p>
+<pre class="r"><code>mergeddata_BMIsd&lt;-mergeddata%&gt;%group_by(Urban.or.Rural)%&gt;%summarize(sd_BMI=sd(BMI))%&gt;%arrange(desc(sd_BMI))</code></pre>
+<pre><code>## Warning: Factor `Urban.or.Rural` contains implicit NA, consider using
+## `forcats::fct_explicit_na`</code></pre>
+<pre class="r"><code>glimpse(mergeddata_BMIsd)</code></pre>
+<pre><code>## Observations: 4
+## Variables: 2
+## $ Urban.or.Rural &lt;fct&gt; urban, NA, rural, 
+## $ sd_BMI         &lt;dbl&gt; 4.407524, 3.578124, 3.509402, NA</code></pre>
+<p><em>This shows the correlating standard deviations for the assessment of the categorical variable’s BMIs.</em></p>
+<pre class="r"><code>PropUorR&lt;-table(mergeddata$Urban.or.Rural)
+PropUorR</code></pre>
+<pre><code>## 
+##       rural urban 
+##     2    41    51</code></pre>
+<pre class="r"><code>prop.table(PropUorR)</code></pre>
+<pre><code>## 
+##               rural     urban 
+## 0.0212766 0.4361702 0.5425532</code></pre>
+<p><em>In analysing the categorical variables, there is a proportion of 0.328 rural and 0.408 urban inputs in this data frame; all other values belong to missing data.</em></p>
+<pre class="r"><code>nummerge&lt;-mergeddata%&gt;%select(-Urban.or.Rural,-NAME)
+cormat&lt;-cor(nummerge, use = &quot;complete.obs&quot;)
+glimpse(cormat)%&gt;%round(2)</code></pre>
+<pre><code>##  num [1:3, 1:3] 1 0.362 0.325 0.362 1 ...
+##  - attr(*, &quot;dimnames&quot;)=List of 2
+##   ..$ : chr [1:3] &quot;State.s.Average.Temperature&quot; &quot;BMI&quot; &quot;National_Obesity_By_State&quot;
+##   ..$ : chr [1:3] &quot;State.s.Average.Temperature&quot; &quot;BMI&quot; &quot;National_Obesity_By_State&quot;</code></pre>
+<pre><code>##                             State.s.Average.Temperature  BMI
+## State.s.Average.Temperature                        1.00 0.36
+## BMI                                                0.36 1.00
+## National_Obesity_By_State                          0.32 0.07
+##                             National_Obesity_By_State
+## State.s.Average.Temperature                      0.32
+## BMI                                              0.07
+## National_Obesity_By_State                        1.00</code></pre>
+<p><em>In the first step, I created a new dataframe in order to pick only the numerical values for a correlation matrix to work (with BMI, National Obestity by State, and State’s Average Temperature).</em> <em>In summary statistics, some interesting things to note stood out with the mean BMI being at a value of 25.44, which shows the average BMI of the US is a little overweight. However, this goes with a standard deviation of 5.21 and the minumum BMI being 15.9 while the maximum stood out at a whopping 36.2, belonging to Louisiana. The maximum temperature was 70.7 while the minumum was 26.6. This correlated with associating higher and lower BMI. As we dive further into the analysis, I believe these two variables will show a correlation. Unfortunately, the assigned ranking system of the states did not have as much relationship with the other variables. This could be seen in the correlation matrix made, rounded to 2 decimal places, that indicates the highest correlation between BMI and state’s average temperature; essentially, further proving my hypothesis about their relationship. The lowest correlation was between BMI and national obesity by state/the ranking of state.</em></p>
+<p><em>3 Plots of Data Visualization</em></p>
+<pre class="r"><code># Correlation Heat Map
+library(reshape2)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;reshape2&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:tidyr&#39;:
+## 
+##     smiths</code></pre>
+<pre class="r"><code>melted_cormat &lt;- melt(cormat)
+head(melted_cormat)</code></pre>
+<pre><code>##                          Var1                        Var2     value
+## 1 State.s.Average.Temperature State.s.Average.Temperature 1.0000000
+## 2                         BMI State.s.Average.Temperature 0.3617708
+## 3   National_Obesity_By_State State.s.Average.Temperature 0.3247671
+## 4 State.s.Average.Temperature                         BMI 0.3617708
+## 5                         BMI                         BMI 1.0000000
+## 6   National_Obesity_By_State                         BMI 0.0695437</code></pre>
+<pre class="r"><code>ggplot(data = melted_cormat, aes(x=Var1, y=Var2, fill=value), title(main = &quot;Correlation Heatmap&quot;)) +  geom_tile() +ggtitle(label = &quot;Correlation Heatmap&quot;)</code></pre>
+<p><img src="../project1_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<p><em>In this correlation heatmap, it was difficult to assess essential relationships as there were only three numeric variables to analyze. However, the strongest value in the correlation was evidently between State’s Average Temperature and BMI as it had a value of 0.3618. On the other hand, national obesity by state and BMI had the weakest and most artificial relationship at 0.0695.</em></p>
+<pre class="r"><code>#ggplot: Density Plot
+mergeddata%&gt;% ggplot(aes(x=BMI, fill=Urban.or.Rural)) + theme(legend.position=c(.9,.7)) +
+  geom_density(alpha=.75)</code></pre>
+<pre><code>## Warning: Removed 2 rows containing non-finite values (stat_density).</code></pre>
+<p><img src="../project1_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<p><em>In this data I wanted to represent the relationship between BMI and living in a rural or urban environment utilizing a density plot as the population was quite big and it consisted of averages. It visually exemplifies how urban environments tended to have more of a range, but peaked and had their maximum values well above a value of 35. Showing that it might possibly be less healthy to be living in the city than in a rural environment. The reason I included the Missing values, or “NA”s was because research always has that gray area and will not always have distinct urban or rural acclaimed residences.</em></p>
+<pre class="r"><code>#3gglpot: Linear Regression
+mergeddata %&gt;% ggplot(aes(BMI, State.s.Average.Temperature))+ geom_point(stat = &quot;summary&quot;) + ggtitle(label = &quot;Effect of Temperature on BMI&quot;) + geom_smooth(method=lm)</code></pre>
+<pre><code>## Warning: Removed 35 rows containing non-finite values (stat_summary).</code></pre>
+<pre><code>## No summary function supplied, defaulting to `mean_se()</code></pre>
+<pre><code>## Warning: Removed 35 rows containing non-finite values (stat_smooth).</code></pre>
+<p><img src="../project1_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
+<p><em>In this ggplot, I utilized the scatter plot function of geom_point in order to visually analyze the potential relationship between State’s Average Temperature and BMI; although there are outliers, they are minimal and the regression line set showed a slight positive correlation. This relationship suggests that the higher the state’s average annual temperature, the higher the value of its state’s average BMI.</em></p>
+<p><em>k-means/PAM clustering: Dimensionality Reduction</em></p>
+<pre class="r"><code>install.packages(&quot;cluster&quot;)</code></pre>
+<pre><code>## Installing package into &#39;/stor/home/lmc3757/R/x86_64-pc-linux-gnu-library/3.4&#39;
+## (as &#39;lib&#39; is unspecified)</code></pre>
+<pre class="r"><code>library(cluster)
+pam_dat&lt;-mergeddata%&gt;% select(-NAME, -Urban.or.Rural) %&gt;% na.omit()
+
+sil_width&lt;-vector()
+for(i in 2:10){
+     pam_fit &lt;- pam(pam_dat, k = i)
+     sil_width[i] &lt;- pam_fit$silinfo$avg.width}
+ggplot()+geom_line(aes(x=1:10,y=sil_width))+scale_x_continuous(name=&quot;k&quot;,breaks=1:10)</code></pre>
+<pre><code>## Warning: Removed 1 rows containing missing values (geom_path).</code></pre>
+<p><img src="../project1_files/figure-html/unnamed-chunk-29-1.png" width="672" /> <em>PAM clustering was used to create a clustering data set by first scaling all my numeric variables by selecting out the categorical data. In order to find how many clusters to use, we must find average silhouette width. Therefore, a line plot was created out of the average silhouette widths and it yielded 2 clusters as the highest average.</em></p>
+<pre class="r"><code>pam1&lt;-pam_dat%&gt;%pam(2)
+plot(pam1, which=2)</code></pre>
+<p><img src="../project1_files/figure-html/unnamed-chunk-30-1.png" width="672" /> <em>The average silhouette width was found to be 0.46 after k was set to 2, indicating that the clusters were set to variables with a weak and possibly artificial structure.</em></p>
+<pre class="r"><code>install.packages(&quot;plotly&quot;)</code></pre>
+<pre><code>## Installing package into &#39;/stor/home/lmc3757/R/x86_64-pc-linux-gnu-library/3.4&#39;
+## (as &#39;lib&#39; is unspecified)</code></pre>
+<pre class="r"><code>library(plotly)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;plotly&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:ggplot2&#39;:
+## 
+##     last_plot</code></pre>
+<pre><code>## The following object is masked from &#39;package:stats&#39;:
+## 
+##     filter</code></pre>
+<pre><code>## The following object is masked from &#39;package:graphics&#39;:
+## 
+##     layout</code></pre>
+<pre class="r"><code>pamclust&lt;- pam_dat %&gt;% mutate(cluster=as.factor(pam1$clustering))
+pamclust</code></pre>
+<pre><code>##    State.s.Average.Temperature  BMI National_Obesity_By_State cluster
+## 1                         62.8 31.2                        11       1
+## 2                         64.8 28.9                        44       2
+## 3                         64.8 22.7                        41       2
+## 4                         60.4 28.8                        43       2
+## 5                         66.4 30.8                        19       2
+## 6                         42.9 20.2                        25       1
+## 7                         48.6 26.0                        36       2
+## 8                         64.8 28.8                        43       2
+## 9                         70.0 31.0                        50       2
+## 10                        63.4 24.5                        27       2
+## 11                        70.7 29.0                        29       2
+## 12                        59.0 24.5                        27       2
+## 13                        60.4 26.0                        36       2
+## 14                        57.6 24.3                        32       2
+## 15                        48.3 28.6                        12       1
+## 16                        62.4 31.3                        31       2
+## 17                        66.4 25.6                        49       2
+## 18                        65.2 24.3                        32       2
+## 19                        40.4 28.4                        42       2
+## 20                        47.9 25.0                        10       1
+## 21                        53.4 26.0                        36       2
+## 22                        62.4 25.1                        48       2
+## 23                        54.2 24.2                         2       1</code></pre>
+<p><em>After ruling out any correlating NA’s, the data was slimmed down in the ggplot to assess the cluster groupings as 2 different clusters with some outliers that overlapped.</em></p>
+<pre class="r"><code>confmat&lt;-pamclust%&gt;%group_by(BMI)%&gt;%count(cluster)%&gt;%arrange(desc(n))%&gt;%
+  pivot_wider(names_from=&quot;cluster&quot;,values_from=&quot;n&quot;,values_fill = list(&#39;n&#39;=0))
+confmat</code></pre>
+<pre><code>## # A tibble: 18 x 3
+## # Groups:   BMI [18]
+##      BMI   `2`   `1`
+##    &lt;dbl&gt; &lt;int&gt; &lt;int&gt;
+##  1  26       3     0
+##  2  24.3     2     0
+##  3  24.5     2     0
+##  4  28.8     2     0
+##  5  20.2     0     1
+##  6  22.7     1     0
+##  7  24.2     0     1
+##  8  25       0     1
+##  9  25.1     1     0
+## 10  25.6     1     0
+## 11  28.4     1     0
+## 12  28.6     0     1
+## 13  28.9     1     0
+## 14  29       1     0
+## 15  30.8     1     0
+## 16  31       1     0
+## 17  31.2     0     1
+## 18  31.3     1     0</code></pre>
+<p><em>Here, I checked the accuracy of creating 2 clusters, and they seem to be in majority within a 2 cluster range grouped by BMI due to 2 mediods.</em></p>
+<pre class="r"><code>round(sum(diag(as.matrix(confmat[,2:3])))/sum(confmat[,2:3]),3)</code></pre>
+<pre><code>## [1] 0.13</code></pre>
+<p><em>Unfortunately, due to the clustering inaccuracies of the three total numeric variables, we produced a hit rate of 13%.</em></p>
+<pre class="r"><code>library(ggplot2)
+pamclust %&gt;% ggplot(aes(BMI, State.s.Average.Temperature, National_Obesity_By_State, color=cluster)) + geom_point()</code></pre>
+<p><img src="../project1_files/figure-html/unnamed-chunk-34-1.png" width="672" /> <em>This cluster graph maps out a hard to decipher relationship of clusters but the 2 clusters apparent will be used to assess the results of the data analysis. Before reading in my data, it was a thicker plot of data points and helped distinguish clusters; however, I believe the filtering out of any correlationg NAs or missing data during merging significantly reduced the data to more applicable or realistic measures in order to analyze a relationship.</em></p>
+<pre class="r"><code>library(GGally)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;GGally&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
+## 
+##     nasa</code></pre>
+<pre class="r"><code>pam1$clustering</code></pre>
+<pre><code>##  1  2  3  9 11 14 15 16 27 30 42 43 48 50 57 67 69 70 72 73 86 87 92 
+##  1  2  2  2  2  1  2  2  2  2  2  2  2  2  1  2  2  2  2  1  2  2  1</code></pre>
+<pre class="r"><code>pamclust %&gt;% mutate(cluster=as.factor(pam1$clustering)) %&gt;% ggpairs(columns = 1:3, aes(color=cluster))</code></pre>
+<p><img src="../project1_files/figure-html/unnamed-chunk-35-1.png" width="672" /> <em>In this various assorted plot diagram, I used ggpairs to find that the strongest correlation amongst the variables was between BMI and State’s Average temperature, with a value of 0.362 and the cluster plot showed the relationships separation between the factors of urban and rural to be the clearest; furthermore, the density plot correlating the urban or rural average BMIs showed visually the fact that the higher average for BMIs was consistently within urban areas over rural. The weakest correlation was between National Obesity by State and BMI, with a correlation value of 0.0695, virtually no structure.</em></p>
+<p><em>In this 3D plot, all numeric variables averages were compared and National Obesity by State was input and BMI determined each axes’ shape. While it appears they each have their own clusters, National Obesity of each State and State’s Average Temperature were scattered within the same axis, not independent or showing a correlation with one another. However, BMI and State’s Average Temperature consistently showed a weak structure for a relationship, but yet had potential for a strong relationship if I had more data that did not compute to NA or missing for the BMI column when merged. In future research, I would opt out of including the national obesity by state variable and opt in more data to strengthen the possible relationship existing between BMI and State’s Average Temperature.</em></p>
+<pre class="r"><code>pamclust%&gt;%plot_ly(x= ~BMI, y = ~State.s.Average.Temperature, z = ~National_Obesity_By_State, color= ~cluster,type = &quot;scatter3d&quot;, mode = &quot;markers&quot;, symbol = ~BMI, symbols = c(&#39;circle&#39;,&#39;x&#39;,&#39;square&#39;))</code></pre>
+<pre><code>## Warning: The shape palette can deal with a maximum of 6 discrete values because
+## more than 6 becomes difficult to discriminate; you have 18. Consider
+## specifying shapes manually if you must have them.</code></pre>
+<pre><code>## Warning: The following are not valid symbol codes:
+## &#39;NA&#39;
+## Valid symbols include:
+## &#39;0&#39;, &#39;circle&#39;, &#39;100&#39;, &#39;circle-open&#39;, &#39;200&#39;, &#39;circle-dot&#39;, &#39;300&#39;, &#39;circle-open-dot&#39;, &#39;1&#39;, &#39;square&#39;, &#39;101&#39;, &#39;square-open&#39;, &#39;201&#39;, &#39;square-dot&#39;, &#39;301&#39;, &#39;square-open-dot&#39;, &#39;2&#39;, &#39;diamond&#39;, &#39;102&#39;, &#39;diamond-open&#39;, &#39;202&#39;, &#39;diamond-dot&#39;, &#39;302&#39;, &#39;diamond-open-dot&#39;, &#39;3&#39;, &#39;cross&#39;, &#39;103&#39;, &#39;cross-open&#39;, &#39;203&#39;, &#39;cross-dot&#39;, &#39;303&#39;, &#39;cross-open-dot&#39;, &#39;4&#39;, &#39;x&#39;, &#39;104&#39;, &#39;x-open&#39;, &#39;204&#39;, &#39;x-dot&#39;, &#39;304&#39;, &#39;x-open-dot&#39;, &#39;5&#39;, &#39;triangle-up&#39;, &#39;105&#39;, &#39;triangle-up-open&#39;, &#39;205&#39;, &#39;triangle-up-dot&#39;, &#39;305&#39;, &#39;triangle-up-open-dot&#39;, &#39;6&#39;, &#39;triangle-down&#39;, &#39;106&#39;, &#39;triangle-down-open&#39;, &#39;206&#39;, &#39;triangle-down-dot&#39;, &#39;306&#39;, &#39;triangle-down-open-dot&#39;, &#39;7&#39;, &#39;triangle-left&#39;, &#39;107&#39;, &#39;triangle-left-open&#39;, &#39;207&#39;, &#39;triangle-left-dot&#39;, &#39;307&#39;, &#39;triangle-left-open-dot&#39;, &#39;8&#39;, &#39;triangle-right&#39;, &#39;108&#39;, &#39;triangle-right-open&#39;, &#39;208&#39;, &#39;triangle-right-dot&#39;, &#39;308&#39;, &#39;triangle-right-open-dot&#39;, &#39;9&#39;, &#39;triangle-ne&#39;, &#39;109&#39;, &#39;triangle-ne-open&#39;, &#39;209&#39;, &#39;triangle-ne-dot&#39;, &#39;309&#39;, &#39;triangle-ne-open-dot&#39;, &#39;10&#39;, &#39;triangle-se&#39;, &#39;110&#39;, &#39;triangle-se-open&#39;, &#39;210&#39;, &#39;triangle-se-dot&#39;, &#39;310&#39;, &#39;triangle-se-open-dot&#39;, &#39;11&#39;, &#39;triangle-sw&#39;, &#39;111&#39;, &#39;triangle-sw-open&#39;, &#39;211&#39;, &#39;triangle-sw-dot&#39;, &#39;311&#39;, &#39;triangle-sw-open-dot&#39;, &#39;12&#39;, &#39;triangle-nw&#39;, &#39;112&#39;, &#39;triangle-nw-open&#39;, &#39;212&#39;, &#39;triangle-nw-dot&#39;, &#39;312&#39;, &#39;triangle-nw-open-dot&#39;, &#39;13&#39;, &#39;pentagon&#39;, &#39;113&#39;, &#39;pentagon-open&#39;, &#39;213&#39;, &#39;pentagon-dot&#39;, &#39;313&#39;, &#39;pentagon-open-dot&#39;, &#39;14&#39;, &#39;hexagon&#39;, &#39;114&#39;, &#39;hexagon-open&#39;, &#39;214&#39;, &#39;hexagon-dot&#39;, &#39;314&#39;, &#39;hexagon-open-dot&#39;, &#39;15&#39;, &#39;hexagon2&#39;, &#39;115&#39;, &#39;hexagon2-open&#39;, &#39;215&#39;, &#39;hexagon2-dot&#39;, &#39;315&#39;, &#39;hexagon2-open-dot&#39;, &#39;16&#39;, &#39;octagon&#39;, &#39;116&#39;, &#39;octagon-open&#39;, &#39;216&#39;, &#39;octagon-dot&#39;, &#39;316&#39;, &#39;octagon-open-dot&#39;, &#39;17&#39;, &#39;star&#39;, &#39;117&#39;, &#39;star-open&#39;, &#39;217&#39;, &#39;star-dot&#39;, &#39;317&#39;, &#39;star-open-dot&#39;, &#39;18&#39;, &#39;hexagram&#39;, &#39;118&#39;, &#39;hexagram-open&#39;, &#39;218&#39;, &#39;hexagram-dot&#39;, &#39;318&#39;, &#39;hexagram-open-dot&#39;, &#39;19&#39;, &#39;star-triangle-up&#39;, &#39;119&#39;, &#39;star-triangle-up-open&#39;, &#39;219&#39;, &#39;star-triangle-up-dot&#39;, &#39;319&#39;, &#39;star-triangle-up-open-dot&#39;, &#39;20&#39;, &#39;star-triangle-down&#39;, &#39;120&#39;, &#39;star-triangle-down-open&#39;, &#39;220&#39;, &#39;star-triangle-down-dot&#39;, &#39;320&#39;, &#39;star-triangle-down-open-dot&#39;, &#39;21&#39;, &#39;star-square&#39;, &#39;121&#39;, &#39;star-square-open&#39;, &#39;221&#39;, &#39;star-square-dot&#39;, &#39;321&#39;, &#39;star-square-open-dot&#39;, &#39;22&#39;, &#39;star-diamond&#39;, &#39;122&#39;, &#39;star-diamond-open&#39;, &#39;222&#39;, &#39;star-diamond-dot&#39;, &#39;322&#39;, &#39;star-diamond-open-dot&#39;, &#39;23&#39;, &#39;diamond-tall&#39;, &#39;123&#39;, &#39;diamond-tall-open&#39;, &#39;223&#39;, &#39;diamond-tall-dot&#39;, &#39;323&#39;, &#39;diamond-tall-open-dot&#39;, &#39;24&#39;, &#39;diamond-wide&#39;, &#39;124&#39;, &#39;diamond-wide-open&#39;, &#39;224&#39;, &#39;diamond-wide-dot&#39;, &#39;324&#39;, &#39;diamond-wide-open-dot&#39;, &#39;25&#39;, &#39;hourglass&#39;, &#39;125&#39;, &#39;hourglass-open&#39;, &#39;26&#39;, &#39;bowtie&#39;, &#39;126&#39;, &#39;bowtie-open&#39;, &#39;27&#39;, &#39;circle-cross&#39;, &#39;127&#39;, &#39;circle-cross-open&#39;, &#39;28&#39;, &#39;circle-x&#39;, &#39;128&#39;, &#39;circle-x-open&#39;, &#39;29&#39;, &#39;square-cross&#39;, &#39;129&#39;, &#39;square-cross-open&#39;, &#39;30&#39;, &#39;square-x&#39;, &#39;130&#39;, &#39;square-x-open&#39;, &#39;31&#39;, &#39;diamond-cross&#39;, &#39;131&#39;, &#39;diamond-cross-open&#39;, &#39;32&#39;, &#39;diamond-x&#39;, &#39;132&#39;, &#39;diamond-x-open&#39;, &#39;33&#39;, &#39;cross-thin&#39;, &#39;133&#39;, &#39;cross-thin-open&#39;, &#39;34&#39;, &#39;x-thin&#39;, &#39;134&#39;, &#39;x-thin-open&#39;, &#39;35&#39;, &#39;asterisk&#39;, &#39;135&#39;, &#39;asterisk-open&#39;, &#39;36&#39;, &#39;hash&#39;, &#39;136&#39;, &#39;hash-open&#39;, &#39;236&#39;, &#39;hash-dot&#39;, &#39;336&#39;, &#39;hash-open-dot&#39;, &#39;37&#39;, &#39;y-up&#39;, &#39;137&#39;, &#39;y-up-open&#39;, &#39;38&#39;, &#39;y-down&#39;, &#39;138&#39;, &#39;y-down-open&#39;, &#39;39&#39;, &#39;y-left&#39;, &#39;139&#39;, &#39;y-left-open&#39;, &#39;40&#39;, &#39;y-right&#39;, &#39;140&#39;, &#39;y-right-open&#39;, &#39;41&#39;, &#39;line-ew&#39;, &#39;141&#39;, &#39;line-ew-open&#39;, &#39;42&#39;, &#39;line-ns&#39;, &#39;142&#39;, &#39;line-ns-open&#39;, &#39;43&#39;, &#39;line-ne&#39;, &#39;143&#39;, &#39;line-ne-open&#39;, &#39;44&#39;, &#39;line-nw&#39;, &#39;144&#39;, &#39;line-nw-open
+
+## Warning: The following are not valid symbol codes:
+## &#39;NA&#39;
+## Valid symbols include:
+## &#39;0&#39;, &#39;circle&#39;, &#39;100&#39;, &#39;circle-open&#39;, &#39;200&#39;, &#39;circle-dot&#39;, &#39;300&#39;, &#39;circle-open-dot&#39;, &#39;1&#39;, &#39;square&#39;, &#39;101&#39;, &#39;square-open&#39;, &#39;201&#39;, &#39;square-dot&#39;, &#39;301&#39;, &#39;square-open-dot&#39;, &#39;2&#39;, &#39;diamond&#39;, &#39;102&#39;, &#39;diamond-open&#39;, &#39;202&#39;, &#39;diamond-dot&#39;, &#39;302&#39;, &#39;diamond-open-dot&#39;, &#39;3&#39;, &#39;cross&#39;, &#39;103&#39;, &#39;cross-open&#39;, &#39;203&#39;, &#39;cross-dot&#39;, &#39;303&#39;, &#39;cross-open-dot&#39;, &#39;4&#39;, &#39;x&#39;, &#39;104&#39;, &#39;x-open&#39;, &#39;204&#39;, &#39;x-dot&#39;, &#39;304&#39;, &#39;x-open-dot&#39;, &#39;5&#39;, &#39;triangle-up&#39;, &#39;105&#39;, &#39;triangle-up-open&#39;, &#39;205&#39;, &#39;triangle-up-dot&#39;, &#39;305&#39;, &#39;triangle-up-open-dot&#39;, &#39;6&#39;, &#39;triangle-down&#39;, &#39;106&#39;, &#39;triangle-down-open&#39;, &#39;206&#39;, &#39;triangle-down-dot&#39;, &#39;306&#39;, &#39;triangle-down-open-dot&#39;, &#39;7&#39;, &#39;triangle-left&#39;, &#39;107&#39;, &#39;triangle-left-open&#39;, &#39;207&#39;, &#39;triangle-left-dot&#39;, &#39;307&#39;, &#39;triangle-left-open-dot&#39;, &#39;8&#39;, &#39;triangle-right&#39;, &#39;108&#39;, &#39;triangle-right-open&#39;, &#39;208&#39;, &#39;triangle-right-dot&#39;, &#39;308&#39;, &#39;triangle-right-open-dot&#39;, &#39;9&#39;, &#39;triangle-ne&#39;, &#39;109&#39;, &#39;triangle-ne-open&#39;, &#39;209&#39;, &#39;triangle-ne-dot&#39;, &#39;309&#39;, &#39;triangle-ne-open-dot&#39;, &#39;10&#39;, &#39;triangle-se&#39;, &#39;110&#39;, &#39;triangle-se-open&#39;, &#39;210&#39;, &#39;triangle-se-dot&#39;, &#39;310&#39;, &#39;triangle-se-open-dot&#39;, &#39;11&#39;, &#39;triangle-sw&#39;, &#39;111&#39;, &#39;triangle-sw-open&#39;, &#39;211&#39;, &#39;triangle-sw-dot&#39;, &#39;311&#39;, &#39;triangle-sw-open-dot&#39;, &#39;12&#39;, &#39;triangle-nw&#39;, &#39;112&#39;, &#39;triangle-nw-open&#39;, &#39;212&#39;, &#39;triangle-nw-dot&#39;, &#39;312&#39;, &#39;triangle-nw-open-dot&#39;, &#39;13&#39;, &#39;pentagon&#39;, &#39;113&#39;, &#39;pentagon-open&#39;, &#39;213&#39;, &#39;pentagon-dot&#39;, &#39;313&#39;, &#39;pentagon-open-dot&#39;, &#39;14&#39;, &#39;hexagon&#39;, &#39;114&#39;, &#39;hexagon-open&#39;, &#39;214&#39;, &#39;hexagon-dot&#39;, &#39;314&#39;, &#39;hexagon-open-dot&#39;, &#39;15&#39;, &#39;hexagon2&#39;, &#39;115&#39;, &#39;hexagon2-open&#39;, &#39;215&#39;, &#39;hexagon2-dot&#39;, &#39;315&#39;, &#39;hexagon2-open-dot&#39;, &#39;16&#39;, &#39;octagon&#39;, &#39;116&#39;, &#39;octagon-open&#39;, &#39;216&#39;, &#39;octagon-dot&#39;, &#39;316&#39;, &#39;octagon-open-dot&#39;, &#39;17&#39;, &#39;star&#39;, &#39;117&#39;, &#39;star-open&#39;, &#39;217&#39;, &#39;star-dot&#39;, &#39;317&#39;, &#39;star-open-dot&#39;, &#39;18&#39;, &#39;hexagram&#39;, &#39;118&#39;, &#39;hexagram-open&#39;, &#39;218&#39;, &#39;hexagram-dot&#39;, &#39;318&#39;, &#39;hexagram-open-dot&#39;, &#39;19&#39;, &#39;star-triangle-up&#39;, &#39;119&#39;, &#39;star-triangle-up-open&#39;, &#39;219&#39;, &#39;star-triangle-up-dot&#39;, &#39;319&#39;, &#39;star-triangle-up-open-dot&#39;, &#39;20&#39;, &#39;star-triangle-down&#39;, &#39;120&#39;, &#39;star-triangle-down-open&#39;, &#39;220&#39;, &#39;star-triangle-down-dot&#39;, &#39;320&#39;, &#39;star-triangle-down-open-dot&#39;, &#39;21&#39;, &#39;star-square&#39;, &#39;121&#39;, &#39;star-square-open&#39;, &#39;221&#39;, &#39;star-square-dot&#39;, &#39;321&#39;, &#39;star-square-open-dot&#39;, &#39;22&#39;, &#39;star-diamond&#39;, &#39;122&#39;, &#39;star-diamond-open&#39;, &#39;222&#39;, &#39;star-diamond-dot&#39;, &#39;322&#39;, &#39;star-diamond-open-dot&#39;, &#39;23&#39;, &#39;diamond-tall&#39;, &#39;123&#39;, &#39;diamond-tall-open&#39;, &#39;223&#39;, &#39;diamond-tall-dot&#39;, &#39;323&#39;, &#39;diamond-tall-open-dot&#39;, &#39;24&#39;, &#39;diamond-wide&#39;, &#39;124&#39;, &#39;diamond-wide-open&#39;, &#39;224&#39;, &#39;diamond-wide-dot&#39;, &#39;324&#39;, &#39;diamond-wide-open-dot&#39;, &#39;25&#39;, &#39;hourglass&#39;, &#39;125&#39;, &#39;hourglass-open&#39;, &#39;26&#39;, &#39;bowtie&#39;, &#39;126&#39;, &#39;bowtie-open&#39;, &#39;27&#39;, &#39;circle-cross&#39;, &#39;127&#39;, &#39;circle-cross-open&#39;, &#39;28&#39;, &#39;circle-x&#39;, &#39;128&#39;, &#39;circle-x-open&#39;, &#39;29&#39;, &#39;square-cross&#39;, &#39;129&#39;, &#39;square-cross-open&#39;, &#39;30&#39;, &#39;square-x&#39;, &#39;130&#39;, &#39;square-x-open&#39;, &#39;31&#39;, &#39;diamond-cross&#39;, &#39;131&#39;, &#39;diamond-cross-open&#39;, &#39;32&#39;, &#39;diamond-x&#39;, &#39;132&#39;, &#39;diamond-x-open&#39;, &#39;33&#39;, &#39;cross-thin&#39;, &#39;133&#39;, &#39;cross-thin-open&#39;, &#39;34&#39;, &#39;x-thin&#39;, &#39;134&#39;, &#39;x-thin-open&#39;, &#39;35&#39;, &#39;asterisk&#39;, &#39;135&#39;, &#39;asterisk-open&#39;, &#39;36&#39;, &#39;hash&#39;, &#39;136&#39;, &#39;hash-open&#39;, &#39;236&#39;, &#39;hash-dot&#39;, &#39;336&#39;, &#39;hash-open-dot&#39;, &#39;37&#39;, &#39;y-up&#39;, &#39;137&#39;, &#39;y-up-open&#39;, &#39;38&#39;, &#39;y-down&#39;, &#39;138&#39;, &#39;y-down-open&#39;, &#39;39&#39;, &#39;y-left&#39;, &#39;139&#39;, &#39;y-left-open&#39;, &#39;40&#39;, &#39;y-right&#39;, &#39;140&#39;, &#39;y-right-open&#39;, &#39;41&#39;, &#39;line-ew&#39;, &#39;141&#39;, &#39;line-ew-open&#39;, &#39;42&#39;, &#39;line-ns&#39;, &#39;142&#39;, &#39;line-ns-open&#39;, &#39;43&#39;, &#39;line-ne&#39;, &#39;143&#39;, &#39;line-ne-open&#39;, &#39;44&#39;, &#39;line-nw&#39;, &#39;144&#39;, &#39;line-nw-open</code></pre>
+<pre><code>## Warning in RColorBrewer::brewer.pal(N, &quot;Set2&quot;): minimal value for n is 3, returning requested palette with 3 different levels
+
+## Warning in RColorBrewer::brewer.pal(N, &quot;Set2&quot;): minimal value for n is 3, returning requested palette with 3 different levels</code></pre>
+<div id="htmlwidget-1" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"visdat":{"5f670214b28":["function () ","plotlyVisDat"]},"cur_data":"5f670214b28","attrs":{"5f670214b28":{"x":{},"y":{},"z":{},"mode":"markers","color":{},"symbol":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"symbols":["circle","x","square"],"type":"scatter3d"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"BMI"},"yaxis":{"title":"State.s.Average.Temperature"},"zaxis":{"title":"National_Obesity_By_State"}},"hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[31.2,20.2,28.6,25,24.2],"y":[62.8,42.9,48.3,47.9,54.2],"z":[11,25,12,10,2],"mode":"markers","type":"scatter3d","name":"1","marker":{"color":"rgba(102,194,165,1)","symbol":[null,"circle",null,"asterisk-open","square"],"line":{"color":"rgba(102,194,165,1)"}},"textfont":{"color":"rgba(102,194,165,1)"},"error_y":{"color":"rgba(102,194,165,1)"},"error_x":{"color":"rgba(102,194,165,1)"},"line":{"color":"rgba(102,194,165,1)"},"frame":null},{"x":[28.9,22.7,28.8,30.8,26,28.8,31,24.5,29,24.5,26,24.3,31.3,25.6,24.3,28.4,26,25.1],"y":[64.8,64.8,60.4,66.4,48.6,64.8,70,63.4,70.7,59,60.4,57.6,62.4,66.4,65.2,40.4,53.4,62.4],"z":[44,41,43,19,36,43,50,27,29,27,36,32,31,49,32,42,36,48],"mode":"markers","type":"scatter3d","name":"2","marker":{"color":"rgba(141,160,203,1)","symbol":[null,"x",null,null,null,null,null,"square-x-open",null,"square-x-open",null,"cross-thin-open",null,null,"cross-thin-open",null,null,null],"line":{"color":"rgba(141,160,203,1)"}},"textfont":{"color":"rgba(141,160,203,1)"},"error_y":{"color":"rgba(141,160,203,1)"},"error_x":{"color":"rgba(141,160,203,1)"},"line":{"color":"rgba(141,160,203,1)"},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+
+              <hr>
+              <div class="related-posts">
+                <h5>Related Posts</h5>
+                
+              </div>
+            </div>
+          </div>
+          <hr>
+        <div class="disqus">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+
+    (function() {
+      
+      
+      if (window.location.hostname == "localhost")
+        return;
+
+      var disqus_shortname = '';
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+        </div>
+      </div>
+      
+    </div>
+
+    
+    <footer>
+  <div id="footer">
+    <div class="container">
+      <p class="text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io/">Hugo</a> and
+      <a href="http://www.github.com/nurlansu/hugo-sustain/">sustain</a> with ♥</p>
+    </div>
+  </div>
+</footer>
+<div class="footer"></div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="../js/docs.min.js"></script>
+<script src="../js/main.js"></script>
+
+<script src="../js/ie10-viewport-bug-workaround.js"></script>
+
+
+    
+  </body>
+</html>

@@ -1,5 +1,5 @@
 {
-    "path" : "~/Website/content/blog",
+    "path" : "~/Website/static",
     "sortOrder" : [
         {
             "ascending" : true,

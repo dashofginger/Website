@@ -1,6 +1,0 @@
-+++
-title = "Graduating!"
-description = "Class of 2020"
-tags = []
-categories = []
-+++

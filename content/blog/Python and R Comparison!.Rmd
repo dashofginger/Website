@@ -10,7 +10,7 @@ categories: []
 
 This is a flashback of little me felt trying out statistics and getting the target, but I still feel this little even though I'm about to #adult.
 
-![](/IMG_7439.png)
+![](/blog/Python and R Comparison!_files/alien.png)
 
 Nevertheless, let's do some coding that anyone can do!  R and Python programming transitions...
 

@@ -1,9 +1,0 @@
----
-title: Python and R Comparison
-author: Lauren Conner
-date: '2020-05-14'
-slug: python-and-r-comparison
-categories: []
-tags: []
-description: ''
----

@@ -1,0 +1,54 @@
+---
+title: "Python and R Comparison"
+author: "Lauren Conner"
+date: '2020-05-14'
+description: ''
+slug: python-and-r-comparison
+tags: []
+categories: []
+---
+
+
+
+<p>This is a flashback of little me felt trying out statistics and getting the target, but I still feel this little even though I’m about to #adult.</p>
+<div class="figure">
+<img src="/blog/Python-and-R-Comparison_files/alien.png" />
+
+</div>
+<p>Nevertheless, let’s do some coding that anyone can do! R and Python programming transitions…</p>
+<pre class="r"><code>library(reticulate)
+library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ✔ ggplot2 3.2.1     ✔ purrr   0.3.3
+## ✔ tibble  2.1.3     ✔ dplyr   0.8.3
+## ✔ tidyr   1.0.3     ✔ stringr 1.4.0
+## ✔ readr   1.3.1     ✔ forcats 0.4.0</code></pre>
+<pre><code>## ── Conflicts ───────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>library(stringr)
+
+hey&lt;-&quot;We&#39;re almost out of here!&quot;</code></pre>
+<p>In R, I have called on all packages that I will need to coalesce my coding. Furthermore, I have named a string value entitled “hey” in order to transfer it from R into Python.</p>
+<div id="python" class="section level1">
+<h1>Python</h1>
+<pre class="python"><code>import re
+hey = &quot;#Texas Ex&quot;
+print (r.hey,hey)</code></pre>
+<pre><code>## We&#39;re almost out of here! #Texas Ex</code></pre>
+<p>In this section, we can see how one is able to write and subsequently print out a character for further manipulation in Python to find and indicate certain phrases or characters. First, I named a subject hey in both R and Python with different values. I call on Python in this section to print both the R version of the value and the newly named Python version by utilizing the function print with R’s code first followed by Python’s.</p>
+<pre class="python"><code>import re
+text = &quot;Hook &#39;Em Forever!&quot;
+text</code></pre>
+<pre><code>## &quot;Hook &#39;Em Forever!&quot;</code></pre>
+<pre class="python"><code>re.findall(r&quot;e&quot;,text)</code></pre>
+<pre><code>## [&#39;e&#39;, &#39;e&#39;]</code></pre>
+<p>Assigning a string of characters within a sentence, having “sentence =” or “text =” allows the system to identify what sentence you would like to manipulate. After that, the function re.findall, which is within the re/regex package functions to find any matches to what you indicate after (r’ to find. You specify that it is returned from what you put as your sentence/text.</p>
+</div>
+<div id="now-to-r" class="section level1">
+<h1>Now to R</h1>
+<pre class="r"><code>cat(c(hey,py$hey))</code></pre>
+<pre><code>## We&#39;re almost out of here! #Texas Ex</code></pre>
+<pre class="r"><code>r_text&lt;-py$text</code></pre>
+<p>We can do the same seamless transfer of the object named the same thing (aka “hey”), without conflict of the systems.</p>
+</div>

@@ -1,0 +1,58 @@
+---
+title: "Python and R Comparison"
+author: "Lauren Conner"
+date: '2020-05-14'
+description: ''
+slug: python-and-r-comparison
+tags: []
+categories: []
+---
+
+This is a flashback of little me felt trying out statistics and getting the target, but I still feel this little even though I'm about to #adult.
+
+![](/blog/Python-and-R-Comparison_files/alien.png)
+
+Nevertheless, let's do some coding that anyone can do!  R and Python programming transitions...
+
+```{r}
+library(reticulate)
+library(tidyverse)
+library(stringr)
+
+hey<-"We're almost out of here!"
+```
+
+In R, I have called on all packages that I will need to coalesce my coding.  Furthermore, I have named a string value entitled "hey" in order to transfer it from R into Python.
+
+# Python
+
+```{python}
+import re
+hey = "#Texas Ex"
+print (r.hey,hey)
+```
+
+In this section, we can see how one is able to write and subsequently print out a character for further manipulation in Python to find and indicate certain phrases or characters.  First, I named a subject hey in both R and Python with different values.  I call on Python in this section to print both the R version of the value and the newly named Python version by utilizing the function print with R's code first followed by Python's.
+
+
+```{python}
+import re
+text = "Hook 'Em Forever!"
+text
+
+re.findall(r"e",text)
+```
+
+Assigning a string of characters within a sentence, having "sentence =" or "text =" allows the system to identify what sentence you would like to manipulate.  After that, the function re.findall, which is within the re/regex package functions to find any matches to what you indicate after (r' to find. You specify that it is returned from what you put as your sentence/text.
+
+# Now to R
+
+```{r}
+cat(c(hey,py$hey))
+
+r_text<-py$text
+```
+
+We can do the same seamless transfer of the object named the same thing (aka "hey"), without conflict of the systems.
+
+

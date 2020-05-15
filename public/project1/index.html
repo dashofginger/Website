@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Lauren Conner" />
     <meta name="description" content="Describe your website">
-    <link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico">
     <title>PROJECT 1</title>
     <meta name="generator" content="Hugo 0.70.0" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../css/main.css" />
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,200bold,400old" />
     
@@ -29,7 +29,7 @@
       <nav class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand" href="../"><i class="fa fa-home"></i></a>
+      <a class="navbar-brand" href="/"><i class="fa fa-home"></i></a>
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -40,11 +40,11 @@
       <ul class="nav navbar-nav navbar-right">
       
         
-        <li><a href="../blog/">BLOG</a></li>
+        <li><a href="/blog/">BLOG</a></li>
         
-        <li><a href="../projects/">PROJECTS</a></li>
+        <li><a href="/projects/">PROJECTS</a></li>
         
-        <li><a href="../resume.pdf/">RESUME</a></li>
+        <li><a href="/resume.pdf/">RESUME</a></li>
         
       
       </ul>
@@ -56,7 +56,7 @@
       <div class="container">
         <div class="blog-post">
           <h3>
-            <strong><a href="../project1/">PROJECT 1</a></strong>
+            <strong><a href="/project1/">PROJECT 1</a></strong>
           </h3>
         </div>
         <div class="blog-title">
@@ -70,14 +70,14 @@
           <div class="panel-body">
             <div class="blogpost">
               
-<script src="../rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
-<script src="../rmarkdown-libs/plotly-binding/plotly.js"></script>
-<script src="../rmarkdown-libs/typedarray/typedarray.min.js"></script>
-<script src="../rmarkdown-libs/jquery/jquery.min.js"></script>
-<link href="../rmarkdown-libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
-<script src="../rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
-<link href="../rmarkdown-libs/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="../rmarkdown-libs/plotly-main/plotly-latest.min.js"></script>
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/plotly-binding/plotly.js"></script>
+<script src="/rmarkdown-libs/typedarray/typedarray.min.js"></script>
+<script src="/rmarkdown-libs/jquery/jquery.min.js"></script>
+<link href="/rmarkdown-libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
+<link href="/rmarkdown-libs/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/plotly-main/plotly-latest.min.js"></script>
 
 
 <p><em>Introduction:</em></p>
@@ -104,11 +104,11 @@ install.packages(&quot;tidyr&quot;)</code></pre>
 ##     intersect, setdiff, setequal, union</code></pre>
 <pre class="r"><code>library(tidyr)
 library(tidyverse)</code></pre>
-<pre><code>## ── Attaching packages ──────────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ── Attaching packages ────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
 <pre><code>## ✔ ggplot2 3.2.1     ✔ purrr   0.3.3
 ## ✔ tibble  2.1.3     ✔ stringr 1.4.0
 ## ✔ readr   1.3.1     ✔ forcats 0.4.0</code></pre>
-<pre><code>## ── Conflicts ─────────────────────────────── tidyverse_conflicts() ──
+<pre><code>## ── Conflicts ───────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()</code></pre>
 <pre class="r"><code>library(ggplot2)
@@ -807,20 +807,20 @@ head(melted_cormat)</code></pre>
 ## 5                         BMI                         BMI 1.0000000
 ## 6   National_Obesity_By_State                         BMI 0.0695437</code></pre>
 <pre class="r"><code>ggplot(data = melted_cormat, aes(x=Var1, y=Var2, fill=value), title(main = &quot;Correlation Heatmap&quot;)) +  geom_tile() +ggtitle(label = &quot;Correlation Heatmap&quot;)</code></pre>
-<p><img src="../project1_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<p><img src="/project1_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
 <p><em>In this correlation heatmap, it was difficult to assess essential relationships as there were only three numeric variables to analyze. However, the strongest value in the correlation was evidently between State’s Average Temperature and BMI as it had a value of 0.3618. On the other hand, national obesity by state and BMI had the weakest and most artificial relationship at 0.0695.</em></p>
 <pre class="r"><code>#ggplot: Density Plot
 mergeddata%&gt;% ggplot(aes(x=BMI, fill=Urban.or.Rural)) + theme(legend.position=c(.9,.7)) +
   geom_density(alpha=.75)</code></pre>
 <pre><code>## Warning: Removed 2 rows containing non-finite values (stat_density).</code></pre>
-<p><img src="../project1_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<p><img src="/project1_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
 <p><em>In this data I wanted to represent the relationship between BMI and living in a rural or urban environment utilizing a density plot as the population was quite big and it consisted of averages. It visually exemplifies how urban environments tended to have more of a range, but peaked and had their maximum values well above a value of 35. Showing that it might possibly be less healthy to be living in the city than in a rural environment. The reason I included the Missing values, or “NA”s was because research always has that gray area and will not always have distinct urban or rural acclaimed residences.</em></p>
 <pre class="r"><code>#3gglpot: Linear Regression
 mergeddata %&gt;% ggplot(aes(BMI, State.s.Average.Temperature))+ geom_point(stat = &quot;summary&quot;) + ggtitle(label = &quot;Effect of Temperature on BMI&quot;) + geom_smooth(method=lm)</code></pre>
 <pre><code>## Warning: Removed 35 rows containing non-finite values (stat_summary).</code></pre>
 <pre><code>## No summary function supplied, defaulting to `mean_se()</code></pre>
 <pre><code>## Warning: Removed 35 rows containing non-finite values (stat_smooth).</code></pre>
-<p><img src="../project1_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
+<p><img src="/project1_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
 <p><em>In this ggplot, I utilized the scatter plot function of geom_point in order to visually analyze the potential relationship between State’s Average Temperature and BMI; although there are outliers, they are minimal and the regression line set showed a slight positive correlation. This relationship suggests that the higher the state’s average annual temperature, the higher the value of its state’s average BMI.</em></p>
 <p><em>k-means/PAM clustering: Dimensionality Reduction</em></p>
 <pre class="r"><code>install.packages(&quot;cluster&quot;)</code></pre>
@@ -835,10 +835,10 @@ for(i in 2:10){
      sil_width[i] &lt;- pam_fit$silinfo$avg.width}
 ggplot()+geom_line(aes(x=1:10,y=sil_width))+scale_x_continuous(name=&quot;k&quot;,breaks=1:10)</code></pre>
 <pre><code>## Warning: Removed 1 rows containing missing values (geom_path).</code></pre>
-<p><img src="../project1_files/figure-html/unnamed-chunk-29-1.png" width="672" /> <em>PAM clustering was used to create a clustering data set by first scaling all my numeric variables by selecting out the categorical data. In order to find how many clusters to use, we must find average silhouette width. Therefore, a line plot was created out of the average silhouette widths and it yielded 2 clusters as the highest average.</em></p>
+<p><img src="/project1_files/figure-html/unnamed-chunk-29-1.png" width="672" /> <em>PAM clustering was used to create a clustering data set by first scaling all my numeric variables by selecting out the categorical data. In order to find how many clusters to use, we must find average silhouette width. Therefore, a line plot was created out of the average silhouette widths and it yielded 2 clusters as the highest average.</em></p>
 <pre class="r"><code>pam1&lt;-pam_dat%&gt;%pam(2)
 plot(pam1, which=2)</code></pre>
-<p><img src="../project1_files/figure-html/unnamed-chunk-30-1.png" width="672" /> <em>The average silhouette width was found to be 0.46 after k was set to 2, indicating that the clusters were set to variables with a weak and possibly artificial structure.</em></p>
+<p><img src="/project1_files/figure-html/unnamed-chunk-30-1.png" width="672" /> <em>The average silhouette width was found to be 0.46 after k was set to 2, indicating that the clusters were set to variables with a weak and possibly artificial structure.</em></p>
 <pre class="r"><code>install.packages(&quot;plotly&quot;)</code></pre>
 <pre><code>## Installing package into &#39;/stor/home/lmc3757/R/x86_64-pc-linux-gnu-library/3.4&#39;
 ## (as &#39;lib&#39; is unspecified)</code></pre>
@@ -912,7 +912,7 @@ confmat</code></pre>
 <p><em>Unfortunately, due to the clustering inaccuracies of the three total numeric variables, we produced a hit rate of 13%.</em></p>
 <pre class="r"><code>library(ggplot2)
 pamclust %&gt;% ggplot(aes(BMI, State.s.Average.Temperature, National_Obesity_By_State, color=cluster)) + geom_point()</code></pre>
-<p><img src="../project1_files/figure-html/unnamed-chunk-34-1.png" width="672" /> <em>This cluster graph maps out a hard to decipher relationship of clusters but the 2 clusters apparent will be used to assess the results of the data analysis. Before reading in my data, it was a thicker plot of data points and helped distinguish clusters; however, I believe the filtering out of any correlationg NAs or missing data during merging significantly reduced the data to more applicable or realistic measures in order to analyze a relationship.</em></p>
+<p><img src="/project1_files/figure-html/unnamed-chunk-34-1.png" width="672" /> <em>This cluster graph maps out a hard to decipher relationship of clusters but the 2 clusters apparent will be used to assess the results of the data analysis. Before reading in my data, it was a thicker plot of data points and helped distinguish clusters; however, I believe the filtering out of any correlationg NAs or missing data during merging significantly reduced the data to more applicable or realistic measures in order to analyze a relationship.</em></p>
 <pre class="r"><code>library(GGally)</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;GGally&#39;</code></pre>
@@ -923,7 +923,7 @@ pamclust %&gt;% ggplot(aes(BMI, State.s.Average.Temperature, National_Obesity_By
 <pre><code>##  1  2  3  9 11 14 15 16 27 30 42 43 48 50 57 67 69 70 72 73 86 87 92 
 ##  1  2  2  2  2  1  2  2  2  2  2  2  2  2  1  2  2  2  2  1  2  2  1</code></pre>
 <pre class="r"><code>pamclust %&gt;% mutate(cluster=as.factor(pam1$clustering)) %&gt;% ggpairs(columns = 1:3, aes(color=cluster))</code></pre>
-<p><img src="../project1_files/figure-html/unnamed-chunk-35-1.png" width="672" /> <em>In this various assorted plot diagram, I used ggpairs to find that the strongest correlation amongst the variables was between BMI and State’s Average temperature, with a value of 0.362 and the cluster plot showed the relationships separation between the factors of urban and rural to be the clearest; furthermore, the density plot correlating the urban or rural average BMIs showed visually the fact that the higher average for BMIs was consistently within urban areas over rural. The weakest correlation was between National Obesity by State and BMI, with a correlation value of 0.0695, virtually no structure.</em></p>
+<p><img src="/project1_files/figure-html/unnamed-chunk-35-1.png" width="672" /> <em>In this various assorted plot diagram, I used ggpairs to find that the strongest correlation amongst the variables was between BMI and State’s Average temperature, with a value of 0.362 and the cluster plot showed the relationships separation between the factors of urban and rural to be the clearest; furthermore, the density plot correlating the urban or rural average BMIs showed visually the fact that the higher average for BMIs was consistently within urban areas over rural. The weakest correlation was between National Obesity by State and BMI, with a correlation value of 0.0695, virtually no structure.</em></p>
 <p><em>In this 3D plot, all numeric variables averages were compared and National Obesity by State was input and BMI determined each axes’ shape. While it appears they each have their own clusters, National Obesity of each State and State’s Average Temperature were scattered within the same axis, not independent or showing a correlation with one another. However, BMI and State’s Average Temperature consistently showed a weak structure for a relationship, but yet had potential for a strong relationship if I had more data that did not compute to NA or missing for the BMI column when merged. In future research, I would opt out of including the national obesity by state variable and opt in more data to strengthen the possible relationship existing between BMI and State’s Average Temperature.</em></p>
 <pre class="r"><code>pamclust%&gt;%plot_ly(x= ~BMI, y = ~State.s.Average.Temperature, z = ~National_Obesity_By_State, color= ~cluster,type = &quot;scatter3d&quot;, mode = &quot;markers&quot;, symbol = ~BMI, symbols = c(&#39;circle&#39;,&#39;x&#39;,&#39;square&#39;))</code></pre>
 <pre><code>## Warning: The shape palette can deal with a maximum of 6 discrete values because
@@ -942,7 +942,7 @@ pamclust %&gt;% ggplot(aes(BMI, State.s.Average.Temperature, National_Obesity_By
 
 ## Warning in RColorBrewer::brewer.pal(N, &quot;Set2&quot;): minimal value for n is 3, returning requested palette with 3 different levels</code></pre>
 <div id="htmlwidget-1" style="width:672px;height:480px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1">{"x":{"visdat":{"5f670214b28":["function () ","plotlyVisDat"]},"cur_data":"5f670214b28","attrs":{"5f670214b28":{"x":{},"y":{},"z":{},"mode":"markers","color":{},"symbol":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"symbols":["circle","x","square"],"type":"scatter3d"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"BMI"},"yaxis":{"title":"State.s.Average.Temperature"},"zaxis":{"title":"National_Obesity_By_State"}},"hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[31.2,20.2,28.6,25,24.2],"y":[62.8,42.9,48.3,47.9,54.2],"z":[11,25,12,10,2],"mode":"markers","type":"scatter3d","name":"1","marker":{"color":"rgba(102,194,165,1)","symbol":[null,"circle",null,"asterisk-open","square"],"line":{"color":"rgba(102,194,165,1)"}},"textfont":{"color":"rgba(102,194,165,1)"},"error_y":{"color":"rgba(102,194,165,1)"},"error_x":{"color":"rgba(102,194,165,1)"},"line":{"color":"rgba(102,194,165,1)"},"frame":null},{"x":[28.9,22.7,28.8,30.8,26,28.8,31,24.5,29,24.5,26,24.3,31.3,25.6,24.3,28.4,26,25.1],"y":[64.8,64.8,60.4,66.4,48.6,64.8,70,63.4,70.7,59,60.4,57.6,62.4,66.4,65.2,40.4,53.4,62.4],"z":[44,41,43,19,36,43,50,27,29,27,36,32,31,49,32,42,36,48],"mode":"markers","type":"scatter3d","name":"2","marker":{"color":"rgba(141,160,203,1)","symbol":[null,"x",null,null,null,null,null,"square-x-open",null,"square-x-open",null,"cross-thin-open",null,null,"cross-thin-open",null,null,null],"line":{"color":"rgba(141,160,203,1)"}},"textfont":{"color":"rgba(141,160,203,1)"},"error_y":{"color":"rgba(141,160,203,1)"},"error_x":{"color":"rgba(141,160,203,1)"},"line":{"color":"rgba(141,160,203,1)"},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"visdat":{"4e266e94af56":["function () ","plotlyVisDat"]},"cur_data":"4e266e94af56","attrs":{"4e266e94af56":{"x":{},"y":{},"z":{},"mode":"markers","color":{},"symbol":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"symbols":["circle","x","square"],"type":"scatter3d"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"BMI"},"yaxis":{"title":"State.s.Average.Temperature"},"zaxis":{"title":"National_Obesity_By_State"}},"hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[31.2,20.2,28.6,25,24.2],"y":[62.8,42.9,48.3,47.9,54.2],"z":[11,25,12,10,2],"mode":"markers","type":"scatter3d","name":"1","marker":{"color":"rgba(102,194,165,1)","symbol":[null,"circle",null,"asterisk-open","square"],"line":{"color":"rgba(102,194,165,1)"}},"textfont":{"color":"rgba(102,194,165,1)"},"error_y":{"color":"rgba(102,194,165,1)"},"error_x":{"color":"rgba(102,194,165,1)"},"line":{"color":"rgba(102,194,165,1)"},"frame":null},{"x":[28.9,22.7,28.8,30.8,26,28.8,31,24.5,29,24.5,26,24.3,31.3,25.6,24.3,28.4,26,25.1],"y":[64.8,64.8,60.4,66.4,48.6,64.8,70,63.4,70.7,59,60.4,57.6,62.4,66.4,65.2,40.4,53.4,62.4],"z":[44,41,43,19,36,43,50,27,29,27,36,32,31,49,32,42,36,48],"mode":"markers","type":"scatter3d","name":"2","marker":{"color":"rgba(141,160,203,1)","symbol":[null,"x",null,null,null,null,null,"square-x-open",null,"square-x-open",null,"cross-thin-open",null,null,"cross-thin-open",null,null,null],"line":{"color":"rgba(141,160,203,1)"}},"textfont":{"color":"rgba(141,160,203,1)"},"error_y":{"color":"rgba(141,160,203,1)"},"error_x":{"color":"rgba(141,160,203,1)"},"line":{"color":"rgba(141,160,203,1)"},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 
               <hr>
               <div class="related-posts">
@@ -991,10 +991,10 @@ pamclust %&gt;% ggplot(aes(BMI, State.s.Average.Temperature, National_Obesity_By
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script src="../js/docs.min.js"></script>
-<script src="../js/main.js"></script>
+<script src="/js/docs.min.js"></script>
+<script src="/js/main.js"></script>
 
-<script src="../js/ie10-viewport-bug-workaround.js"></script>
+<script src="/js/ie10-viewport-bug-workaround.js"></script>
 
 
     
